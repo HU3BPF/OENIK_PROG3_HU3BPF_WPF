@@ -33,5 +33,26 @@ namespace MobileWebshop.Data.Models
         /// Gets or Sets Products.
         /// </summary>
         public virtual DbSet<Product> Products { get; set; }
+
+        /// <summary>
+        /// Database pass added and lazy loading on.
+        /// </summary>
+        /// <param name="optionsBuilder">Database creator set.</param>
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseLazyLoadingProxies()
+                .UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\CarDb.mdf;Integrated Security=True;MultipleActiveResultSets=True");
+            }
+        }
+
+        /// <summary>
+        /// Entities created.
+        /// </summary>
+        /// <param name="modelBuilder">Database entities setted.</param>
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+        }
     }
 }
