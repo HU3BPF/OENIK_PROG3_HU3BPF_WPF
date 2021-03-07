@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileWebshop.Program", "MobileWebshop.Program\MobileWebshop.Program.csproj", "{CB61BD4E-193A-4F88-8F53-D6CA88289C5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileWebshop.Program", "MobileWebshop.Program\MobileWebshop.Program.csproj", "{CB61BD4E-193A-4F88-8F53-D6CA88289C5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileWebshop.Data", "MobileWebshop.Data\MobileWebshop.Data.csproj", "{20776D6B-58A2-4085-AA4C-7FE455B0C032}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileWebshop.Data", "MobileWebshop.Data\MobileWebshop.Data.csproj", "{20776D6B-58A2-4085-AA4C-7FE455B0C032}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileWebshop.Logic", "MobileWebshop.Logic\MobileWebshop.Logic.csproj", "{4A762F75-2847-408C-849B-BE06753F8B0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileWebshop.Logic", "MobileWebshop.Logic\MobileWebshop.Logic.csproj", "{4A762F75-2847-408C-849B-BE06753F8B0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileWebshop.Logic.Test", "MobileWebshop.Logic.Test\MobileWebshop.Logic.Test.csproj", "{651E51C7-0F0C-46AB-8BAB-112E9DA2BCFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileWebshop.Logic.Test", "MobileWebshop.Logic.Test\MobileWebshop.Logic.Test.csproj", "{651E51C7-0F0C-46AB-8BAB-112E9DA2BCFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileWebshop.Repository", "MobileWebshop.Repository\MobileWebshop.Repository.csproj", "{7422542C-2F1B-4585-AF00-6F6FD02343DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileWebshop.Repository", "MobileWebshop.Repository\MobileWebshop.Repository.csproj", "{7422542C-2F1B-4585-AF00-6F6FD02343DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
