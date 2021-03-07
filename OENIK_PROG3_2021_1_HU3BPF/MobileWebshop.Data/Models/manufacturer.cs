@@ -19,6 +19,14 @@ namespace MobileWebshop.Data.Models
     public class Manufacturer
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="Manufacturer"/> class.
+        /// </summary>
+        public Manufacturer()
+        {
+            this.Brands = new HashSet<Brand>();
+        }
+
+        /// <summary>
         /// Gets or sets manufacturer id.
         /// </summary>
         [Key]
@@ -50,5 +58,11 @@ namespace MobileWebshop.Data.Models
         /// gets or sets manufacturer workers members count.
         /// </summary>
         public int ManufacturerWorkersCount { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Brand Collection.
+        /// </summary>
+        [NotMapped]
+        public virtual ICollection<Brand> Brands { get; set; }
     }
 }
