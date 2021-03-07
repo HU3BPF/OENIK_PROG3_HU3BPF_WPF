@@ -53,6 +53,16 @@ namespace MobileWebshop.Data.Models
         /// <param name="modelBuilder">Database entities setted.</param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Product>(entity =>
+            {
+                entity.HasOne(product => product.Brand).WithMany(brand => brand.Mobiles)
+                .HasForeignKey(product => product.BrandrId).OnDelete(DeleteBehavior.ClientSetNull);
+            });
+
+            modelBuilder.Entity<Brand>(entity =>
+            {
+                entity.HasOne(brand => brand.Manufacturer).WithMany(manufacturer => manufacturer.Brands).HasForeignKey(brand => brand.ManufacturerId);
+            });
         }
     }
 }
