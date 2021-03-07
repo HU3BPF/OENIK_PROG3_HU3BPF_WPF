@@ -16,6 +16,7 @@ namespace MobileWebshop.Data.Models
         /// </summary>
         public MobileDbContext()
         {
+            this.Database.EnsureCreated();
         }
 
         /// <summary>
