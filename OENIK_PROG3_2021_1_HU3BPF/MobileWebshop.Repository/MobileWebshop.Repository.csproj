@@ -26,4 +26,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MobileWebshop.Data\MobileWebshop.Data.csproj" />
+  </ItemGroup>
+
 </Project>

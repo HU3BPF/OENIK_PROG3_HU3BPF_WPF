@@ -28,4 +28,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MobileWebshop.Data\MobileWebshop.Data.csproj" />
+    <ProjectReference Include="..\MobileWebshop.Logic\MobileWebshop.Logic.csproj" />
+    <ProjectReference Include="..\MobileWebshop.Repository\MobileWebshop.Repository.csproj" />
+  </ItemGroup>
+
 </Project>
