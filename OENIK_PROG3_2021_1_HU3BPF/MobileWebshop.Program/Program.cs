@@ -14,7 +14,7 @@ namespace MobileWebshop.Program
         private static void Main(string[] args)
         {
             // Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MobileWebshopDb.mdf;Integrated Security=True;MultipleActiveResultSets=True
-            Console.WriteLine("Hello World!");
+            Console.WriteLine(args);
         }
     }
 }

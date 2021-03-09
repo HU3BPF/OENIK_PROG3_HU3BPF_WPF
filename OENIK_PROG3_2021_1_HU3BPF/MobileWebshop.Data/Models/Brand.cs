@@ -15,14 +15,13 @@ namespace MobileWebshop.Data.Models
     [Table("Brand")]
     public class Brand
     {
+        private ICollection<Product> mobiles;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Brand"/> class.
         /// Sets Mobiles attribute.
         /// </summary>
-        public Brand()
-        {
-            this.Mobiles = new HashSet<Product>();
-        }
+        public Brand() => this.SetMobiles(new HashSet<Product>());
 
         /// <summary>
         /// Gets or sets Brand Id.
@@ -61,9 +60,21 @@ namespace MobileWebshop.Data.Models
         public int BrandYear { get; set; }
 
         /// <summary>
-        /// Gets or Sets Mobiles collection.
+        /// Gets Mobiles collection.
         /// </summary>
-        [NotMapped]
-        public virtual ICollection<Product> Mobiles { get; set; }
+        /// <returns>Mobiles collection.</returns>
+        public virtual ICollection<Product> GetMobiles()
+        {
+            return this.mobiles;
+        }
+
+        /// <summary>
+        /// Sets Mobiles collection.
+        /// </summary>
+        /// <param name="value">Mobiles collections.</param>
+        public void SetMobiles(ICollection<Product> value)
+        {
+            this.mobiles = value;
+        }
     }
 }

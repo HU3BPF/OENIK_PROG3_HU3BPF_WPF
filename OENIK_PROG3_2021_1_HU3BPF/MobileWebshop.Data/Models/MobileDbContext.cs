@@ -1,6 +1,7 @@
 ﻿// <copyright file="MobileDbContext.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
+
 namespace MobileWebshop.Data.Models
 {
     using Microsoft.EntityFrameworkCore;
@@ -55,13 +56,13 @@ namespace MobileWebshop.Data.Models
         {
             modelBuilder.Entity<Product>(entity =>
             {
-                entity.HasOne(product => product.Brand).WithMany(brand => brand.Mobiles)
+                entity.HasOne(product => product.Brand).WithMany(brand => brand.GetMobiles())
                 .HasForeignKey(product => product.BrandrId).OnDelete(DeleteBehavior.ClientSetNull);
             });
 
             modelBuilder.Entity<Brand>(entity =>
             {
-                entity.HasOne(brand => brand.Manufacturer).WithMany(manufacturer => manufacturer.Brands)
+                entity.HasOne(brand => brand.Manufacturer).WithMany(manufacturer => manufacturer.GetBrands())
                 .HasForeignKey(brand => brand.ManufacturerId).OnDelete(DeleteBehavior.ClientSetNull);
             });
 
