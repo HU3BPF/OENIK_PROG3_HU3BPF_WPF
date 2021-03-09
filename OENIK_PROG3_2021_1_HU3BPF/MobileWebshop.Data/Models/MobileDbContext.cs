@@ -65,6 +65,12 @@ namespace MobileWebshop.Data.Models
         /// </summary>
         private void DatabaseFiller()
         {
+            modelBuilder.Entity<Brand>(entity =>
+            {
+                entity.HasOne(brand => brand.Manufacturer).WithMany(manufacturer => manufacturer.Brands)
+                .HasForeignKey(brand => brand.ManufacturerId).OnDelete(DeleteBehavior.ClientSetNull);
+            });
+
             Manufacturer samsungElectronics = new Manufacturer() { ManufacturerId = 1, ManufacturerCenter = "Dél-Korea", ManufacturerCEO = "Kim Ki Nam", ManufacturerName = "Samsung Electronics", ManufacturerReliability = 10 };
             Manufacturer appleInc = new Manufacturer() { ManufacturerId = 2, ManufacturerCenter = "Cupertino", ManufacturerCEO = "	Tim Cook", ManufacturerName = "Apple Inc.", ManufacturerReliability = 9 };
             Manufacturer huaweiTechnologies = new Manufacturer() { ManufacturerId = 3, ManufacturerCenter = "Sencsen", ManufacturerCEO = "Zsen Cseng-fej", ManufacturerName = "Huawei Technologies", ManufacturerReliability = 9 };
