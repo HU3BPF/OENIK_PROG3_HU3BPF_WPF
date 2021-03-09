@@ -11,6 +11,9 @@
     <DocumentationFile>bin\Debug\MobileWebshop.Data.xml</DocumentationFile>
     <OutputPath>bin\Debug\</OutputPath>
     <WarningsAsErrors></WarningsAsErrors>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
   </PropertyGroup>
 
   <ItemGroup>
