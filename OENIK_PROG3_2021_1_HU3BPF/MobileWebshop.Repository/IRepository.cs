@@ -21,16 +21,28 @@ namespace MobileWebshop.Repository
         // Modosítás nem generikus!.
 
         /// <summary>
-        /// One Entity read.
+        /// One Entity reader.
         /// </summary>
         /// <param name="id">Entity id.</param>
         /// <returns>Entity value.</returns>
         T GetOne(int id);
 
         /// <summary>
-        /// All properties read.
+        /// All Entities reader.
         /// </summary>
         /// <returns>All properties.</returns>
         IQueryable<T> GetALL();
+
+        /// <summary>
+        /// One Entity insert.
+        /// </summary>
+        /// <param name="entity">Entity.</param>
+        void Insert(T entity);
+
+        /// <summary>
+        /// Entity remover.
+        /// </summary>
+        /// <param name="entity">Entity.</param>
+        void Remover(T entity);
     }
 }
