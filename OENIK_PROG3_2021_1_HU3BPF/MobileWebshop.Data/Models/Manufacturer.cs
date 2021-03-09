@@ -15,13 +15,12 @@ namespace MobileWebshop.Data.Models
     [Table("Manufacturer")]
     public class Manufacturer
     {
+        private ICollection<Brand> brands;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Manufacturer"/> class.
         /// </summary>
-        public Manufacturer()
-        {
-            this.Brands = new HashSet<Brand>();
-        }
+        public Manufacturer() => this.SetBrands(new HashSet<Brand>());
 
         /// <summary>
         /// Gets or sets manufacturer id.
@@ -59,7 +58,19 @@ namespace MobileWebshop.Data.Models
         /// <summary>
         /// Gets or Sets Brand Collection.
         /// </summary>
-        [NotMapped]
-        public virtual ICollection<Brand> Brands { get; set; }
+        /// <returns>brands collection.</returns>
+        public virtual ICollection<Brand> GetBrands()
+        {
+            return this.brands;
+        }
+
+        /// <summary>
+        /// Gets or Sets Brand Collection.
+        /// </summary>
+        /// <param name="value">Brands collections.</param>
+        public void SetBrands(ICollection<Brand> value)
+        {
+            this.brands = value;
+        }
     }
 }
