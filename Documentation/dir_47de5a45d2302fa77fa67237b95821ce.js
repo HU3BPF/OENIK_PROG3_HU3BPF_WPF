@@ -1,0 +1,4 @@
+var dir_47de5a45d2302fa77fa67237b95821ce =
+[
+    [ "net5.0", "dir_ca49719822b08f46c754c5b64513a1d9.html", "dir_ca49719822b08f46c754c5b64513a1d9" ]
+];
