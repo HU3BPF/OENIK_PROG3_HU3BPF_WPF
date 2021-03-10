@@ -1,4 +1,4 @@
-﻿// <copyright file="Categori.cs" company="PlaceholderCompany">
+﻿// <copyright file="Category.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 namespace MobileWebshop.Data.Models
@@ -6,7 +6,7 @@ namespace MobileWebshop.Data.Models
     /// <summary>
     /// Product categories.
     /// </summary>
-    public enum Categori
+    public enum Category
     {
         /// <summary>
         /// Product categori, this is the Cheap categori.
