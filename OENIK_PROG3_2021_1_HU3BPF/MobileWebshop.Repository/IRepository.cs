@@ -14,7 +14,7 @@ namespace MobileWebshop.Repository
     /// Repository funcions.
     /// </summary>
     /// <typeparam name="T">T is a class.</typeparam>
-    internal interface IRepository<T>
+    public interface IRepository<T>
         where T : class
     {
         // CRUD.
