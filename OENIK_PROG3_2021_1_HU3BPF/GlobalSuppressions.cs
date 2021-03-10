@@ -6,5 +6,3 @@
 using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("", "CA1014", Justification = "<NikGitStats>", Scope = "module")]
-[assembly: SuppressMessage("Design", "CA1062:Validate arguments of public methods", Justification = "<Pending>", Scope = "member", Target = "~M:MobileWebshop.Data.Models.MobileDbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)")]
-[assembly: SuppressMessage("Design", "CA1062:Validate arguments of public methods", Justification = "<Pending>", Scope = "member", Target = "~M:MobileWebshop.Data.Models.MobileDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)")]
