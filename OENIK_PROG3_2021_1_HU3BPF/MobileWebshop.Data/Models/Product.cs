@@ -51,6 +51,6 @@ namespace MobileWebshop.Data.Models
         /// <summary>
         /// Gets or Sets Product Categories.
         /// </summary>
-        public Categori ProductCategori { get; set; }
+        public Category ProductCategori { get; set; }
     }
 }
