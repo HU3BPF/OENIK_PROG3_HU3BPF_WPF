@@ -9,3 +9,4 @@
 using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("NikGitStats", "CA1014", Justification = "<NikGitStats>", Scope = "module")]
+[assembly: SuppressMessage("NikGitStats", "CS8034", Justification = "<NikGitStats>", Scope = "module")]
