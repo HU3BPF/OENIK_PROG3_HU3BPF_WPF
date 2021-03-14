@@ -9,3 +9,4 @@
 using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("NikGitStats", "CA1014", Justification = "<NikGitStats>", Scope = "module")]
+[assembly: SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope", Justification = "<NikGitStats>", Scope = "module")]
