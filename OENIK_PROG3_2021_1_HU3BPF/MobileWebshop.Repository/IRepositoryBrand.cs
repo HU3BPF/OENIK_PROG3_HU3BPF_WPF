@@ -4,6 +4,9 @@
 
 namespace MobileWebshop.Repository
 {
+    using System;
+    using System.Linq;
+    using Microsoft.EntityFrameworkCore;
     using MobileWebshop.Data.Models;
 
     /// <summary>
@@ -31,5 +34,81 @@ namespace MobileWebshop.Repository
         /// <param name="id">Brand id.</param>
         /// <param name="year">FIxed year.</param>
         void BrandYearFixer(int id, int year);
+    }
+
+    /// <summary>
+    /// Brand Repository class.
+    /// </summary>
+    public class BrandRepository : Repository<Brand>, IRepositoryBrand
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BrandRepository"/> class.
+        /// </summary>
+        /// <param name="ctx">Dbcontext.</param>
+        public BrandRepository(DbContext ctx)
+            : base(ctx)
+        {
+        }
+
+        /// <summary>
+        /// Brand Quality changer.
+        /// </summary>
+        /// <param name="id">Brand Id.</param>
+        /// <param name="newQuality">New brand quality.</param>
+        public void BrandQualityChanger(int id, int newQuality)
+        {
+            var oldBrand = this.GetOne(id);
+            if (oldBrand == null)
+            {
+                throw new InvalidOperationException("NOt found");
+            }
+
+            oldBrand.BrandQuality = newQuality;
+            this.Ctx.SaveChanges();
+        }
+
+        /// <summary>
+        /// Brand Update.
+        /// </summary>
+        /// <param name="id">Old Brand id.</param>
+        /// <param name="brand">New brand.</param>
+        public void BrandUpdate(int id, Brand brand)
+        {
+            var oldBrand = this.GetOne(id);
+            if (oldBrand == null)
+            {
+                throw new InvalidOperationException("NOt found");
+            }
+
+            oldBrand = brand;
+            this.Ctx.SaveChanges();
+        }
+
+        /// <summary>
+        /// Brand year fixer.
+        /// </summary>
+        /// <param name="id">Brand id.</param>
+        /// <param name="year">FIxed year.</param>
+        public void BrandYearFixer(int id, int year)
+        {
+            var oldBrand = this.GetOne(id);
+            if (oldBrand == null)
+            {
+                throw new InvalidOperationException("NOt found");
+            }
+
+            oldBrand.BrandYear = year;
+            this.Ctx.SaveChanges();
+        }
+
+        /// <summary>
+        /// GetONe entity.
+        /// </summary>
+        /// <param name="id">Entity Id.</param>
+        /// <returns>1 Entity when Id =ID.</returns>
+        public override Brand GetOne(int id)
+        {
+            return this.GetALL().SingleOrDefault(x => x.BrandId == id);
+        }
     }
 }
