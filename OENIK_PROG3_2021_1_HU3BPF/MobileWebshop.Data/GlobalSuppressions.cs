@@ -9,3 +9,4 @@
 using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("NikGitStats", "CA1014", Justification = "<NikGitStats>", Scope = "module")]
+[assembly: SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "<NikGitStats>", Scope = "module")]
