@@ -7,6 +7,7 @@ root = true
 [*]
 dotnet_diagnostic.CA1062.severity = none
 dotnet_diagnostic.CS8034.severity = none
+dotnet_diagnostic.SA1201.severity = none
 indent_style = space
 # Code files
 [*.{cs,csx,vb,vbx}]
