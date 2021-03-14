@@ -9,6 +9,7 @@ namespace MobileWebshop.Repository
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using Microsoft.EntityFrameworkCore;
 
     /// <summary>
     /// Repository funcions.
@@ -44,5 +45,79 @@ namespace MobileWebshop.Repository
         /// </summary>
         /// <param name="entity">Entity.</param>
         void Remover(T entity);
+    }
+
+    /// <summary>
+    /// Repository funcions.
+    /// </summary>
+    /// <typeparam name="T">T is a class.</typeparam>
+    public abstract class Repository<T> : IRepository<T>
+     where T : class
+    {
+        /// <summary>
+        /// Dbcontext.
+        /// </summary>
+        private DbContext ctx;
+
+        /// <summary>
+        /// Gets ctx dbcontext.
+        /// </summary>
+        protected DbContext Ctx
+        {
+          get { return this.ctx; }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Repository{T}"/> class.
+        /// Dbcontext set.
+        /// </summary>
+        /// <param name="ctx">DbContext.</param>
+        protected Repository(DbContext ctx)
+        {
+            this.ctx = ctx;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Repository{T}"/> class.
+        /// </summary>
+        private Repository()
+        {
+        }
+
+        /// <summary>
+        ///  All Entities reader.
+        /// </summary>
+        /// <returns>All properties.</returns>
+        public IQueryable<T> GetALL()
+        {
+            return this.ctx.Set<T>();
+        }
+
+        /// <summary>
+        /// One Entity reader.
+        /// </summary>
+        /// <param name="id">Entity id.</param>
+        /// <returns>Entity value.</returns>
+        public abstract T GetOne(int id);
+
+        /// <summary>
+        /// One Entity insert.
+        /// </summary>
+        /// <param name="entity">Entity.</param>
+        public void Insert(T entity)
+        {
+            this.ctx.Set<T>().Add(entity);
+            this.ctx.SaveChanges();
+        }
+
+        /// <summary>
+        /// Entity remover.
+        /// </summary>
+        /// <param name="entity">Entity.</param>
+        public void Remover(T entity)
+        {
+            this.ctx.Set<T>().Remove(entity);
+            this.ctx.SaveChanges();
+        }
     }
 }
