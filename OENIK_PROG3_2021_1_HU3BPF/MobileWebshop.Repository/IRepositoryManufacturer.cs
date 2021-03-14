@@ -4,6 +4,8 @@
 
 namespace MobileWebshop.Repository
 {
+    using System;
+    using System.Linq;
     using Microsoft.EntityFrameworkCore;
     using MobileWebshop.Data.Models;
 
@@ -13,9 +15,11 @@ namespace MobileWebshop.Repository
     public interface IRepositoryManufacturer : IRepository<Manufacturer>
     {
         /// <summary>
-        /// Manufacturer Id Changer.
+        /// Manufacturer Id changer.
         /// </summary>
-        void ManufacturerIdChanger();
+        /// <param name="id">old Id.</param>
+        /// <param name="newId">New Id.</param>
+        void ManufacturerIdChanger(int id, int newId);
 
         /// <summary>
         /// Manufacturer CEO update.
@@ -67,14 +71,24 @@ namespace MobileWebshop.Repository
         /// <returns>Entity value.</returns>
         public override Manufacturer GetOne(int id)
         {
-            throw new System.NotImplementedException();
+            return this.GetALL().SingleOrDefault(x => x.ManufacturerId == id);
         }
 
         /// <summary>
-        /// Manufacturer Id Changer.
+        /// Manufacturer Id changer.
         /// </summary>
-        public void ManufacturerIdChanger()
+        /// <param name="id">old Id.</param>
+        /// <param name="newId">New Id.</param>
+        public void ManufacturerIdChanger(int id, int newId)
         {
+            var oldManufacturer = this.GetOne(id);
+            if (oldManufacturer == null)
+            {
+                throw new InvalidOperationException("Not found");
+            }
+
+            oldManufacturer.ManufacturerId = newId;
+            this.Ctx.SaveChanges();
         }
 
         /// <summary>
@@ -84,6 +98,14 @@ namespace MobileWebshop.Repository
         /// <param name="ceo">New CEO.</param>
         public void ManufacturerCEOChanger(int id, string ceo)
         {
+            var oldManufacturer = this.GetOne(id);
+            if (oldManufacturer == null)
+            {
+                throw new InvalidOperationException("Not found");
+            }
+
+            oldManufacturer.ManufacturerCEO = ceo;
+            this.Ctx.SaveChanges();
         }
 
         /// <summary>
@@ -93,6 +115,15 @@ namespace MobileWebshop.Repository
         /// <param name="manufacturer">New manufacturer.</param>
         public void ManufacturerUpdate(int id, Manufacturer manufacturer)
         {
+            var oldManufacturer = this.GetOne(id);
+            if (oldManufacturer == null)
+            {
+                throw new InvalidOperationException("Not found");
+            }
+
+            oldManufacturer = manufacturer;
+
+            this.Ctx.SaveChanges();
         }
 
         /// <summary>
@@ -102,6 +133,15 @@ namespace MobileWebshop.Repository
         /// <param name="reliability">New manufacturer reliability.</param>
         public void ManufacturerReliabilityChanger(int id, int reliability)
         {
+            var oldManufacturer = this.GetOne(id);
+            if (oldManufacturer == null)
+            {
+                throw new InvalidOperationException("Not found");
+            }
+
+            oldManufacturer.ManufacturerReliability = reliability;
+
+            this.Ctx.SaveChanges();
         }
 
         /// <summary>
@@ -111,6 +151,15 @@ namespace MobileWebshop.Repository
         /// <param name="workers">New workers number.</param>
         public void ManufacturerWorkersCountChanger(int id, int workers)
         {
+            var oldManufacturer = this.GetOne(id);
+            if (oldManufacturer == null)
+            {
+                throw new InvalidOperationException("Not found");
+            }
+
+            oldManufacturer.ManufacturerWorkersCount = workers;
+
+            this.Ctx.SaveChanges();
         }
     }
 }
