@@ -44,7 +44,7 @@ namespace MobileWebshop.Data.Models
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseLazyLoadingProxies()
-                .UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\CarDb.mdf;Integrated Security=True;MultipleActiveResultSets=True");
+                .UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MobileWebshopDb.mdf;Integrated Security=True;MultipleActiveResultSets=True");
             }
         }
 
@@ -56,13 +56,13 @@ namespace MobileWebshop.Data.Models
         {
             modelBuilder.Entity<Product>(entity =>
             {
-                entity.HasOne(product => product.Brand).WithMany(brand => brand.GetMobiles())
+                entity.HasOne(product => product.Brand).WithMany(brand => brand.Products)
                 .HasForeignKey(product => product.BrandrId).OnDelete(DeleteBehavior.ClientSetNull);
             });
 
             modelBuilder.Entity<Brand>(entity =>
             {
-                entity.HasOne(brand => brand.Manufacturer).WithMany(manufacturer => manufacturer.GetBrands())
+                entity.HasOne(brand => brand.Manufacturer).WithMany(manufacturer => manufacturer.Brands)
                 .HasForeignKey(brand => brand.ManufacturerId).OnDelete(DeleteBehavior.ClientSetNull);
             });
 
@@ -89,12 +89,12 @@ namespace MobileWebshop.Data.Models
             Product huaweiP20 = new Product() { ProductdId = 10, BrandrId = huawei.BrandId, ProductCategori = Category.Cheap, ProductColour = "Red", ProductName = "HuaweiP20", ProductPrice = 500 };
             Product huaweiP30 = new Product() { ProductdId = 11, BrandrId = huawei.BrandId, ProductCategori = Category.Cheap, ProductColour = "Purple", ProductName = "HuaweiP30", ProductPrice = 550 };
             Product huaweiP40 = new Product() { ProductdId = 12, BrandrId = huawei.BrandId, ProductCategori = Category.Cheap, ProductColour = "Green", ProductName = "HuaweiP40", ProductPrice = 700 };
-            Product redmiS9 = new Product() { ProductdId = 12, BrandrId = xiaomi.BrandId, ProductCategori = Category.Cheap, ProductColour = "Red", ProductName = "RedmiS9", ProductPrice = 700 };
-            Product redmiS9Note = new Product() { ProductdId = 13, BrandrId = xiaomi.BrandId, ProductCategori = Category.ModeratelyExpensive, ProductColour = "Pink", ProductName = "RedmiS9Note", ProductPrice = 900 };
-            Product mi10 = new Product() { ProductdId = 14, BrandrId = xiaomi.BrandId, ProductCategori = Category.ModeratelyExpensive, ProductColour = "Blue", ProductName = "MI10", ProductPrice = 1000 };
-            Product mi10Pro = new Product() { ProductdId = 15, BrandrId = xiaomi.BrandId, ProductCategori = Category.ModeratelyExpensive, ProductColour = "Green", ProductName = "MI10Pro", ProductPrice = 1200 };
-            Product note10 = new Product() { ProductdId = 16, BrandrId = samsung.BrandId, ProductCategori = Category.Expensive, ProductColour = "Orange", ProductName = "Note10", ProductPrice = 1500 };
-            Product note20 = new Product() { ProductdId = 17, BrandrId = samsung.BrandId, ProductCategori = Category.Expensive, ProductColour = "Black", ProductName = "Note20", ProductPrice = 1600 };
+            Product redmiS9 = new Product() { ProductdId = 13, BrandrId = xiaomi.BrandId, ProductCategori = Category.Cheap, ProductColour = "Red", ProductName = "RedmiS9", ProductPrice = 700 };
+            Product redmiS9Note = new Product() { ProductdId = 14, BrandrId = xiaomi.BrandId, ProductCategori = Category.ModeratelyExpensive, ProductColour = "Pink", ProductName = "RedmiS9Note", ProductPrice = 900 };
+            Product mi10 = new Product() { ProductdId = 15, BrandrId = xiaomi.BrandId, ProductCategori = Category.ModeratelyExpensive, ProductColour = "Blue", ProductName = "MI10", ProductPrice = 1000 };
+            Product mi10Pro = new Product() { ProductdId = 16, BrandrId = xiaomi.BrandId, ProductCategori = Category.ModeratelyExpensive, ProductColour = "Green", ProductName = "MI10Pro", ProductPrice = 1200 };
+            Product note10 = new Product() { ProductdId = 17, BrandrId = samsung.BrandId, ProductCategori = Category.Expensive, ProductColour = "Orange", ProductName = "Note10", ProductPrice = 1500 };
+            Product note20 = new Product() { ProductdId = 18, BrandrId = samsung.BrandId, ProductCategori = Category.Expensive, ProductColour = "Black", ProductName = "Note20", ProductPrice = 1600 };
 
             modelBuilder.Entity<Product>().HasData(iPhone12, iPhone12Max, iPhone11, s10, s11, s10Lite, honor20, honor30, huaweiP10, huaweiP20, huaweiP30, huaweiP40, redmiS9, redmiS9Note, mi10, mi10Pro, note10, note20);
             modelBuilder.Entity<Brand>().HasData(apple, samsung, huawei, xiaomi, honor);
