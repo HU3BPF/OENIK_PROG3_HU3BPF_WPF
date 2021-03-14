@@ -39,7 +39,7 @@ namespace MobileWebshop.Repository
     /// <summary>
     /// Brand Repository class.
     /// </summary>
-    public class BrandRepository : Repository<Brand>, IRepositoryBrand
+    public class BrandRepository : AncestorRepository<Brand>, IRepositoryBrand
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="BrandRepository"/> class.

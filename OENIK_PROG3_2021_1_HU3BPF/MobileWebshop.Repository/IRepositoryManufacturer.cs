@@ -53,7 +53,7 @@ namespace MobileWebshop.Repository
     /// <summary>
     /// Manufacturer Repository.
     /// </summary>
-    public class RepositoryManufacturer : Repository<Manufacturer>, IRepositoryManufacturer
+    public class RepositoryManufacturer : AncestorRepository<Manufacturer>, IRepositoryManufacturer
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RepositoryManufacturer"/> class.

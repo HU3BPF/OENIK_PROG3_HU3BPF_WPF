@@ -4,11 +4,7 @@
 
 namespace MobileWebshop.Repository
 {
-    using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using Microsoft.EntityFrameworkCore;
 
     /// <summary>
@@ -51,7 +47,7 @@ namespace MobileWebshop.Repository
     /// Repository funcions.
     /// </summary>
     /// <typeparam name="T">T is a class.</typeparam>
-    public abstract class Repository<T> : IRepository<T>
+    public abstract class AncestorRepository<T> : IRepository<T>
      where T : class
     {
         /// <summary>
@@ -68,19 +64,19 @@ namespace MobileWebshop.Repository
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Repository{T}"/> class.
+        /// Initializes a new instance of the <see cref="AncestorRepository{T}"/> class.
         /// Dbcontext set.
         /// </summary>
         /// <param name="ctx">DbContext.</param>
-        protected Repository(DbContext ctx)
+        protected AncestorRepository(DbContext ctx)
         {
             this.ctx = ctx;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Repository{T}"/> class.
+        /// Initializes a new instance of the <see cref="AncestorRepository{T}"/> class.
         /// </summary>
-        private Repository()
+        private AncestorRepository()
         {
         }
 

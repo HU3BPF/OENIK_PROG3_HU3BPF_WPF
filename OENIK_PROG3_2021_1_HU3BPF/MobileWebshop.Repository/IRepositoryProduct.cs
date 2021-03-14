@@ -46,7 +46,7 @@ namespace MobileWebshop.Repository
     /// <summary>
     /// Repository class of Product.
     /// </summary>
-    public class RepositoryProduct : Repository<Product>, IRepositoryProduct
+    public class RepositoryProduct : AncestorRepository<Product>, IRepositoryProduct
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RepositoryProduct"/> class.
