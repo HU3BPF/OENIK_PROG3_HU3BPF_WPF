@@ -8,38 +8,71 @@ namespace MobileWebshop.Logic
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using MobileWebshop.Data.Models;
+    using MobileWebshop.Repository;
 
     /// <summary>
-    /// Product logic.
+    /// Product Logic.
     /// </summary>
-    internal class ProductLogic
+    public class ProductLogic : IProductLogics
     {
         /// <summary>
-        /// Comparer to 2 Product object.
+        /// Product Repository.
         /// </summary>
-        /// <param name="obj">another Product object.</param>
-        /// <returns>Bigger Product price.</returns>
-        public override bool Equals(object obj)
+        private IRepositoryProduct productRepository;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProductLogic"/> class.
+        /// </summary>
+        /// <param name="productRepository">IRepositoryProduct.</param>
+        public ProductLogic(IRepositoryProduct productRepository)
         {
-            return base.Equals(obj);
+            this.productRepository = productRepository;
         }
 
         /// <summary>
-        /// Generate a Product hash Code.
+        /// Gets one product.
         /// </summary>
-        /// <returns>Product hash Code.</returns>
-        public override int GetHashCode()
+        /// <param name="id">One product id.</param>
+        /// <returns>Product where id = productId.</returns>
+        public Product GetOneProduct(int id)
         {
-            return base.GetHashCode();
+            return this.productRepository.GetOne(id);
         }
 
         /// <summary>
-        /// Ganerate Pruduct object string.
+        /// Price changer.
         /// </summary>
-        /// <returns>String.</returns>
-        public override string ToString()
+        /// <param name="productId">Product Id.</param>
+        /// <param name="price">New Price.</param>
+        public void ChangePrice(int productId, int price)
         {
-            return base.ToString();
+            this.productRepository.ProductPriceChanger(productId, price);
+        }
+
+        /// <summary>
+        /// Get all products.
+        /// </summary>
+        /// <returns>All products.</returns>
+        public IList<Product> GetAllProducts()
+        {
+            return this.productRepository.GetALL().ToList();
+        }
+
+        /// <summary>
+        /// IList <ProductAverag></ProductAverag>
+        /// Gets list average product price.
+        /// </summary>
+        public void GetProductAverages()
+        {
+            var q = from product in this.productRepository.GetALL()
+                    group product by new { product.BrandrId, product.Brand.BrandName } into grp
+                    select new ProductAverage()
+                    {
+                        ProductName = grp.Key.BrandName,
+                        AveragePrice = grp.Average(x => x.ProductPrice),
+                    };
+            IList<ProductAverage> average = q.ToList();
         }
     }
 }
