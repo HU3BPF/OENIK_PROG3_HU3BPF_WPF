@@ -11,49 +11,38 @@ namespace MobileWebshop.Logic
     /// <summary>
     /// Product Logic.
     /// </summary>
-    public class ProductLogic : IProductLogics
+    public class ProductLogic : IProductLogic
     {
         /// <summary>
         /// Product Repository.
         /// </summary>
-        private readonly IRepositoryProduct productRepository;
+        private readonly IRepositoryProduct iProductRepository;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ProductLogic"/> class.
         /// </summary>
-        /// <param name="productRepository">IRepositoryProduct.</param>
-        public ProductLogic(IRepositoryProduct productRepository)
+        /// <param name="iProductRepository">IRepositoryProduct.</param>
+        public ProductLogic(IRepositoryProduct iProductRepository)
         {
-            this.productRepository = productRepository;
+            this.iProductRepository = iProductRepository;
         }
 
-        /// <summary>
-        /// Gets one product.
-        /// </summary>
-        /// <param name="id">One product id.</param>
-        /// <returns>Product where id = productId.</returns>
-        public Product GetOneProduct(int id)
+        /// <inheritdoc/>
+        public IList<Product> GetALL()
         {
-            return this.productRepository.GetOne(id);
+            return this.iProductRepository.GetALL().ToList();
         }
 
-        /// <summary>
-        /// Price changer.
-        /// </summary>
-        /// <param name="productId">Product Id.</param>
-        /// <param name="price">New Price.</param>
-        public void ChangePrice(int productId, int price)
+        /// <inheritdoc/>
+        public Product GetOne(int id)
         {
-            this.productRepository.ProductPriceChanger(productId, price);
+            return this.iProductRepository.GetOne(id);
         }
 
-        /// <summary>
-        /// Get all products.
-        /// </summary>
-        /// <returns>All products.</returns>
-        public IList<Product> GetAllProducts()
+        /// <inheritdoc/>
+        public void Insert(Product product)
         {
-            return this.productRepository.GetALL().ToList();
+            throw new System.NotImplementedException();
         }
 
         /// <summary>
@@ -63,7 +52,7 @@ namespace MobileWebshop.Logic
         /// <returns>IList product average.</returns>
         public IList<ProductAverage> ProductAverages()
         {
-            var q = from product in this.productRepository.GetALL()
+            var q = from product in this.iProductRepository.GetALL()
                     group product by new { product.BrandrId, product.Brand.BrandName } into grp
                     select new ProductAverage()
                     {
@@ -72,6 +61,48 @@ namespace MobileWebshop.Logic
                     };
             IList<ProductAverage> average = q.ToList();
             return average;
+        }
+
+        /// <inheritdoc/>
+        public void ProductCategoryChanger(int id, Category category)
+        {
+            this.iProductRepository.ProductCategoryChanger(id, category);
+        }
+
+        /// <inheritdoc/>
+        public void ProductColorChanger(int id, string colour)
+        {
+            this.iProductRepository.ProductColorChanger(id, colour);
+        }
+
+        /// <inheritdoc/>
+        public void ProductIdChanger(int id, int newID)
+        {
+            this.iProductRepository.ProductIdChanger(id, newID);
+        }
+
+        /// <inheritdoc/>
+        public void ProductPriceChanger(int id, int price)
+        {
+            this.iProductRepository.ProductPriceChanger(id, price);
+        }
+
+        /// <inheritdoc/>
+        public void ProductRatingChanger(int id, int rating)
+        {
+            this.iProductRepository.ProductRatingChanger(id, rating);
+        }
+
+        /// <inheritdoc/>
+        public void ProductUpdate(int id, Product product)
+        {
+            this.iProductRepository.ProductUpdate(id, product);
+        }
+
+        /// <inheritdoc/>
+        public void Remove(Product product)
+        {
+            this.iProductRepository.Remove(product);
         }
     }
 }
