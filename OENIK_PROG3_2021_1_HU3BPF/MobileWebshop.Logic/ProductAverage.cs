@@ -13,7 +13,7 @@ namespace MobileWebshop.Logic
     /// <summary>
     /// Product logic.
     /// </summary>
-    internal class ProductAverage
+    public class ProductAverage
     {
         /// <summary>
         /// Gets or sets Produt name.
