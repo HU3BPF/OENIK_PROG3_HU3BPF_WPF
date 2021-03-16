@@ -63,7 +63,8 @@ namespace MobileWebshop.Logic
         /// IList <ProductAverag></ProductAverag>
         /// Gets list average product price.
         /// </summary>
-        public void GetProductAverages()
+        /// <returns>IList product average.</returns>
+        public IList<ProductAverage> ProductAverages()
         {
             var q = from product in this.productRepository.GetALL()
                     group product by new { product.BrandrId, product.Brand.BrandName } into grp
@@ -73,6 +74,7 @@ namespace MobileWebshop.Logic
                         AveragePrice = grp.Average(x => x.ProductPrice),
                     };
             IList<ProductAverage> average = q.ToList();
+            return average;
         }
     }
 }
