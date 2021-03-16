@@ -37,10 +37,10 @@ namespace MobileWebshop.Repository
         void Insert(T entity);
 
         /// <summary>
-        /// Entity remover.
+        /// Entity Remove.
         /// </summary>
         /// <param name="entity">Entity.</param>
-        void Remover(T entity);
+        void Remove(T entity);
     }
 
     /// <summary>
@@ -107,10 +107,10 @@ namespace MobileWebshop.Repository
         }
 
         /// <summary>
-        /// Entity remover.
+        /// Entity Remove.
         /// </summary>
         /// <param name="entity">Entity.</param>
-        public void Remover(T entity)
+        public void Remove(T entity)
         {
             this.ctx.Set<T>().Remove(entity);
             this.ctx.SaveChanges();
