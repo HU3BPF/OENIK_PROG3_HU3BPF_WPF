@@ -17,30 +17,51 @@ namespace MobileWebshop.Program
     {
         private static void Main(string[] args)
         {
+            Console.CursorVisible = false;
+
             // Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MobileWebshopDb.mdf;Integrated Security=True;MultipleActiveResultSets=True
             MobileDbContext ctx = new MobileDbContext();
-            RepositoryProduct repo = new RepositoryProduct(ctx);
-            ProductLogic logic = new ProductLogic(repo);
 
-            var menu = new ConsoleMenu().Add("Using logic", () => AveragesUsingLogic(logic))
-                .Add("Close", ConsoleMenu.Close);
+            RepositoryManufacturer manufacturerRepo = new RepositoryManufacturer(ctx);
+            BrandRepository brandRepo = new BrandRepository(ctx);
+            RepositoryProduct productRepo = new RepositoryProduct(ctx);
+
+            ManufacturerLogic manufacturerLogic = new ManufacturerLogic(manufacturerRepo);
+            BrandLogic brandLogic = new BrandLogic(brandRepo);
+            ProductLogic productLogic = new ProductLogic(productRepo);
+
+            var menu = new ConsoleMenu().Add("GetAllProduct", () => GetAllProduct(productLogic));
+            menu.Add("GetAllBrand", () => GetAllBrand(brandLogic));
+            menu.Add("GetAllManufacturer", () => GetAllManufacturer(manufacturerLogic)).Add("Close", ConsoleMenu.Close);
             menu.Show();
             Console.WriteLine(args);
         }
 
-        private static void AveragesUsingLogic(ProductLogic logic)
+        private static void GetAllProduct(ProductLogic logic)
         {
-            var productAverage = logic.ProductAverages();
-
-            foreach (var item in productAverage)
+            foreach (var item in logic.GetALL())
             {
-                Console.WriteLine(item.AveragePrice);
                 Console.WriteLine(item.ProductName);
             }
 
-            foreach (var item in logic.GetAllProducts())
+            Console.ReadLine();
+        }
+
+        private static void GetAllBrand(BrandLogic logic)
+        {
+            foreach (var item in logic.GetALL())
             {
-                Console.WriteLine(item.ProductName);
+                Console.WriteLine(item.BrandName);
+            }
+
+            Console.ReadLine();
+        }
+
+        private static void GetAllManufacturer(ManufacturerLogic logic)
+        {
+            foreach (var item in logic.GetALL())
+            {
+                Console.WriteLine(item.ManufacturerName);
             }
 
             Console.ReadLine();
