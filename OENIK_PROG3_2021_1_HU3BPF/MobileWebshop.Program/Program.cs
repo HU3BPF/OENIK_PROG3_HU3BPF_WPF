@@ -34,11 +34,10 @@ namespace MobileWebshop.Program
 
             foreach (var item in productAverage)
             {
-                Console.WriteLine("Average_");
                 Console.WriteLine(item.AveragePrice);
                 Console.WriteLine(item.ProductName);
-                Console.WriteLine("Average_");
             }
+
             foreach (var item in logic.GetAllProducts())
             {
                 Console.WriteLine(item.ProductName);
