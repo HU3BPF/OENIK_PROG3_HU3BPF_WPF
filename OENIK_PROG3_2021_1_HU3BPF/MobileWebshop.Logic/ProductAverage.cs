@@ -61,30 +61,4 @@ namespace MobileWebshop.Logic
             return $"Product = {this.ProductName}, Product Average Price = {this.AveragePrice}";
         }
     }
-
-    /// <summary>
-    /// Product logic interface.
-    /// </summary>
-    public interface IProductLogics
-    {
-        /// <summary>
-        /// Gets one product.
-        /// </summary>
-        /// <param name="id">One product id.</param>
-        /// <returns>Product where id = productId.</returns>
-        Product GetOneProduct(int id);
-
-        /// <summary>
-        /// Price changer.
-        /// </summary>
-        /// <param name="productId">Product Id.</param>
-        /// <param name="price">New Price.</param>
-        void ChangePrice(int productId, int price);
-
-        /// <summary>
-        /// Get all products.
-        /// </summary>
-        /// <returns>All products.</returns>
-        IList<Product> GetAllProducts();
-    }
 }
