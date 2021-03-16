@@ -31,7 +31,7 @@ namespace MobileWebshop.Repository
         IQueryable<T> GetALL();
 
         /// <summary>
-        /// One Entity insert.
+        /// One Entity inserter.
         /// </summary>
         /// <param name="entity">Entity.</param>
         void Insert(T entity);
