@@ -25,6 +25,13 @@ namespace MobileWebshop.Repository
         /// Product price changer.
         /// </summary>
         /// <param name="id">Product id.</param>
+        /// <param name="product">Product new product.</param>
+        void ProductUpdate(int id, Product product);
+
+        /// <summary>
+        /// Product price changer.
+        /// </summary>
+        /// <param name="id">Product id.</param>
         /// <param name="price">Product new Price.</param>
         void ProductPriceChanger(int id, int price);
 
@@ -39,8 +46,15 @@ namespace MobileWebshop.Repository
         /// Product colour changer.
         /// </summary>
         /// <param name="id">Product id.</param>
-        /// <param name="colour">Product new Price.</param>
+        /// <param name="colour">Product new colour.</param>
         void ProductColorChanger(int id, string colour);
+
+        /// <summary>
+        /// Product colour changer.
+        /// </summary>
+        /// <param name="id">Product id.</param>
+        /// <param name="rating">Product new rating.</param>
+        void ProductRatingChanger(int id, int rating);
     }
 
     /// <summary>
@@ -68,11 +82,11 @@ namespace MobileWebshop.Repository
         }
 
         /// <summary>
-        /// Product categori changer.
+        /// Product price changer.
         /// </summary>
         /// <param name="id">Product id.</param>
-        /// <param name="category">new category.</param>
-        public void ProductCategoryChanger(int id, Category category)
+        /// <param name="product">Product new product.</param>
+        public void ProductUpdate(int id, Product product)
         {
             var oldProduct = this.GetOne(id);
             if (oldProduct == null)
@@ -80,7 +94,24 @@ namespace MobileWebshop.Repository
                 throw new InvalidOperationException("Not found");
             }
 
-            oldProduct.ProductCategori = category;
+            oldProduct = product;
+            this.Ctx.SaveChanges();
+        }
+
+        /// <summary>
+        /// Product categori changer.
+        /// </summary>
+        /// <param name="id">Product id.</param>
+        /// <param name="category">new category.</param>
+        public void ProductCategoryChanger(int id, Category category)
+        {
+            var oldCategory = this.GetOne(id);
+            if (oldCategory == null)
+            {
+                throw new InvalidOperationException("Not found");
+            }
+
+            oldCategory.ProductCategori = category;
             this.Ctx.SaveChanges();
         }
 
@@ -88,16 +119,16 @@ namespace MobileWebshop.Repository
         /// Product colour changer.
         /// </summary>
         /// <param name="id">Product id.</param>
-        /// <param name="colour">Product new Price.</param>
+        /// <param name="colour">Product new colour.</param>
         public void ProductColorChanger(int id, string colour)
         {
-            var oldProduct = this.GetOne(id);
-            if (oldProduct == null)
+            var oldColour = this.GetOne(id);
+            if (oldColour == null)
             {
                 throw new InvalidOperationException("Not found");
             }
 
-            oldProduct.ProductColour = colour;
+            oldColour.ProductColour = colour;
             this.Ctx.SaveChanges();
         }
 
@@ -108,13 +139,13 @@ namespace MobileWebshop.Repository
         /// <param name="newID">new id.</param>
         public void ProductIdChanger(int id, int newID)
         {
-            var oldProduct = this.GetOne(id);
-            if (oldProduct == null)
+            var oldId = this.GetOne(id);
+            if (oldId == null)
             {
                 throw new InvalidOperationException("Not found");
             }
 
-            oldProduct.ProductdId = newID;
+            oldId.ProductdId = newID;
             this.Ctx.SaveChanges();
         }
 
@@ -125,13 +156,30 @@ namespace MobileWebshop.Repository
         /// <param name="price">Product new Price.</param>
         public void ProductPriceChanger(int id, int price)
         {
-            var oldProduct = this.GetOne(id);
-            if (oldProduct == null)
+            var oldPrice = this.GetOne(id);
+            if (oldPrice == null)
             {
                 throw new InvalidOperationException("Not found");
             }
 
-            oldProduct.ProductPrice = price;
+            oldPrice.ProductPrice = price;
+            this.Ctx.SaveChanges();
+        }
+
+        /// <summary>
+        /// Product colour changer.
+        /// </summary>
+        /// <param name="id">Product id.</param>
+        /// <param name="rating">Product new rating.</param>
+        public void ProductRatingChanger(int id, int rating)
+        {
+            var oldRating = this.GetOne(id);
+            if (oldRating == null)
+            {
+                throw new InvalidOperationException("Not found");
+            }
+
+            oldRating.ProductPrice = rating;
             this.Ctx.SaveChanges();
         }
     }
