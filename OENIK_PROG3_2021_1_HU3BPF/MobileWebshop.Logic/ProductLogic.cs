@@ -16,7 +16,7 @@ namespace MobileWebshop.Logic
         /// <summary>
         /// Product Repository.
         /// </summary>
-        private IRepositoryProduct productRepository;
+        private readonly IRepositoryProduct productRepository;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ProductLogic"/> class.

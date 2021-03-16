@@ -122,7 +122,6 @@ namespace MobileWebshop.Repository
             }
 
             oldManufacturer = manufacturer;
-
             this.Ctx.SaveChanges();
         }
 

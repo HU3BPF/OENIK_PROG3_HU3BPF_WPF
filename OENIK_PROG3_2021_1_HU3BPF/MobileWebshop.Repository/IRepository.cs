@@ -53,7 +53,7 @@ namespace MobileWebshop.Repository
         /// <summary>
         /// Dbcontext.
         /// </summary>
-        private DbContext ctx;
+        private readonly DbContext ctx;
 
         /// <summary>
         /// Gets ctx dbcontext.
