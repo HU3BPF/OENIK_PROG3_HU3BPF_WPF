@@ -81,13 +81,13 @@ namespace MobileWebshop.Repository
         /// <param name="newId">New Id.</param>
         public void ManufacturerIdChanger(int id, int newId)
         {
-            var oldManufacturer = this.GetOne(id);
-            if (oldManufacturer == null)
+            var oldId = this.GetOne(id);
+            if (oldId == null)
             {
                 throw new InvalidOperationException("Not found");
             }
 
-            oldManufacturer.ManufacturerId = newId;
+            oldId.ManufacturerId = newId;
             this.Ctx.SaveChanges();
         }
 
@@ -98,13 +98,13 @@ namespace MobileWebshop.Repository
         /// <param name="ceo">New CEO.</param>
         public void ManufacturerCEOChanger(int id, string ceo)
         {
-            var oldManufacturer = this.GetOne(id);
-            if (oldManufacturer == null)
+            var oldCeo = this.GetOne(id);
+            if (oldCeo == null)
             {
                 throw new InvalidOperationException("Not found");
             }
 
-            oldManufacturer.ManufacturerCEO = ceo;
+            oldCeo.ManufacturerCEO = ceo;
             this.Ctx.SaveChanges();
         }
 
@@ -133,13 +133,13 @@ namespace MobileWebshop.Repository
         /// <param name="reliability">New manufacturer reliability.</param>
         public void ManufacturerReliabilityChanger(int id, int reliability)
         {
-            var oldManufacturer = this.GetOne(id);
-            if (oldManufacturer == null)
+            var oldReliability = this.GetOne(id);
+            if (oldReliability == null)
             {
                 throw new InvalidOperationException("Not found");
             }
 
-            oldManufacturer.ManufacturerReliability = reliability;
+            oldReliability.ManufacturerReliability = reliability;
 
             this.Ctx.SaveChanges();
         }
@@ -151,13 +151,13 @@ namespace MobileWebshop.Repository
         /// <param name="workers">New workers number.</param>
         public void ManufacturerWorkersCountChanger(int id, int workers)
         {
-            var oldManufacturer = this.GetOne(id);
-            if (oldManufacturer == null)
+            var oldWorkers = this.GetOne(id);
+            if (oldWorkers == null)
             {
                 throw new InvalidOperationException("Not found");
             }
 
-            oldManufacturer.ManufacturerWorkersCount = workers;
+            oldWorkers.ManufacturerWorkersCount = workers;
 
             this.Ctx.SaveChanges();
         }
