@@ -52,5 +52,11 @@ namespace MobileWebshop.Data.Models
         /// Gets or Sets Product Categories.
         /// </summary>
         public Category ProductCategori { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Users rating.
+        /// </summary>
+        [Range(0, 10)]
+        public int UsresRating { get; set; }
     }
 }
