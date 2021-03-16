@@ -41,6 +41,11 @@ namespace MobileWebshop.Data.Models
         public virtual Manufacturer Manufacturer { get; set; }
 
         /// <summary>
+        /// Gets or sets products.
+        /// </summary>
+        public virtual ICollection<Product> Products { get; set; }
+
+        /// <summary>
         /// Gets or sets Brand Name.
         /// </summary>
         [MaxLength(100)]
@@ -58,8 +63,13 @@ namespace MobileWebshop.Data.Models
         public int BrandYear { get; set; }
 
         /// <summary>
-        /// Gets or sets products.
+        /// Gets or sets System Type.
         /// </summary>
-        public virtual ICollection<Product> Products { get; set; }
+        public int SystemType { get; set; }
+
+        /// <summary>
+        /// Gets or sets Number Of Users.
+        /// </summary>
+        public int NumberOfUsers { get; set; }
     }
 }
