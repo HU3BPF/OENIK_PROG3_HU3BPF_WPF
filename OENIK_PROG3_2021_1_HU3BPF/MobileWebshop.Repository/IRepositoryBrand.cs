@@ -34,6 +34,13 @@ namespace MobileWebshop.Repository
         /// <param name="id">Brand id.</param>
         /// <param name="year">FIxed year.</param>
         void BrandYearFixer(int id, int year);
+
+        /// <summary>
+        /// Users number changer.
+        /// </summary>
+        /// <param name="id">Brand id.</param>
+        /// <param name="numberOfUsers">Brand Users number.</param>
+        void BrandNumberOfUsersChanger(int id, int numberOfUsers);
     }
 
     /// <summary>
@@ -91,13 +98,13 @@ namespace MobileWebshop.Repository
         /// <param name="year">FIxed year.</param>
         public void BrandYearFixer(int id, int year)
         {
-            var oldBrand = this.GetOne(id);
-            if (oldBrand == null)
+            var oldYear = this.GetOne(id);
+            if (oldYear == null)
             {
                 throw new InvalidOperationException("NOt found");
             }
 
-            oldBrand.BrandYear = year;
+            oldYear.BrandYear = year;
             this.Ctx.SaveChanges();
         }
 
@@ -109,6 +116,23 @@ namespace MobileWebshop.Repository
         public override Brand GetOne(int id)
         {
             return this.GetALL().SingleOrDefault(x => x.BrandId == id);
+        }
+
+        /// <summary>
+        /// Users number changer.
+        /// </summary>
+        /// <param name="id">Brand id.</param>
+        /// <param name="numberOfUsers">Brand Users number.</param>
+        public void BrandNumberOfUsersChanger(int id, int numberOfUsers)
+        {
+            var oldUsersNumber = this.GetOne(id);
+            if (oldUsersNumber == null)
+            {
+                throw new InvalidOperationException("NOt found");
+            }
+
+            oldUsersNumber.BrandYear = numberOfUsers;
+            this.Ctx.SaveChanges();
         }
     }
 }
