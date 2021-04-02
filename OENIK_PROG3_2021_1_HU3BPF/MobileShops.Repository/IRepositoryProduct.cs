@@ -61,7 +61,7 @@ namespace MobileWebshop.Repository
             oldProduct.ProductName = newProduct.ProductName;
             oldProduct.ProductColour = newProduct.ProductColour;
             oldProduct.UsresRating = newProduct.UsresRating;
-            oldProduct.ProductCategory = newProduct.ProductCategory;
+            oldProduct.ProductSystem = newProduct.ProductSystem;
             this.Ctx.SaveChanges();
         }
     }

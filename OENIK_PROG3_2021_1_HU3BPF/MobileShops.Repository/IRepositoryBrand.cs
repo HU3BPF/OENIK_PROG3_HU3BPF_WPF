@@ -50,11 +50,11 @@ namespace MobileWebshop.Repository
             oldBrand.BrandId = newBrand.BrandId;
             oldBrand.BrandName = newBrand.BrandName;
             oldBrand.BrandQuality = newBrand.BrandQuality;
-            oldBrand.BrandYearlyIncome = newBrand.BrandYearlyIncome;
-            oldBrand.Manufacturer = newBrand.Manufacturer;
-            oldBrand.ManufacturerId = newBrand.ManufacturerId;
+            oldBrand.BrandAnnualProfit = newBrand.BrandAnnualProfit;
+            oldBrand.Shop = newBrand.Shop;
+            oldBrand.ShopID = newBrand.ShopID;
             oldBrand.NumberOfUsers = newBrand.NumberOfUsers;
-            oldBrand.SystemType = newBrand.SystemType;
+            oldBrand.BrandNumberOfProducts = newBrand.BrandNumberOfProducts;
             oldBrand.Products = newBrand.Products;
             this.Ctx.SaveChanges();
         }

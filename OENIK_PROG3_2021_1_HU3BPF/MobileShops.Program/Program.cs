@@ -16,13 +16,13 @@ namespace MobileWebshop.Program
     {
         private static void Main()
         {
-            MobileDbContext ctx = new MobileDbContext();
+            ShopDbContext ctx = new ShopDbContext();
 
             RepositoryManufacturer manufacturerRepo = new RepositoryManufacturer(ctx);
             BrandRepository brandRepo = new BrandRepository(ctx);
             RepositoryProduct productRepo = new RepositoryProduct(ctx);
 
-            ManufacturerLogic manufacturerLogic = new ManufacturerLogic(manufacturerRepo);
+            ShopLogic manufacturerLogic = new ShopLogic(manufacturerRepo);
             BrandLogic brandLogic = new BrandLogic(brandRepo);
             ProductLogic productLogic = new ProductLogic(productRepo);
 
@@ -37,11 +37,11 @@ namespace MobileWebshop.Program
                 .Add("Remove One Brand", () => BrandMethods.RemoveOneBrand(brandLogic))
                 .Add("Update One Brand", () => BrandMethods.ChangeOneBrand(brandLogic))
                 .Add("Insert One Brand", () => BrandMethods.InsertOneBrand(brandLogic))
-                .Add("Get All Manufacturer", () => ManufacturerMethods.GetAllManufacturer(manufacturerLogic))
-                .Add("Get One Manufacturer", () => ManufacturerMethods.GetOneManufacturer(manufacturerLogic))
-                .Add("Remove One Manufacturer", () => ManufacturerMethods.RemoveOneManufacturer(manufacturerLogic))
-                .Add("Update One Manufacturer", () => ManufacturerMethods.ChangeOneManufacturer(manufacturerLogic))
-                .Add("Insert One Manufacturer", () => ManufacturerMethods.InsertOneManufacturer(manufacturerLogic))
+                .Add("Get All shop", () => ShopMethods.GetAllShop(manufacturerLogic))
+                .Add("Get One shop", () => ShopMethods.GetOneShop(manufacturerLogic))
+                .Add("Remove One shop", () => ShopMethods.RemoveOneShop(manufacturerLogic))
+                .Add("Update One shop", () => ShopMethods.ChangeOneShop(manufacturerLogic))
+                .Add("Insert One shop", () => ShopMethods.InsertOneShop(manufacturerLogic))
                 .Add("Close", ConsoleMenu.Close);
             menu.Show();
         }

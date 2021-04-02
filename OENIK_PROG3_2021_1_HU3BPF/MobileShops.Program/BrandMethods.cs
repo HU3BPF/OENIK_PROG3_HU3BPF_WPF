@@ -153,17 +153,19 @@ namespace MobileWebshop.Program
             Brand newBrand = new Brand();
             NumberFormatInfo provider = new NumberFormatInfo();
             newBrand.BrandId = oldBrand.BrandId;
-            newBrand.SystemType = oldBrand.SystemType;
             Console.WriteLine("Brand new Name".ToString());
             newBrand.BrandName = Console.ReadLine();
             Console.WriteLine("Brand new Quality.".ToString());
             newBrand.BrandQuality = int.Parse(Console.ReadLine(), provider);
             Console.WriteLine("Brand new Yearly Income".ToString());
-            newBrand.BrandYearlyIncome = int.Parse(Console.ReadLine(), provider);
+            newBrand.BrandAnnualProfit = int.Parse(Console.ReadLine(), provider);
             Console.WriteLine("Brand new Number Of Users".ToString());
             newBrand.NumberOfUsers = int.Parse(Console.ReadLine(), provider);
-            newBrand.Manufacturer = oldBrand.Manufacturer;
-            newBrand.ManufacturerId = oldBrand.ManufacturerId;
+            newBrand.NumberOfUsers = int.Parse(Console.ReadLine(), provider);
+            Console.WriteLine("Brand new Number Of Products".ToString());
+            newBrand.BrandNumberOfProducts = int.Parse(Console.ReadLine(), provider);
+            newBrand.Shop = oldBrand.Shop;
+            newBrand.ShopID = oldBrand.ShopID;
             newBrand.Products = oldBrand.Products;
             return newBrand;
         }
@@ -176,15 +178,16 @@ namespace MobileWebshop.Program
         {
             Brand newBrand = new Brand();
             NumberFormatInfo provider = new NumberFormatInfo();
-            newBrand.SystemType = SystemType.Andorid;
             Console.WriteLine("Brand new Name".ToString());
             newBrand.BrandName = Console.ReadLine();
             Console.WriteLine("Brand new Quality.".ToString());
             newBrand.BrandQuality = int.Parse(Console.ReadLine(), provider);
             Console.WriteLine("Brand new Yearly Income".ToString());
-            newBrand.BrandYearlyIncome = int.Parse(Console.ReadLine(), provider);
+            newBrand.BrandAnnualProfit = int.Parse(Console.ReadLine(), provider);
             Console.WriteLine("Brand new Number Of Users".ToString());
             newBrand.NumberOfUsers = int.Parse(Console.ReadLine(), provider);
+            Console.WriteLine("Brand new Number Of Products".ToString());
+            newBrand.BrandNumberOfProducts = int.Parse(Console.ReadLine(), provider);
             return newBrand;
         }
     }

@@ -32,16 +32,16 @@ namespace MobileWebshop.Data.Models
         /// <summary>
         /// Gets or sets Manufacturer Id.
         /// </summary>
-        [ForeignKey(nameof(Manufacturer))]
+        [ForeignKey(nameof(Shop))]
 #nullable enable
-        public int? ManufacturerId { get; set; }
+        public int? ShopID { get; set; }
 
         /// <summary>
         /// Gets or Sets not mapped Manufacturer object.
         /// </summary>
         [NotMapped]
 #nullable enable
-        public virtual Manufacturer? Manufacturer { get; set; }
+        public virtual Shop? Shop { get; set; }
 
         /// <summary>
         /// Gets or sets products.
@@ -67,13 +67,13 @@ namespace MobileWebshop.Data.Models
         /// Gets or sets Brand Year.
         /// </summary>
 #nullable disable
-        public long BrandYearlyIncome { get; set; }
+        public long BrandAnnualProfit { get; set; }
 
         /// <summary>
         /// Gets or sets System Type.
         /// </summary>
 #nullable disable
-        public SystemType SystemType { get; set; }
+        public int BrandNumberOfProducts { get; set; }
 
         /// <summary>
         /// Gets or sets Number Of Users.
@@ -88,8 +88,8 @@ namespace MobileWebshop.Data.Models
         public override string ToString()
         {
             return $" Brand ID: {this.BrandId}\n Brand Name: {this.BrandName}\n" +
-                $" Brand Quality: {this.BrandQuality}\n Brand Year: {this.BrandYearlyIncome}\n" +
-                $" Brand Number of Users: {this.NumberOfUsers}\n Brand System: {this.SystemType}\n";
+                $" Brand Quality: {this.BrandQuality}\n Brand Year: {this.BrandAnnualProfit}\n" +
+                $" Brand Number of Users: {this.NumberOfUsers}\n Brand Number Of Products: {this.BrandNumberOfProducts}\n";
         }
     }
 }
