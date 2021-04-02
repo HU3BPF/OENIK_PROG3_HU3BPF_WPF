@@ -24,38 +24,57 @@ namespace MobileWebshop.Data.Models
         /// Gets or sets manufacturer id.
         /// </summary>
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+#nullable disable
         public int ManufacturerId { get; set; }
 
         /// <summary>
         /// gets or sets manufacturer name.
         /// </summary>
         [MaxLength(100)]
+#nullable disable
         public string ManufacturerName { get; set; }
 
         /// <summary>
         /// gets or sets manufacturer Ceo.
         /// </summary>
+#nullable disable
         public string ManufacturerCEO { get; set; }
 
         /// <summary>
         /// gets or sets manufacturer center place.
         /// </summary>
+#nullable disable
         public string ManufacturerCenter { get; set; }
 
         /// <summary>
         /// gets or sets manufacturer reliability.
         /// </summary>
         [Range(0, 10)]
+#nullable disable
         public int ManufacturerReliability { get; set; }
 
         /// <summary>
         /// gets or sets manufacturer workers members count.
         /// </summary>
+#nullable disable
         public int ManufacturerWorkersCount { get; set; }
 
         /// <summary>
         /// Gets or Sets Brands Collection.
         /// </summary>
-        public virtual ICollection<Brand> Brands { get; set; }
+        #nullable enable
+        public virtual ICollection<Brand>? Brands { get; set; }
+
+        /// <summary>
+        /// Gets Manufacturer string.
+        /// </summary>
+        /// <returns>Manufacturer all entities in a string.</returns>
+        public override string ToString()
+        {
+            return $" Manufacturer ID: {this.ManufacturerId}\n Manufacturer Name: {this.ManufacturerName}\n" +
+                $" Manufacturer reliability: {this.ManufacturerReliability}\n Manufacturer Number of worker: {this.ManufacturerWorkersCount}\n" +
+                $" Manufacturer CEO: {this.ManufacturerCEO}\n Manufacturer Center: {this.ManufacturerCenter}\n";
+        }
     }
 }

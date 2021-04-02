@@ -26,50 +26,70 @@ namespace MobileWebshop.Data.Models
         /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+#nullable disable
         public int BrandId { get; set; }
 
         /// <summary>
         /// Gets or sets Manufacturer Id.
         /// </summary>
         [ForeignKey(nameof(Manufacturer))]
-        public int ManufacturerId { get; set; }
+#nullable enable
+        public int? ManufacturerId { get; set; }
 
         /// <summary>
         /// Gets or Sets not mapped Manufacturer object.
         /// </summary>
         [NotMapped]
-        public virtual Manufacturer Manufacturer { get; set; }
+#nullable enable
+        public virtual Manufacturer? Manufacturer { get; set; }
 
         /// <summary>
         /// Gets or sets products.
         /// </summary>
-        public virtual ICollection<Product> Products { get; set; }
+#nullable enable
+        public virtual ICollection<Product>? Products { get; set; }
 
         /// <summary>
         /// Gets or sets Brand Name.
         /// </summary>
         [MaxLength(100)]
+#nullable disable
         public string BrandName { get; set; }
 
         /// <summary>
         /// Gets or sets Brand Quality.
         /// </summary>
         [Range(0, 10)]
+#nullable disable
         public int BrandQuality { get; set; }
 
         /// <summary>
         /// Gets or sets Brand Year.
         /// </summary>
+#nullable disable
         public int BrandYear { get; set; }
 
         /// <summary>
         /// Gets or sets System Type.
         /// </summary>
-        public int SystemType { get; set; }
+#nullable disable
+        public SystemType SystemType { get; set; }
 
         /// <summary>
         /// Gets or sets Number Of Users.
         /// </summary>
+#nullable disable
         public int NumberOfUsers { get; set; }
+
+        /// <summary>
+        /// Gets Brand string.
+        /// </summary>
+        /// <returns>Brand all entities in a string.</returns>
+        public override string ToString()
+        {
+            return $" Brand ID: {this.BrandId}\n Brand Name: {this.BrandName}\n" +
+                $" Brand Quality: {this.BrandQuality}\n Brand Year: {this.BrandYear}\n" +
+                $" Brand Number of Users: {this.NumberOfUsers}\n Brand System: {this.SystemType}\n";
+        }
     }
 }
