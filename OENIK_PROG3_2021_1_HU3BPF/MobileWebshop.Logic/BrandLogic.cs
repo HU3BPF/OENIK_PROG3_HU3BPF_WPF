@@ -3,11 +3,8 @@
 // </copyright>
 namespace MobileWebshop.Logic
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using MobileWebshop.Data.Models;
     using MobileWebshop.Repository;
 
@@ -32,27 +29,9 @@ namespace MobileWebshop.Logic
         }
 
         /// <inheritdoc/>
-        public void BrandNumberOfUsersChanger(int id, int numberOfUsers)
+        public void BrandUpdate(Brand brand)
         {
-            this.iRepositoryBrand.BrandNumberOfUsersChanger(id, numberOfUsers);
-        }
-
-        /// <inheritdoc/>
-        public void BrandQualityChanger(int id, int newQuality)
-        {
-            this.iRepositoryBrand.BrandQualityChanger(id, newQuality);
-        }
-
-        /// <inheritdoc/>
-        public void BrandUpdate(int id, Brand brand)
-        {
-            this.iRepositoryBrand.BrandUpdate(id, brand);
-        }
-
-        /// <inheritdoc/>
-        public void BrandYearFixer(int id, int year)
-        {
-            this.iRepositoryBrand.BrandYearFixer(id, year);
+            this.iRepositoryBrand.BrandUpdate(brand);
         }
 
         /// <inheritdoc/>
@@ -68,15 +47,52 @@ namespace MobileWebshop.Logic
         }
 
         /// <inheritdoc/>
-        public void Insert(Brand brand)
+        public void BrandInsert(Brand brand)
         {
-            this.iRepositoryBrand.Insert(brand);
+            this.iRepositoryBrand.ProductInsert(brand);
         }
 
         /// <inheritdoc/>
-        public void Remove(Brand brand)
+        public void BrandRemove(Brand brand)
         {
             this.iRepositoryBrand.Remove(brand);
         }
+    }
+
+    /// <summary>
+    /// Brand Logic.
+    /// </summary>
+    public interface IBrand
+    {
+        /// <summary>
+        /// Brand Update.
+        /// </summary>
+        /// <param name="brand">New brand.</param>
+        void BrandUpdate(Brand brand);
+
+        /// <summary>
+        /// One brand reader.
+        /// </summary>
+        /// <param name="id">brand id.</param>
+        /// <returns>brand value.</returns>
+        Brand GetOne(int id);
+
+        /// <summary>
+        /// All Entities reader.
+        /// </summary>
+        /// <returns>All properties.</returns>
+        IList<Brand> GetALL();
+
+        /// <summary>
+        /// One brand inserter.
+        /// </summary>
+        /// <param name="brand">new brand.</param>
+        void BrandInsert(Brand brand);
+
+        /// <summary>
+        /// brand Remove.
+        /// </summary>
+        /// <param name="brand">brand.</param>
+        void BrandRemove(Brand brand);
     }
 }

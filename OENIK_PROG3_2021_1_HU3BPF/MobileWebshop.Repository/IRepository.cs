@@ -4,6 +4,7 @@
 
 namespace MobileWebshop.Repository
 {
+    using System;
     using System.Linq;
     using Microsoft.EntityFrameworkCore;
 
@@ -34,7 +35,7 @@ namespace MobileWebshop.Repository
         /// One Entity inserter.
         /// </summary>
         /// <param name="entity">Entity.</param>
-        void Insert(T entity);
+        void ProductInsert(T entity);
 
         /// <summary>
         /// Entity Remove.
@@ -100,7 +101,7 @@ namespace MobileWebshop.Repository
         /// One Entity insert.
         /// </summary>
         /// <param name="entity">Entity.</param>
-        public void Insert(T entity)
+        public void ProductInsert(T entity)
         {
             this.ctx.Set<T>().Add(entity);
             this.ctx.SaveChanges();
@@ -112,7 +113,7 @@ namespace MobileWebshop.Repository
         /// <param name="entity">Entity.</param>
         public void Remove(T entity)
         {
-            this.ctx.Set<T>().Remove(entity);
+            this.ctx?.Set<T>()?.Remove(entity);
             this.ctx.SaveChanges();
         }
     }

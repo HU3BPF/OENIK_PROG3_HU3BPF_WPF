@@ -15,32 +15,10 @@ namespace MobileWebshop.Repository
     public interface IRepositoryBrand : IRepository<Brand>
     {
         /// <summary>
-        /// Brand Quality changer.
-        /// </summary>
-        /// <param name="id">Brand Id.</param>
-        /// <param name="newQuality">New brand quality.</param>
-        void BrandQualityChanger(int id, int newQuality);
-
-        /// <summary>
         /// Brand Update.
         /// </summary>
-        /// <param name="id">Old Brand id.</param>
-        /// <param name="brand">New brand.</param>
-        void BrandUpdate(int id, Brand brand);
-
-        /// <summary>
-        /// Brand year fixer.
-        /// </summary>
-        /// <param name="id">Brand id.</param>
-        /// <param name="year">FIxed year.</param>
-        void BrandYearFixer(int id, int year);
-
-        /// <summary>
-        /// Users number changer.
-        /// </summary>
-        /// <param name="id">Brand id.</param>
-        /// <param name="numberOfUsers">Brand Users number.</param>
-        void BrandNumberOfUsersChanger(int id, int numberOfUsers);
+        /// <param name="newBrand">New Brand entity.</param>
+        void BrandUpdate(Brand newBrand);
     }
 
     /// <summary>
@@ -58,53 +36,26 @@ namespace MobileWebshop.Repository
         }
 
         /// <summary>
-        /// Brand Quality changer.
-        /// </summary>
-        /// <param name="id">Brand Id.</param>
-        /// <param name="newQuality">New brand quality.</param>
-        public void BrandQualityChanger(int id, int newQuality)
-        {
-            var oldBrand = this.GetOne(id);
-            if (oldBrand == null)
-            {
-                throw new InvalidOperationException("NOt found");
-            }
-
-            oldBrand.BrandQuality = newQuality;
-            this.Ctx.SaveChanges();
-        }
-
-        /// <summary>
         /// Brand Update.
         /// </summary>
-        /// <param name="id">Old Brand id.</param>
-        /// <param name="brand">New brand.</param>
-        public void BrandUpdate(int id, Brand brand)
+        /// <param name="newBrand">New Brand entity.</param>
+        public void BrandUpdate(Brand newBrand)
         {
-            var oldBrand = this.GetOne(id);
+            var oldBrand = this.GetOne(newBrand.BrandId);
             if (oldBrand == null)
             {
                 throw new InvalidOperationException("NOt found");
             }
 
-            oldBrand = brand;
-            this.Ctx.SaveChanges();
-        }
-
-        /// <summary>
-        /// Brand year fixer.
-        /// </summary>
-        /// <param name="id">Brand id.</param>
-        /// <param name="year">FIxed year.</param>
-        public void BrandYearFixer(int id, int year)
-        {
-            var oldYear = this.GetOne(id);
-            if (oldYear == null)
-            {
-                throw new InvalidOperationException("NOt found");
-            }
-
-            oldYear.BrandYear = year;
+            oldBrand.BrandId = newBrand.BrandId;
+            oldBrand.BrandName = newBrand.BrandName;
+            oldBrand.BrandQuality = newBrand.BrandQuality;
+            oldBrand.BrandYear = newBrand.BrandYear;
+            oldBrand.Manufacturer = newBrand.Manufacturer;
+            oldBrand.ManufacturerId = newBrand.ManufacturerId;
+            oldBrand.NumberOfUsers = newBrand.NumberOfUsers;
+            oldBrand.SystemType = newBrand.SystemType;
+            oldBrand.Products = newBrand.Products;
             this.Ctx.SaveChanges();
         }
 
@@ -116,23 +67,6 @@ namespace MobileWebshop.Repository
         public override Brand GetOne(int id)
         {
             return this.GetALL().SingleOrDefault(x => x.BrandId == id);
-        }
-
-        /// <summary>
-        /// Users number changer.
-        /// </summary>
-        /// <param name="id">Brand id.</param>
-        /// <param name="numberOfUsers">Brand Users number.</param>
-        public void BrandNumberOfUsersChanger(int id, int numberOfUsers)
-        {
-            var oldUsersNumber = this.GetOne(id);
-            if (oldUsersNumber == null)
-            {
-                throw new InvalidOperationException("NOt found");
-            }
-
-            oldUsersNumber.BrandYear = numberOfUsers;
-            this.Ctx.SaveChanges();
         }
     }
 }

@@ -40,9 +40,9 @@ namespace MobileWebshop.Logic
         }
 
         /// <inheritdoc/>
-        public void Insert(Product product)
+        public void ProductInsert(Product product)
         {
-            throw new System.NotImplementedException();
+            this.iProductRepository.ProductInsert(product);
         }
 
         /// <summary>
@@ -64,45 +64,52 @@ namespace MobileWebshop.Logic
         }
 
         /// <inheritdoc/>
-        public void ProductCategoryChanger(int id, Category category)
+        public void ProductUpdate(Product newProduct)
         {
-            this.iProductRepository.ProductCategoryChanger(id, category);
+            this.iProductRepository.ProductUpdate(newProduct);
         }
 
         /// <inheritdoc/>
-        public void ProductColorChanger(int id, string colour)
-        {
-            this.iProductRepository.ProductColorChanger(id, colour);
-        }
-
-        /// <inheritdoc/>
-        public void ProductIdChanger(int id, int newID)
-        {
-            this.iProductRepository.ProductIdChanger(id, newID);
-        }
-
-        /// <inheritdoc/>
-        public void ProductPriceChanger(int id, int price)
-        {
-            this.iProductRepository.ProductPriceChanger(id, price);
-        }
-
-        /// <inheritdoc/>
-        public void ProductRatingChanger(int id, int rating)
-        {
-            this.iProductRepository.ProductRatingChanger(id, rating);
-        }
-
-        /// <inheritdoc/>
-        public void ProductUpdate(int id, Product product)
-        {
-            this.iProductRepository.ProductUpdate(id, product);
-        }
-
-        /// <inheritdoc/>
-        public void Remove(Product product)
+        public void ProductRemove(Product product)
         {
             this.iProductRepository.Remove(product);
         }
+    }
+
+    /// <summary>
+    /// Product logic interface.
+    /// </summary>
+    public interface IProductLogic
+    {
+        /// <summary>
+        /// One product reader.
+        /// </summary>
+        /// <param name="id">Entity id.</param>
+        /// <returns>Entity value.</returns>
+        Product GetOne(int id);
+
+        /// <summary>
+        /// All product reader.
+        /// </summary>
+        /// <returns>All properties.</returns>
+        IList<Product> GetALL();
+
+        /// <summary>
+        /// One product inserter.
+        /// </summary>
+        /// <param name="product">product.</param>
+        void ProductInsert(Product product);
+
+        /// <summary>
+        /// product Remove.
+        /// </summary>
+        /// <param name="product">product.</param>
+        void ProductRemove(Product product);
+
+        /// <summary>
+        /// Product changer.
+        /// </summary>
+        /// <param name="newProduct">New product.</param>
+        void ProductUpdate(Product newProduct);
     }
 }

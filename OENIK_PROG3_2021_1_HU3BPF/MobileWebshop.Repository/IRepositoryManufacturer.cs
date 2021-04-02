@@ -15,39 +15,10 @@ namespace MobileWebshop.Repository
     public interface IRepositoryManufacturer : IRepository<Manufacturer>
     {
         /// <summary>
-        /// Manufacturer Id changer.
-        /// </summary>
-        /// <param name="id">old Id.</param>
-        /// <param name="newId">New Id.</param>
-        void ManufacturerIdChanger(int id, int newId);
-
-        /// <summary>
-        /// Manufacturer CEO update.
-        /// </summary>
-        /// <param name="id">Manufacturer id.</param>
-        /// <param name="ceo">New CEO.</param>
-        void ManufacturerCEOChanger(int id, string ceo);
-
-        /// <summary>
         /// Manufacturer uptare.
         /// </summary>
-        /// <param name="id">Manufacturer id.</param>
-        /// <param name="manufacturer">New manufacturer.</param>
-        void ManufacturerUpdate(int id, Manufacturer manufacturer);
-
-        /// <summary>
-        /// Manufacturer reliability.
-        /// </summary>
-        /// <param name="id">Manufacturer id.</param>
-        /// <param name="reliability">New manufacturer reliability.</param>
-        void ManufacturerReliabilityChanger(int id, int reliability);
-
-        /// <summary>
-        /// Workers number changer.
-        /// </summary>
-        /// <param name="id">Manufacturer id.</param>
-        /// <param name="workers">New workers number.</param>
-        void ManufacturerWorkersCountChanger(int id, int workers);
+        /// <param name="newManufacturer">New manufacturer.</param>
+        void ManufacturerUpdate(Manufacturer newManufacturer);
     }
 
     /// <summary>
@@ -75,89 +46,23 @@ namespace MobileWebshop.Repository
         }
 
         /// <summary>
-        /// Manufacturer Id changer.
-        /// </summary>
-        /// <param name="id">old Id.</param>
-        /// <param name="newId">New Id.</param>
-        public void ManufacturerIdChanger(int id, int newId)
-        {
-            var oldId = this.GetOne(id);
-            if (oldId == null)
-            {
-                throw new InvalidOperationException("Not found");
-            }
-
-            oldId.ManufacturerId = newId;
-            this.Ctx.SaveChanges();
-        }
-
-        /// <summary>
-        /// Manufacturer CEO update.
-        /// </summary>
-        /// <param name="id">Manufacturer id.</param>
-        /// <param name="ceo">New CEO.</param>
-        public void ManufacturerCEOChanger(int id, string ceo)
-        {
-            var oldCeo = this.GetOne(id);
-            if (oldCeo == null)
-            {
-                throw new InvalidOperationException("Not found");
-            }
-
-            oldCeo.ManufacturerCEO = ceo;
-            this.Ctx.SaveChanges();
-        }
-
-        /// <summary>
         /// Manufacturer uptare.
         /// </summary>
-        /// <param name="id">Manufacturer id.</param>
-        /// <param name="manufacturer">New manufacturer.</param>
-        public void ManufacturerUpdate(int id, Manufacturer manufacturer)
+        /// <param name="newManufacturer">New manufacturer.</param>
+        public void ManufacturerUpdate(Manufacturer newManufacturer)
         {
-            var oldManufacturer = this.GetOne(id);
+            var oldManufacturer = this.GetOne(newManufacturer.ManufacturerId);
             if (oldManufacturer == null)
             {
                 throw new InvalidOperationException("Not found");
             }
 
-            oldManufacturer = manufacturer;
-            this.Ctx.SaveChanges();
-        }
-
-        /// <summary>
-        /// Manufacturer reliability.
-        /// </summary>
-        /// <param name="id">Manufacturer id.</param>
-        /// <param name="reliability">New manufacturer reliability.</param>
-        public void ManufacturerReliabilityChanger(int id, int reliability)
-        {
-            var oldReliability = this.GetOne(id);
-            if (oldReliability == null)
-            {
-                throw new InvalidOperationException("Not found");
-            }
-
-            oldReliability.ManufacturerReliability = reliability;
-
-            this.Ctx.SaveChanges();
-        }
-
-        /// <summary>
-        /// Workers number changer.
-        /// </summary>
-        /// <param name="id">Manufacturer id.</param>
-        /// <param name="workers">New workers number.</param>
-        public void ManufacturerWorkersCountChanger(int id, int workers)
-        {
-            var oldWorkers = this.GetOne(id);
-            if (oldWorkers == null)
-            {
-                throw new InvalidOperationException("Not found");
-            }
-
-            oldWorkers.ManufacturerWorkersCount = workers;
-
+            oldManufacturer.ManufacturerCenter = newManufacturer.ManufacturerCenter;
+            oldManufacturer.ManufacturerCEO = newManufacturer.ManufacturerCEO;
+            oldManufacturer.ManufacturerName = newManufacturer.ManufacturerName;
+            oldManufacturer.ManufacturerReliability = newManufacturer.ManufacturerReliability;
+            oldManufacturer.ManufacturerWorkersCount = newManufacturer.ManufacturerWorkersCount;
+            oldManufacturer.Brands = newManufacturer.Brands;
             this.Ctx.SaveChanges();
         }
     }

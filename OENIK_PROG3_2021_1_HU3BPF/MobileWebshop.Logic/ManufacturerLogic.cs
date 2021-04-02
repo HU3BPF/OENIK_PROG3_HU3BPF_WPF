@@ -41,45 +41,58 @@ namespace MobileWebshop.Logic
         }
 
         /// <inheritdoc/>
-        public void Insert(Manufacturer manufacturer)
+        public void ManufacturerInsert(Manufacturer manufacturer)
         {
-            this.iManufacturer.Insert(manufacturer);
+            this.iManufacturer.ProductInsert(manufacturer);
         }
 
         /// <inheritdoc/>
-        public void ManufacturerCEOChanger(int id, string ceo)
+        public void ManufacturerUpdate(Manufacturer manufacturer)
         {
-            this.iManufacturer.ManufacturerCEOChanger(id, ceo);
+            this.iManufacturer.ManufacturerUpdate(manufacturer);
         }
 
         /// <inheritdoc/>
-        public void ManufacturerIdChanger(int id, int newId)
-        {
-            this.iManufacturer.ManufacturerIdChanger(id, newId);
-        }
-
-        /// <inheritdoc/>
-        public void ManufacturerReliabilityChanger(int id, int reliability)
-        {
-            this.iManufacturer.ManufacturerReliabilityChanger(id, reliability);
-        }
-
-        /// <inheritdoc/>
-        public void ManufacturerUpdate(int id, Manufacturer manufacturer)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        /// <inheritdoc/>
-        public void ManufacturerWorkersCountChanger(int id, int workers)
-        {
-            this.iManufacturer.ManufacturerWorkersCountChanger(id, workers);
-        }
-
-        /// <inheritdoc/>
-        public void Remove(Manufacturer manufacturer)
+        public void ManufacturerRemove(Manufacturer manufacturer)
         {
             this.iManufacturer.Remove(manufacturer);
         }
+    }
+
+    /// <summary>
+    /// Manufacturer and Brand table logic.
+    /// </summary>
+    public interface IManufacturer
+    {
+        /// <summary>
+        /// One Entity reader.
+        /// </summary>
+        /// <param name="id">Entity id.</param>
+        /// <returns>Entity value.</returns>
+        Manufacturer GetOne(int id);
+
+        /// <summary>
+        /// All Entities reader.
+        /// </summary>
+        /// <returns>All properties.</returns>
+        IList<Manufacturer> GetALL();
+
+        /// <summary>
+        /// One manufacturer inserter.
+        /// </summary>
+        /// <param name="manufacturer">manufacturer.</param>
+        void ManufacturerInsert(Manufacturer manufacturer);
+
+        /// <summary>
+        /// manufacturer Remove.
+        /// </summary>
+        /// <param name="manufacturer">manufacturer.</param>
+        void ManufacturerRemove(Manufacturer manufacturer);
+
+        /// <summary>
+        /// Manufacturer uptare.
+        /// </summary>
+        /// <param name="manufacturer">New manufacturer.</param>
+        void ManufacturerUpdate(Manufacturer manufacturer);
     }
 }
