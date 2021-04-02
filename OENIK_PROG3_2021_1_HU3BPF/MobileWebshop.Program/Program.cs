@@ -5,6 +5,8 @@
 namespace MobileWebshop.Program
 {
     using System;
+    using System.Globalization;
+    using System.Threading;
     using ConsoleTools;
     using MobileWebshop.Data.Models;
     using MobileWebshop.Logic;
@@ -15,11 +17,8 @@ namespace MobileWebshop.Program
     /// </summary>
     internal class Program
     {
-        private static void Main(string[] args)
+        private static void Main()
         {
-            Console.CursorVisible = false;
-
-            // Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MobileWebshopDb.mdf;Integrated Security=True;MultipleActiveResultSets=True
             MobileDbContext ctx = new MobileDbContext();
 
             RepositoryManufacturer manufacturerRepo = new RepositoryManufacturer(ctx);
@@ -30,41 +29,24 @@ namespace MobileWebshop.Program
             BrandLogic brandLogic = new BrandLogic(brandRepo);
             ProductLogic productLogic = new ProductLogic(productRepo);
 
-            var menu = new ConsoleMenu().Add("GetAllProduct", () => GetAllProduct(productLogic));
-            menu.Add("GetAllBrand", () => GetAllBrand(brandLogic));
-            menu.Add("GetAllManufacturer", () => GetAllManufacturer(manufacturerLogic)).Add("Close", ConsoleMenu.Close);
+            var menu = new ConsoleMenu()
+                .Add("Get All Product", () => ProductMethods.GetAllProduct(productLogic))
+                .Add("Get One Product", () => ProductMethods.GetONeProduct(productLogic))
+                .Add("Remove One Product", () => ProductMethods.RemoveOneProduct(productLogic))
+                .Add("Update One Product", () => ProductMethods.ChangeOneProduct(productLogic))
+                .Add("Insert One Product", () => ProductMethods.InsertOneProduct(productLogic))
+                .Add("Get All Brand", () => BrandMethods.GetAllBrand(brandLogic))
+                .Add("Get One Brand", () => BrandMethods.GetOneBrand(brandLogic))
+                .Add("Remove One Brand", () => BrandMethods.RemoveOneBrand(brandLogic))
+                .Add("Update One Brand", () => BrandMethods.ChangeOneBrand(brandLogic))
+                .Add("Insert One Brand", () => BrandMethods.InsertOneBrand(brandLogic))
+                .Add("Get All Manufacturer", () => ManufacturerMethods.GetAllManufacturer(manufacturerLogic))
+                .Add("Get One Manufacturer", () => ManufacturerMethods.GetOneManufacturer(manufacturerLogic))
+                .Add("Remove One Manufacturer", () => ManufacturerMethods.RemoveOneManufacturer(manufacturerLogic))
+                .Add("Update One Manufacturer", () => ManufacturerMethods.ChangeOneManufacturer(manufacturerLogic))
+                .Add("Insert One Manufacturer", () => ManufacturerMethods.InsertOneManufacturer(manufacturerLogic))
+                .Add("Close", ConsoleMenu.Close);
             menu.Show();
-            Console.WriteLine(args);
-        }
-
-        private static void GetAllProduct(ProductLogic logic)
-        {
-            foreach (var item in logic.GetALL())
-            {
-                Console.WriteLine(item.ProductName);
-            }
-
-            Console.ReadLine();
-        }
-
-        private static void GetAllBrand(BrandLogic logic)
-        {
-            foreach (var item in logic.GetALL())
-            {
-                Console.WriteLine(item.BrandName);
-            }
-
-            Console.ReadLine();
-        }
-
-        private static void GetAllManufacturer(ManufacturerLogic logic)
-        {
-            foreach (var item in logic.GetALL())
-            {
-                Console.WriteLine(item.ManufacturerName);
-            }
-
-            Console.ReadLine();
         }
     }
 }
