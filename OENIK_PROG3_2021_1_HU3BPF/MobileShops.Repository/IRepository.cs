@@ -61,7 +61,7 @@ namespace MobileWebshop.Repository
         /// </summary>
         protected DbContext Ctx
         {
-          get { return this.ctx; }
+            get { return this.ctx; }
         }
 
         /// <summary>

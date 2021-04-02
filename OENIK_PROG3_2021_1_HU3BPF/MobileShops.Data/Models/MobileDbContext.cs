@@ -69,11 +69,11 @@ namespace MobileWebshop.Data.Models
             Manufacturer huaweiTechnologies = new Manufacturer() { ManufacturerId = 3, ManufacturerCenter = "Sencsen", ManufacturerCEO = "Zsen Cseng-fej", ManufacturerName = "Huawei Technologies", ManufacturerReliability = 9, ManufacturerWorkersCount = 857000 };
             Manufacturer xiaomiInc = new Manufacturer() { ManufacturerId = 4, ManufacturerCenter = "Peking", ManufacturerCEO = "Lin Pin", ManufacturerName = "Xiaomi Inc.", ManufacturerReliability = 7, ManufacturerWorkersCount = 999000 };
 
-            Brand apple = new Brand() { BrandId = 1, BrandName = "Apple", BrandQuality = 9, BrandYear = 1979, ManufacturerId = appleInc.ManufacturerId, NumberOfUsers = 100000, SystemType = SystemType.Iso };
-            Brand samsung = new Brand() { BrandId = 2, BrandName = "Samsung", BrandQuality = 10, BrandYear = 1969, ManufacturerId = samsungElectronics.ManufacturerId, NumberOfUsers = 100000, SystemType = SystemType.Andorid };
-            Brand huawei = new Brand() { BrandId = 3, BrandName = "Huawei", BrandQuality = 8, BrandYear = 1987, ManufacturerId = huaweiTechnologies.ManufacturerId, NumberOfUsers = 100000, SystemType = SystemType.Andorid };
-            Brand xiaomi = new Brand() { BrandId = 4, BrandName = "Xiaomi", BrandQuality = 7, BrandYear = 2010, ManufacturerId = xiaomiInc.ManufacturerId, NumberOfUsers = 100000, SystemType = SystemType.Andorid };
-            Brand honor = new Brand() { BrandId = 5, BrandName = "Honor", BrandQuality = 10, BrandYear = 2013, ManufacturerId = huaweiTechnologies.ManufacturerId, NumberOfUsers = 100000, SystemType = SystemType.Andorid };
+            Brand apple = new Brand() { BrandId = 1, BrandName = "Apple", BrandQuality = 9, BrandYearlyIncome = 900000000, ManufacturerId = appleInc.ManufacturerId, NumberOfUsers = 100000, SystemType = SystemType.Iso };
+            Brand samsung = new Brand() { BrandId = 2, BrandName = "Samsung", BrandQuality = 10, BrandYearlyIncome = 988000000, ManufacturerId = samsungElectronics.ManufacturerId, NumberOfUsers = 100000, SystemType = SystemType.Andorid };
+            Brand huawei = new Brand() { BrandId = 3, BrandName = "Huawei", BrandQuality = 8, BrandYearlyIncome = 70550000, ManufacturerId = huaweiTechnologies.ManufacturerId, NumberOfUsers = 100000, SystemType = SystemType.Andorid };
+            Brand xiaomi = new Brand() { BrandId = 4, BrandName = "Xiaomi", BrandQuality = 7, BrandYearlyIncome = 85489525, ManufacturerId = xiaomiInc.ManufacturerId, NumberOfUsers = 100000, SystemType = SystemType.Andorid };
+            Brand honor = new Brand() { BrandId = 5, BrandName = "Honor", BrandQuality = 10, BrandYearlyIncome = 4587749659, ManufacturerId = huaweiTechnologies.ManufacturerId, NumberOfUsers = 100000, SystemType = SystemType.Andorid };
 
             Product iPhone12 = new Product() { ProductdId = 1, BrandrId = apple.BrandId, ProductCategory = Category.Expensive, ProductColour = "Blue", ProductName = "IPhone12", ProductPrice = 2000, UsresRating = 9 };
             Product iPhone12Max = new Product() { ProductdId = 2, BrandrId = apple.BrandId, ProductCategory = Category.Expensive, ProductColour = "Green", ProductName = "IPhone12Max", ProductPrice = 1800, UsresRating = 9 };

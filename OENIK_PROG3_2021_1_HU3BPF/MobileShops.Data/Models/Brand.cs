@@ -67,7 +67,7 @@ namespace MobileWebshop.Data.Models
         /// Gets or sets Brand Year.
         /// </summary>
 #nullable disable
-        public int BrandYear { get; set; }
+        public long BrandYearlyIncome { get; set; }
 
         /// <summary>
         /// Gets or sets System Type.
@@ -88,7 +88,7 @@ namespace MobileWebshop.Data.Models
         public override string ToString()
         {
             return $" Brand ID: {this.BrandId}\n Brand Name: {this.BrandName}\n" +
-                $" Brand Quality: {this.BrandQuality}\n Brand Year: {this.BrandYear}\n" +
+                $" Brand Quality: {this.BrandQuality}\n Brand Year: {this.BrandYearlyIncome}\n" +
                 $" Brand Number of Users: {this.NumberOfUsers}\n Brand System: {this.SystemType}\n";
         }
     }

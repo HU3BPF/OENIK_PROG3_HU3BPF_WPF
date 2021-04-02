@@ -1,6 +1,7 @@
 ﻿// <copyright file="SystemType.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
+
 namespace MobileWebshop.Data.Models
 {
     /// <summary>

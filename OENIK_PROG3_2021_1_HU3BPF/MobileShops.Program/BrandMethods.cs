@@ -158,8 +158,8 @@ namespace MobileWebshop.Program
             newBrand.BrandName = Console.ReadLine();
             Console.WriteLine("Brand new Quality.".ToString());
             newBrand.BrandQuality = int.Parse(Console.ReadLine(), provider);
-            Console.WriteLine("Brand new Year".ToString());
-            newBrand.BrandYear = int.Parse(Console.ReadLine(), provider);
+            Console.WriteLine("Brand new Yearly Income".ToString());
+            newBrand.BrandYearlyIncome = int.Parse(Console.ReadLine(), provider);
             Console.WriteLine("Brand new Number Of Users".ToString());
             newBrand.NumberOfUsers = int.Parse(Console.ReadLine(), provider);
             newBrand.Manufacturer = oldBrand.Manufacturer;
@@ -181,8 +181,8 @@ namespace MobileWebshop.Program
             newBrand.BrandName = Console.ReadLine();
             Console.WriteLine("Brand new Quality.".ToString());
             newBrand.BrandQuality = int.Parse(Console.ReadLine(), provider);
-            Console.WriteLine("Brand new Year".ToString());
-            newBrand.BrandYear = int.Parse(Console.ReadLine(), provider);
+            Console.WriteLine("Brand new Yearly Income".ToString());
+            newBrand.BrandYearlyIncome = int.Parse(Console.ReadLine(), provider);
             Console.WriteLine("Brand new Number Of Users".ToString());
             newBrand.NumberOfUsers = int.Parse(Console.ReadLine(), provider);
             return newBrand;

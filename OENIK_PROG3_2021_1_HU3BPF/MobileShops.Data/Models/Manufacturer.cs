@@ -63,7 +63,7 @@ namespace MobileWebshop.Data.Models
         /// <summary>
         /// Gets or Sets Brands Collection.
         /// </summary>
-        #nullable enable
+#nullable enable
         public virtual ICollection<Brand>? Brands { get; set; }
 
         /// <summary>

@@ -50,7 +50,7 @@ namespace MobileWebshop.Repository
             oldBrand.BrandId = newBrand.BrandId;
             oldBrand.BrandName = newBrand.BrandName;
             oldBrand.BrandQuality = newBrand.BrandQuality;
-            oldBrand.BrandYear = newBrand.BrandYear;
+            oldBrand.BrandYearlyIncome = newBrand.BrandYearlyIncome;
             oldBrand.Manufacturer = newBrand.Manufacturer;
             oldBrand.ManufacturerId = newBrand.ManufacturerId;
             oldBrand.NumberOfUsers = newBrand.NumberOfUsers;

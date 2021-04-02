@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <StartupObject>MobileWebshop.Program.Program</StartupObject>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
@@ -13,10 +15,12 @@
     <WarningLevel>4</WarningLevel>
     <WarningsAsErrors></WarningsAsErrors>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>bin\Debug\MobileWebshop.Logic.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\MobileShops.Program.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ConsoleMenu-simple" Version="2.4.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="5.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.4">
@@ -30,8 +34,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MobileWebshop.Data\MobileWebshop.Data.csproj" />
-    <ProjectReference Include="..\MobileWebshop.Repository\MobileWebshop.Repository.csproj" />
+    <ProjectReference Include="..\MobileShops.Data\MobileShops.Data.csproj" />
+    <ProjectReference Include="..\MobileShops.Logic\MobileShops.Logic.csproj" />
+    <ProjectReference Include="..\MobileShops.Repository\MobileShops.Repository.csproj" />
   </ItemGroup>
 
 </Project>

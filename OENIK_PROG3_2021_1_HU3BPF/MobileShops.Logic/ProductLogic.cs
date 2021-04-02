@@ -1,6 +1,7 @@
 ﻿// <copyright file="ProductLogic.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
+
 namespace MobileWebshop.Logic
 {
     using System.Collections.Generic;

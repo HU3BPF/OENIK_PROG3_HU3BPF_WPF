@@ -4,9 +4,6 @@
 
 namespace MobileWebshop.Program
 {
-    using System;
-    using System.Globalization;
-    using System.Threading;
     using ConsoleTools;
     using MobileWebshop.Data.Models;
     using MobileWebshop.Logic;
