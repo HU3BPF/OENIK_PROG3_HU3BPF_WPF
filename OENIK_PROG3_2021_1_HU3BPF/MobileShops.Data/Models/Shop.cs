@@ -10,9 +10,9 @@ namespace MobileWebshop.Data.Models
     using System.ComponentModel.DataAnnotations.Schema;
 
     /// <summary>
-    /// Manufacturer table.
+    /// Shop table.
     /// </summary>
-    [Table("Shops")]
+    [Table("Shop")]
     public class Shop
     {
         /// <summary>
@@ -21,7 +21,7 @@ namespace MobileWebshop.Data.Models
         public Shop() => this.Brands = new HashSet<Brand>();
 
         /// <summary>
-        /// Gets or sets manufacturer id.
+        /// Gets or sets Shop id.
         /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -29,7 +29,7 @@ namespace MobileWebshop.Data.Models
         public int ShopId { get; set; }
 
         /// <summary>
-        /// gets or sets manufacturer name.
+        /// gets or sets Shop name.
         /// </summary>
         [MaxLength(100)]
 #nullable disable
@@ -48,7 +48,7 @@ namespace MobileWebshop.Data.Models
         public string ShopLeader { get; set; }
 
         /// <summary>
-        /// gets or sets manufacturer reliability.
+        /// gets or sets Shop reliability.
         /// </summary>
         [Range(0, 10)]
 #nullable disable
