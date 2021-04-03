@@ -72,8 +72,8 @@ namespace MobileWebshop.Data.Models
             Brand apple = new Brand() { BrandId = 1, BrandName = "Apple", BrandQuality = 9, BrandAnnualProfit = 9220000, ShopID = sarkiTelo.ShopId, NumberOfUsers = 100000, BrandNumberOfProducts = 10 };
             Brand samsung = new Brand() { BrandId = 2, BrandName = "Samsung", BrandQuality = 10, BrandAnnualProfit = 9802200, ShopID = sarkiTelo.ShopId, NumberOfUsers = 100000, BrandNumberOfProducts = 10 };
             Brand huawei = new Brand() { BrandId = 3, BrandName = "Huawei", BrandQuality = 8, BrandAnnualProfit = 7011000, ShopID = sarkiTelo.ShopId, NumberOfUsers = 100000, BrandNumberOfProducts = 10 };
-            Brand xiaomi = new Brand() { BrandId = 4, BrandName = "Xiaomi", BrandQuality = 7, BrandAnnualProfit = 889525, ShopID = sarkiTelo.ShopId, NumberOfUsers = 100000, BrandNumberOfProducts = 10 };
-            Brand honor = new Brand() { BrandId = 5, BrandName = "Honor", BrandQuality = 10, BrandAnnualProfit = 4519659, ShopID = sarkiTelo.ShopId, NumberOfUsers = 100000, BrandNumberOfProducts = 10 };
+            Brand xiaomi = new Brand() { BrandId = 4, BrandName = "Xiaomi", BrandQuality = 7, BrandAnnualProfit = 889525, ShopID = vodafon.ShopId, NumberOfUsers = 100000, BrandNumberOfProducts = 10 };
+            Brand honor = new Brand() { BrandId = 5, BrandName = "Honor", BrandQuality = 10, BrandAnnualProfit = 4519659, ShopID = vodafon.ShopId, NumberOfUsers = 100000, BrandNumberOfProducts = 10 };
 
             Product iPhone12 = new Product() { ProductdId = 1, BrandrId = apple.BrandId, ProductSystem = SystemType.Iso, ProductColour = "Blue", ProductName = "IPhone12", ProductPrice = 2000, UsresRating = 9 };
             Product iPhone12Max = new Product() { ProductdId = 2, BrandrId = apple.BrandId, ProductSystem = SystemType.Iso, ProductColour = "Green", ProductName = "IPhone12Max", ProductPrice = 1800, UsresRating = 9 };
