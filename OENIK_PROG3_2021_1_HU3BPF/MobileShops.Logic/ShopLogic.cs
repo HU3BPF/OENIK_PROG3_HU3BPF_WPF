@@ -6,62 +6,121 @@ namespace MobileWebshop.Logic
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
+    using MobileShops.Logic.NonCrudLogic;
     using MobileWebshop.Data.Models;
     using MobileWebshop.Repository;
 
     /// <summary>
-    /// Manufacturer and Brand Logic.
+    /// Shop Logic.
     /// </summary>
     public class ShopLogic : IShop
     {
         /// <summary>
-        /// IRepositoryManufacturer.
+        /// IRepositoryShop.
         /// </summary>
-        private readonly IRepositoryShop iManufacturer;
+        private readonly IRepositoryShop iRepositoryShop;
+        private readonly IRepositoryProduct iRepositoryProduct;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ShopLogic"/> class.
-        /// Sets I Repository iManufacturer.
         /// </summary>
-        /// <param name="iManufacturer">IRepositoryManufacturer.</param>
-        public ShopLogic(IRepositoryShop iManufacturer)
+        /// <param name="iRepositoryShop">IRepository Shop.</param>
+        /// <param name="iRepositoryProduct">IRepository Product.</param>
+        public ShopLogic(IRepositoryShop iRepositoryShop, IRepositoryProduct iRepositoryProduct)
         {
-            this.iManufacturer = iManufacturer;
+            this.iRepositoryProduct = iRepositoryProduct;
+            this.iRepositoryShop = iRepositoryShop;
         }
 
         /// <inheritdoc/>
         public IList<Shop> GetALL()
         {
-            return this.iManufacturer.GetALL().ToList();
+            return this.iRepositoryShop.GetALL().ToList();
         }
 
         /// <inheritdoc/>
         public Shop GetOne(int id)
         {
-            return this.iManufacturer.GetOne(id);
+            return this.iRepositoryShop.GetOne(id);
         }
 
         /// <inheritdoc/>
-        public void ManufacturerInsert(Shop manufacturer)
+        public void ShopInsert(Shop shop)
         {
-            this.iManufacturer.ProductInsert(manufacturer);
+            this.iRepositoryShop.ProductInsert(shop);
         }
 
         /// <inheritdoc/>
-        public void ManufacturerUpdate(Shop manufacturer)
+        public void ShopUpdate(Shop shop)
         {
-            this.iManufacturer.ShopUpdate(manufacturer);
+            this.iRepositoryShop.ShopUpdate(shop);
         }
 
         /// <inheritdoc/>
-        public void ManufacturerRemove(Shop manufacturer)
+        public void ShopRemove(Shop shop)
         {
-            this.iManufacturer.Remove(manufacturer);
+            this.iRepositoryShop.Remove(shop);
+        }
+
+        /// <summary>
+        /// Get Number Of Products.
+        /// </summary>
+        /// <returns>IList Shop Number Of Products.</returns>
+        public IList<ShopNumberOfProduct> GetNumberOfProducts()
+        {
+            var shopProducts = from shop in this.iRepositoryShop.GetALL()
+                                    join product in this.iRepositoryProduct.GetALL()
+                                    on shop.ShopId equals product.Brand.ShopID
+                                    group shop by new { shop.ShopName, shop.ShopId, product.ProductPrice } into grp
+                                    orderby grp.Key.ShopName descending
+                                    select new ShopNumberOfProduct
+                                    {
+                                        ShopName = grp.Key.ShopName,
+                                        NumberOfProduct = grp.Key.ProductPrice,
+                                    };
+
+            var shopNumberOfProducts = from shop in shopProducts
+                                       group shop by shop.ShopName into grp
+                                    select new ShopNumberOfProduct
+                                    {
+                                        ShopName = grp.Key,
+                                        NumberOfProduct = grp.Count(),
+                                    };
+
+            return shopNumberOfProducts.ToList();
+        }
+
+        /// <summary>
+        /// Get Number Of Products.
+        /// </summary>
+        /// <returns>IList Shop Number Of Products.</returns>
+        public IList<ShopNumberOfProduct> GetNumberOfProductsAsync()
+        {
+            var shopProducts = from shop in this.iRepositoryShop.GetALL()
+                               join product in this.iRepositoryProduct.GetALL()
+                               on shop.ShopId equals product.Brand.ShopID
+                               group shop by new { shop.ShopName, shop.ShopId, product.ProductPrice } into grp
+                               orderby grp.Key.ShopName descending
+                               select new ShopNumberOfProduct
+                               {
+                                   ShopName = grp.Key.ShopName,
+                                   NumberOfProduct = grp.Key.ProductPrice,
+                               };
+
+            var shopNumberOfProducts = from shop in shopProducts
+                                       group shop by shop.ShopName into grp
+                                       select new ShopNumberOfProduct
+                                       {
+                                           ShopName = grp.Key,
+                                           NumberOfProduct = grp.Count(),
+                                       };
+            return shopNumberOfProducts.ToList();
         }
     }
 
     /// <summary>
-    /// Manufacturer and Brand table logic.
+    /// Shop table Logic Interface.
     /// </summary>
     public interface IShop
     {
@@ -75,25 +134,25 @@ namespace MobileWebshop.Logic
         /// <summary>
         /// All Entities reader.
         /// </summary>
-        /// <returns>All properties.</returns>
+        /// <returns>All Entities.</returns>
         IList<Shop> GetALL();
 
         /// <summary>
-        /// One manufacturer inserter.
+        /// One shop inserter.
         /// </summary>
-        /// <param name="manufacturer">manufacturer.</param>
-        void ManufacturerInsert(Shop manufacturer);
+        /// <param name="shop">shop.</param>
+        void ShopInsert(Shop shop);
 
         /// <summary>
-        /// manufacturer Remove.
+        /// shop Remove.
         /// </summary>
-        /// <param name="manufacturer">manufacturer.</param>
-        void ManufacturerRemove(Shop manufacturer);
+        /// <param name="shop">shop.</param>
+        void ShopRemove(Shop shop);
 
         /// <summary>
-        /// Manufacturer uptare.
+        /// shop updater.
         /// </summary>
-        /// <param name="manufacturer">New manufacturer.</param>
-        void ManufacturerUpdate(Shop manufacturer);
+        /// <param name="shop">New shop.</param>
+        void ShopUpdate(Shop shop);
     }
 }
