@@ -6,6 +6,8 @@ namespace MobileWebshop.Logic
 {
     using System.Collections.Generic;
     using System.Linq;
+    using MobileShops.Logic;
+    using MobileShops.Logic.NonCrudLogic;
     using MobileWebshop.Data.Models;
     using MobileWebshop.Repository;
 
@@ -20,13 +22,20 @@ namespace MobileWebshop.Logic
         private readonly IRepositoryBrand iRepositoryBrand;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BrandLogic"/> class.
-        /// Sets I repository Brand.
+        /// Irepository Product.
         /// </summary>
-        /// <param name="iRepositoryBrand">iRepositoryBrand value.</param>
-        public BrandLogic(IRepositoryBrand iRepositoryBrand)
+        private readonly IRepositoryProduct iRepositoryProduct;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BrandLogic"/> class.
+        /// Sets IRepository Brand and IRepository Product.
+        /// </summary>
+        /// <param name="iRepositoryBrand">iRepository Brand value.</param>
+        /// /// <param name="iRepositoryProduct">iRepository Product value.</param>
+        public BrandLogic(IRepositoryBrand iRepositoryBrand, IRepositoryProduct iRepositoryProduct)
         {
             this.iRepositoryBrand = iRepositoryBrand;
+            this.iRepositoryProduct = iRepositoryProduct;
         }
 
         /// <inheritdoc/>
@@ -58,6 +67,118 @@ namespace MobileWebshop.Logic
         {
             this.iRepositoryBrand.Remove(brand);
         }
+
+        /// <summary>
+        /// Get Brand Avrerages product price.
+        /// </summary>
+        /// <returns>IList Brand Average price.</returns>
+        public IList<BrandAveragerProductPrice> GetBrandAveragesPrice()
+        {
+            var brandProductPrice = from brand in this.iRepositoryBrand.GetALL()
+                                    join product in this.iRepositoryProduct.GetALL()
+                                    on brand.BrandId equals product.BrandrId
+                                    group brand by new { brand.BrandName, brand.BrandId, product.ProductPrice } into grp
+                                    orderby grp.Key.BrandName descending
+                                    select new BrandAveragerProductPrice
+                                    {
+                                        BrandName = grp.Key.BrandName,
+                                        AveragePrice = grp.Key.ProductPrice,
+                                    };
+
+            var brandAveragePrice = from brand in brandProductPrice
+                                    group brand by brand.BrandName into grp
+                                    select new BrandAveragerProductPrice
+                                    {
+                                       BrandName = grp.Key,
+                                       AveragePrice = (long)grp.Average(x => x.AveragePrice),
+                                    };
+
+            return brandAveragePrice.ToList();
+        }
+
+        /// <summary>
+        /// Get Brand Avrerages product Rating.
+        /// </summary>
+        /// <returns>IList Brand Average Rating.</returns>
+        public IList<BrandAverageProductRating> GetBrandAveragesRating()
+        {
+            var brandProductPrice = from brand in this.iRepositoryBrand.GetALL()
+                                    join product in this.iRepositoryProduct.GetALL()
+                                    on brand.BrandId equals product.BrandrId
+                                    group brand by new { brand.BrandName, brand.BrandId, product.UsresRating } into grp
+                                    orderby grp.Key.BrandName descending
+                                    select new BrandAverageProductRating
+                                    {
+                                        BrandName = grp.Key.BrandName,
+                                        AverageRating = grp.Key.UsresRating,
+                                    };
+
+            var brandAveragePrice = from brand in brandProductPrice
+                                    group brand by brand.BrandName into grp
+                                    select new BrandAverageProductRating
+                                    {
+                                        BrandName = grp.Key,
+                                        AverageRating = (long)grp.Average(x => x.AverageRating),
+                                    };
+
+            return brandAveragePrice.ToList();
+        }
+
+        /// <summary>
+        /// Get Brand Avrerages product price.
+        /// </summary>
+        /// <returns>IList Brand Average price.</returns>
+        public IList<BrandAveragerProductPrice> GetBrandAveragesPriceAsync()
+        {
+            var brandProductPrice = from brand in this.iRepositoryBrand.GetALL()
+                                    join product in this.iRepositoryProduct.GetALL()
+                                    on brand.BrandId equals product.BrandrId
+                                    group brand by new { brand.BrandName, brand.BrandId, product.ProductPrice } into grp
+                                    orderby grp.Key.BrandName descending
+                                    select new BrandAveragerProductPrice
+                                    {
+                                        BrandName = grp.Key.BrandName,
+                                        AveragePrice = grp.Key.ProductPrice,
+                                    };
+
+            var brandAveragePrice = from brand in brandProductPrice
+                                    group brand by brand.BrandName into grp
+                                    select new BrandAveragerProductPrice
+                                    {
+                                        BrandName = grp.Key,
+                                        AveragePrice = (long)grp.Average(x => x.AveragePrice),
+                                    };
+
+            return brandAveragePrice.ToList();
+        }
+
+        /// <summary>
+        /// Get Brand Avrerages product Rating.
+        /// </summary>
+        /// <returns>IList Brand Average Rating.</returns>
+        public IList<BrandAverageProductRating> GetBrandAveragesRatingAsync()
+        {
+            var brandProductPrice = from brand in this.iRepositoryBrand.GetALL()
+                                    join product in this.iRepositoryProduct.GetALL()
+                                    on brand.BrandId equals product.BrandrId
+                                    group brand by new { brand.BrandName, brand.BrandId, product.UsresRating } into grp
+                                    orderby grp.Key.BrandName descending
+                                    select new BrandAverageProductRating
+                                    {
+                                        BrandName = grp.Key.BrandName,
+                                        AverageRating = grp.Key.UsresRating,
+                                    };
+
+            var brandAveragePrice = from brand in brandProductPrice
+                                    group brand by brand.BrandName into grp
+                                    select new BrandAverageProductRating
+                                    {
+                                        BrandName = grp.Key,
+                                        AverageRating = (long)grp.Average(x => x.AverageRating),
+                                    };
+
+            return brandAveragePrice.ToList();
+        }
     }
 
     /// <summary>
@@ -81,7 +202,7 @@ namespace MobileWebshop.Logic
         /// <summary>
         /// All Entities reader.
         /// </summary>
-        /// <returns>All properties.</returns>
+        /// <returns>All Entities.</returns>
         IList<Brand> GetALL();
 
         /// <summary>
@@ -95,5 +216,17 @@ namespace MobileWebshop.Logic
         /// </summary>
         /// <param name="brand">brand.</param>
         void BrandRemove(Brand brand);
+
+        /// <summary>
+        /// Get Brand Avrerages price.
+        /// </summary>
+        /// <returns>IList Brand Average price.</returns>
+        IList<BrandAveragerProductPrice> GetBrandAveragesPrice();
+
+        /// <summary>
+        /// Get Brand Avrerages product Rating.
+        /// </summary>
+        /// <returns>IList Brand Average Rating.</returns>
+        public IList<BrandAverageProductRating> GetBrandAveragesRatingAsync();
     }
 }
