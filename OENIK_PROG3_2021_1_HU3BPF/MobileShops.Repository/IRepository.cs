@@ -15,8 +15,6 @@ namespace MobileWebshop.Repository
     public interface IRepository<T>
         where T : class
     {
-        // CRUD.
-        // Modosítás nem generikus!.
 
         /// <summary>
         /// One Entity reader.
@@ -28,7 +26,7 @@ namespace MobileWebshop.Repository
         /// <summary>
         /// All Entities reader.
         /// </summary>
-        /// <returns>All properties.</returns>
+        /// <returns>All Entities.</returns>
         IQueryable<T> GetALL();
 
         /// <summary>
@@ -84,7 +82,7 @@ namespace MobileWebshop.Repository
         /// <summary>
         ///  All Entities reader.
         /// </summary>
-        /// <returns>All properties.</returns>
+        /// <returns>All Entities.</returns>
         public IQueryable<T> GetALL()
         {
             return this.ctx.Set<T>();

@@ -60,10 +60,10 @@ namespace MobileWebshop.Repository
         }
 
         /// <summary>
-        /// GetONe entity.
+        /// Get ONe entity.
         /// </summary>
         /// <param name="id">Entity Id.</param>
-        /// <returns>1 Entity when Id =ID.</returns>
+        /// <returns>1 Entity when Id = ID.</returns>
         public override Brand GetOne(int id)
         {
             return this.GetALL().SingleOrDefault(x => x.BrandId == id);

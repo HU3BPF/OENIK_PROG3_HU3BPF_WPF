@@ -10,12 +10,12 @@ namespace MobileWebshop.Repository
     using MobileWebshop.Data.Models;
 
     /// <summary>
-    /// Manufacturer Repository.
+    /// Shop Repository.
     /// </summary>
     public interface IRepositoryShop : IRepository<Shop>
     {
         /// <summary>
-        /// newShop uptare.
+        /// New Shop uptare.
         /// </summary>
         /// <param name="newShop">New Shop.</param>
         void ShopUpdate(Shop newShop);
@@ -24,13 +24,13 @@ namespace MobileWebshop.Repository
     /// <summary>
     /// Manufacturer Repository.
     /// </summary>
-    public class RepositoryManufacturer : AncestorRepository<Shop>, IRepositoryShop
+    public class RepositoryShop : AncestorRepository<Shop>, IRepositoryShop
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="RepositoryManufacturer"/> class.
+        /// Initializes a new instance of the <see cref="RepositoryShop"/> class.
         /// </summary>
         /// <param name="ctx">Dbcontext.</param>
-        public RepositoryManufacturer(DbContext ctx)
+        public RepositoryShop(DbContext ctx)
             : base(ctx)
         {
         }
