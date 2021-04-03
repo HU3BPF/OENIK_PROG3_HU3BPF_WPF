@@ -6,6 +6,7 @@ namespace MobileWebshop.Logic
 {
     using System.Collections.Generic;
     using System.Linq;
+    using MobileShops.Logic;
     using MobileWebshop.Data.Models;
     using MobileWebshop.Repository;
 
@@ -22,7 +23,7 @@ namespace MobileWebshop.Logic
         /// <summary>
         /// Initializes a new instance of the <see cref="ProductLogic"/> class.
         /// </summary>
-        /// <param name="iProductRepository">IRepositoryProduct.</param>
+        /// <param name="iProductRepository">IRepository Product.</param>
         public ProductLogic(IRepositoryProduct iProductRepository)
         {
             this.iProductRepository = iProductRepository;
@@ -44,24 +45,6 @@ namespace MobileWebshop.Logic
         public void ProductInsert(Product product)
         {
             this.iProductRepository.ProductInsert(product);
-        }
-
-        /// <summary>
-        /// IList <ProductAverag></ProductAverag>
-        /// Gets list average product price.
-        /// </summary>
-        /// <returns>IList product average.</returns>
-        public IList<ProductAverage> ProductAverages()
-        {
-            var q = from product in this.iProductRepository.GetALL()
-                    group product by new { product.BrandrId, product.Brand.BrandName } into grp
-                    select new ProductAverage()
-                    {
-                        ProductName = grp.Key.BrandName,
-                        AveragePrice = grp.Average(x => x.ProductPrice),
-                    };
-            IList<ProductAverage> average = q.ToList();
-            return average;
         }
 
         /// <inheritdoc/>
@@ -92,7 +75,7 @@ namespace MobileWebshop.Logic
         /// <summary>
         /// All product reader.
         /// </summary>
-        /// <returns>All properties.</returns>
+        /// <returns>All Entity.</returns>
         IList<Product> GetALL();
 
         /// <summary>
