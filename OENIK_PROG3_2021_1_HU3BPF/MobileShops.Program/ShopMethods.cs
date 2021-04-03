@@ -5,19 +5,21 @@
 namespace MobileWebshop.Program
 {
     using System;
+    using System.Collections.Generic;
     using System.Globalization;
+    using MobileShops.Logic.NonCrudLogic;
     using MobileWebshop.Data.Models;
     using MobileWebshop.Logic;
 
     /// <summary>
-    /// Manufacturer entity methods.
+    /// Shop entity methods.
     /// </summary>
     internal static class ShopMethods
     {
         /// <summary>
-        /// Get all manufacturer.
+        /// Get all Shop.
         /// </summary>
-        /// <param name="logic">Manufacturer logic.</param>
+        /// <param name="logic">Shop logic.</param>
         internal static void GetAllShop(ShopLogic logic)
         {
             Console.Clear();
@@ -30,9 +32,9 @@ namespace MobileWebshop.Program
         }
 
         /// <summary>
-        /// Get ONe manufacturer.
+        /// Get ONe Shop.
         /// </summary>
-        /// <param name="logic">Manufacturer logic.</param>
+        /// <param name="logic">Shop logic.</param>
         internal static void GetOneShop(ShopLogic logic)
         {
             NumberFormatInfo provider = new NumberFormatInfo();
@@ -56,9 +58,9 @@ namespace MobileWebshop.Program
         }
 
         /// <summary>
-        /// Remove One manufacturer.
+        /// Remove one Shop.
         /// </summary>
-        /// <param name="logic">Manufacturer logic.</param>
+        /// <param name="logic">Shop logic.</param>
         internal static void RemoveOneShop(ShopLogic logic)
         {
             NumberFormatInfo provider = new NumberFormatInfo();
@@ -70,7 +72,7 @@ namespace MobileWebshop.Program
                 int id = int.Parse(Console.ReadLine(), provider); // Rossz id esetén rossz!!!.
                 shop = logic?.GetOne(id);
                 Console.WriteLine(shop?.ToString());
-                logic?.ManufacturerRemove(shop);
+                logic?.ShopRemove(shop);
                 Console.WriteLine("Shop Deleted".ToString());
             }
             catch (FormatException exception)
@@ -85,9 +87,9 @@ namespace MobileWebshop.Program
         }
 
         /// <summary>
-        /// Change One Manufacturer.
+        /// Change One Shop.
         /// </summary>
-        /// <param name="logic">Manufacturer Logic.</param>
+        /// <param name="logic">Shop Logic.</param>
         internal static void ChangeOneShop(ShopLogic logic)
         {
             NumberFormatInfo provider = new NumberFormatInfo();
@@ -102,7 +104,7 @@ namespace MobileWebshop.Program
                 Console.WriteLine($"Old Shop: \n{shop?.ToString()}");
                 newShop = NewManufacturer(shop);
                 Console.WriteLine($"New Shop: \n{newShop?.ToString()}");
-                logic?.ManufacturerUpdate(newShop);
+                logic?.ShopUpdate(newShop);
                 Console.WriteLine("Shop Updated".ToString());
             }
             catch (FormatException exception)
@@ -117,9 +119,9 @@ namespace MobileWebshop.Program
         }
 
         /// <summary>
-        /// Change One Manufacturer.
+        /// Insert One Shop.
         /// </summary>
-        /// <param name="logic">Manufacturer Logic.</param>
+        /// <param name="logic">Shop Logic.</param>
         internal static void InsertOneShop(ShopLogic logic)
         {
             NumberFormatInfo provider = new NumberFormatInfo();
@@ -130,7 +132,7 @@ namespace MobileWebshop.Program
             {
                 newShop = NewManufacturer();
                 Console.WriteLine($"New Shop: \n{newShop?.ToString()}");
-                logic?.ManufacturerInsert(newShop);
+                logic?.ShopInsert(newShop);
                 Console.WriteLine("Shop Inserted".ToString());
             }
             catch (FormatException exception)
@@ -145,10 +147,44 @@ namespace MobileWebshop.Program
         }
 
         /// <summary>
-        /// Set new product.
+        /// Shop number of products.
         /// </summary>
-        /// <param name="oldShop">Old Manufacturer.</param>
-        /// <returns>New product.</returns>
+        /// /// <param name="logic">Shop logic.</param>
+        internal static void GetNumberOfProducts(ShopLogic logic)
+        {
+            Console.Clear();
+            IList<ShopNumberOfProduct> shops = logic.GetNumberOfProducts();
+            foreach (ShopNumberOfProduct item in shops)
+            {
+                Console.WriteLine(item.ToString());
+            }
+
+            Console.WriteLine("Press any key to contnue.".ToString());
+            Console.ReadKey();
+        }
+
+        /// <summary>
+        /// Shop number of products.
+        /// </summary>
+        /// /// <param name="logic">Shop logic.</param>
+        internal static void GetNumberOfProductsAsync(ShopLogic logic)
+        {
+            Console.Clear();
+            IList<ShopNumberOfProduct> shops = logic.GetNumberOfProductsAsync();
+            foreach (ShopNumberOfProduct item in shops)
+            {
+                Console.WriteLine(item.ToString());
+            }
+
+            Console.WriteLine("Press any key to contnue.".ToString());
+            Console.ReadKey();
+        }
+
+        /// <summary>
+        /// Set new Shop.
+        /// </summary>
+        /// <param name="oldShop">Old Shop.</param>
+        /// <returns>New Shop.</returns>
         private static Shop NewManufacturer(Shop oldShop)
         {
             Shop newShop = new Shop();
@@ -171,9 +207,9 @@ namespace MobileWebshop.Program
         }
 
         /// <summary>
-        /// Set new product.
+        /// Set new Shop.
         /// </summary>
-        /// <returns>New product.</returns>
+        /// <returns>New Shop.</returns>
         private static Shop NewManufacturer()
         {
             Shop newShop = new Shop();

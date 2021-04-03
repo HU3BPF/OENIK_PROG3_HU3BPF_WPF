@@ -18,12 +18,12 @@ namespace MobileWebshop.Program
         {
             ShopDbContext ctx = new ShopDbContext();
 
-            RepositoryManufacturer manufacturerRepo = new RepositoryManufacturer(ctx);
+            RepositoryShop shopRepo = new RepositoryShop(ctx);
             BrandRepository brandRepo = new BrandRepository(ctx);
             RepositoryProduct productRepo = new RepositoryProduct(ctx);
 
-            ShopLogic manufacturerLogic = new ShopLogic(manufacturerRepo);
-            BrandLogic brandLogic = new BrandLogic(brandRepo);
+            ShopLogic shopLogic = new ShopLogic(shopRepo, productRepo);
+            BrandLogic brandLogic = new BrandLogic(brandRepo, productRepo);
             ProductLogic productLogic = new ProductLogic(productRepo);
 
             var menu = new ConsoleMenu()
@@ -37,11 +37,17 @@ namespace MobileWebshop.Program
                 .Add("Remove One Brand", () => BrandMethods.RemoveOneBrand(brandLogic))
                 .Add("Update One Brand", () => BrandMethods.ChangeOneBrand(brandLogic))
                 .Add("Insert One Brand", () => BrandMethods.InsertOneBrand(brandLogic))
-                .Add("Get All shop", () => ShopMethods.GetAllShop(manufacturerLogic))
-                .Add("Get One shop", () => ShopMethods.GetOneShop(manufacturerLogic))
-                .Add("Remove One shop", () => ShopMethods.RemoveOneShop(manufacturerLogic))
-                .Add("Update One shop", () => ShopMethods.ChangeOneShop(manufacturerLogic))
-                .Add("Insert One shop", () => ShopMethods.InsertOneShop(manufacturerLogic))
+                .Add("Get All shop", () => ShopMethods.GetAllShop(shopLogic))
+                .Add("Get One shop", () => ShopMethods.GetOneShop(shopLogic))
+                .Add("Remove One shop", () => ShopMethods.RemoveOneShop(shopLogic))
+                .Add("Update One shop", () => ShopMethods.ChangeOneShop(shopLogic))
+                .Add("Insert One shop", () => ShopMethods.InsertOneShop(shopLogic))
+                .Add("Get average Brand Price", () => BrandMethods.BrandAverageProfit(brandLogic))
+                .Add("Get average Brand Rating", () => BrandMethods.BrandAverageRating(brandLogic))
+                .Add("Get Shop Number Of Products", () => ShopMethods.GetNumberOfProducts(shopLogic))
+                .Add("Get average Brand Price Async", () => BrandMethods.BrandAverageProfitAsync(brandLogic))
+                .Add("Get average Brand Rating Async", () => BrandMethods.BrandAverageRatingAsync(brandLogic))
+                .Add("Get Shop Number Of Products Async", () => ShopMethods.GetNumberOfProductsAsync(shopLogic))
                 .Add("Close", ConsoleMenu.Close);
             menu.Show();
         }

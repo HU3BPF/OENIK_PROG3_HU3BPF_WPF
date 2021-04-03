@@ -5,12 +5,15 @@
 namespace MobileWebshop.Program
 {
     using System;
+    using System.Collections.Generic;
     using System.Globalization;
+    using MobileShops.Logic;
+    using MobileShops.Logic.NonCrudLogic;
     using MobileWebshop.Data.Models;
     using MobileWebshop.Logic;
 
     /// <summary>
-    /// Product entity methods.
+    /// Brand entity methods.
     /// </summary>
     internal static class BrandMethods
     {
@@ -85,9 +88,9 @@ namespace MobileWebshop.Program
         }
 
         /// <summary>
-        /// Change One Product.
+        /// Change One Brand.
         /// </summary>
-        /// <param name="logic">product logic.</param>
+        /// <param name="logic">Brand logic.</param>
         internal static void ChangeOneBrand(BrandLogic logic)
         {
             NumberFormatInfo provider = new NumberFormatInfo();
@@ -117,9 +120,9 @@ namespace MobileWebshop.Program
         }
 
         /// <summary>
-        /// Change One Product.
+        /// Change One Brand.
         /// </summary>
-        /// <param name="logic">product logic.</param>
+        /// <param name="logic">Brand logic.</param>
         internal static void InsertOneBrand(BrandLogic logic)
         {
             NumberFormatInfo provider = new NumberFormatInfo();
@@ -144,10 +147,78 @@ namespace MobileWebshop.Program
         }
 
         /// <summary>
-        /// Set new product.
+        /// Brand Average profit.
+        /// </summary>
+        /// /// <param name="logic">Brand logic.</param>
+        internal static void BrandAverageProfit(BrandLogic logic)
+        {
+            Console.Clear();
+            IList<BrandAveragerProductPrice> brands = logic.GetBrandAveragesPrice();
+            foreach (BrandAveragerProductPrice item in brands)
+            {
+                Console.WriteLine(item.ToString());
+            }
+
+            Console.WriteLine("Press any key to contnue.".ToString());
+            Console.ReadKey();
+        }
+
+        /// <summary>
+        /// Brand Average profit.
+        /// </summary>
+        /// /// <param name="logic">Brand logic.</param>
+        internal static void BrandAverageRating(BrandLogic logic)
+        {
+            Console.Clear();
+            IList<BrandAverageProductRating> brands = logic.GetBrandAveragesRating();
+            foreach (BrandAverageProductRating item in brands)
+            {
+                Console.WriteLine(item.ToString());
+            }
+
+            Console.WriteLine("Press any key to contnue.".ToString());
+            Console.ReadKey();
+        }
+
+        /// <summary>
+        /// Brand Average profit.
+        /// </summary>
+        /// /// <param name="logic">Brand logic.</param>
+        internal static void BrandAverageProfitAsync(BrandLogic logic)
+        {
+            Console.Clear();
+            IList<BrandAveragerProductPrice> brands = logic.GetBrandAveragesPriceAsync();
+            foreach (BrandAveragerProductPrice item in brands)
+            {
+                Console.WriteLine(item.ToString());
+            }
+
+            Console.WriteLine("Press any key to contnue.".ToString());
+            Console.ReadKey();
+        }
+
+        /// <summary>
+        /// Brand Average profit.
+        /// </summary>
+        /// /// <param name="logic">Brand logic.</param>
+        internal static void BrandAverageRatingAsync(BrandLogic logic)
+        {
+            Console.Clear();
+            IList<BrandAverageProductRating> brands = logic.GetBrandAveragesRatingAsync();
+            foreach (BrandAverageProductRating item in brands)
+            {
+                Console.WriteLine(item.ToString());
+            }
+
+            Console.WriteLine("Press any key to contnue.".ToString());
+            Console.ReadKey();
+        }
+
+        /// <summary>
+        /// Set new Brand.
         /// </summary>
         /// <param name="oldBrand">Old Brand.</param>
-        /// <returns>New product.</returns>
+        /// <returns>New Brand.</returns>
         private static Brand NewBrand(Brand oldBrand)
         {
             Brand newBrand = new Brand();
@@ -171,9 +242,9 @@ namespace MobileWebshop.Program
         }
 
         /// <summary>
-        /// Set new product.
+        /// Set new Brand.
         /// </summary>
-        /// <returns>New product.</returns>
+        /// <returns>New Brand.</returns>
         private static Brand NewBrand()
         {
             Brand newBrand = new Brand();
