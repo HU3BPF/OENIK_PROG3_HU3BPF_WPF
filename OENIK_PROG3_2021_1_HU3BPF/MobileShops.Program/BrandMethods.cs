@@ -187,7 +187,7 @@ namespace MobileWebshop.Program
         internal static void BrandAverageProfitAsync(BrandLogic logic)
         {
             Console.Clear();
-            IList<BrandAveragerProductPrice> brands = logic.GetBrandAveragesPriceAsync();
+            IList<BrandAveragerProductPrice> brands = logic.GetBrandAveragesPriceAsync().Result;
             foreach (BrandAveragerProductPrice item in brands)
             {
                 Console.WriteLine(item.ToString());
@@ -204,7 +204,7 @@ namespace MobileWebshop.Program
         internal static void BrandAverageRatingAsync(BrandLogic logic)
         {
             Console.Clear();
-            IList<BrandAverageProductRating> brands = logic.GetBrandAveragesRatingAsync();
+            IList<BrandAverageProductRating> brands = logic.GetBrandAveragesRatingAsync().Result;
             foreach (BrandAverageProductRating item in brands)
             {
                 Console.WriteLine(item.ToString());

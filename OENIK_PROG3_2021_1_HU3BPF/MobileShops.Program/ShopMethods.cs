@@ -170,7 +170,7 @@ namespace MobileWebshop.Program
         internal static void GetNumberOfProductsAsync(ShopLogic logic)
         {
             Console.Clear();
-            IList<ShopNumberOfProduct> shops = logic.GetNumberOfProductsAsync();
+            IList<ShopNumberOfProduct> shops = logic.GetNumberOfProductsAsync().Result;
             foreach (ShopNumberOfProduct item in shops)
             {
                 Console.WriteLine(item.ToString());
