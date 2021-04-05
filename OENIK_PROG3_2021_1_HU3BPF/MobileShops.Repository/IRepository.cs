@@ -15,7 +15,6 @@ namespace MobileWebshop.Repository
     public interface IRepository<T>
         where T : class
     {
-
         /// <summary>
         /// One Entity reader.
         /// </summary>
