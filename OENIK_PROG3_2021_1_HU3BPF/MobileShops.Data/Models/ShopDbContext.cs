@@ -64,16 +64,16 @@ namespace MobileWebshop.Data.Models
                 entity.HasOne(brand => brand.Shop).WithMany(shop => shop.Brands);
             });
 
-            Shop sarkiTelo = new Shop() { ShopId = 1, ShopName = "Sarki-Telo", ShopLeader = "Kim Ki Nam", ShopLocation = "BUdapest", ShopReliability = 10, ShopAnnualProfit = 900000000, ShopNumberOfWorker = 15 };
-            Shop vodafon = new Shop() { ShopId = 2, ShopName = "Vodafon", ShopLeader = "	Tim Cook", ShopLocation = "Miskolc", ShopReliability = 9, ShopAnnualProfit = 988000000, ShopNumberOfWorker = 10 };
+            Shop mobileShop = new Shop() { ShopId = 1, ShopName = "Vodphone", ShopLeader = "Kim Ki Nam", ShopLocation = "Budapest", ShopReliability = 10, ShopAnnualProfit = 900000000, ShopNumberOfWorker = 15 };
+            Shop clothesShop = new Shop() { ShopId = 2, ShopName = "Vodafon", ShopLeader = "	Tim Cook", ShopLocation = "Miskolc", ShopReliability = 9, ShopAnnualProfit = 988000000, ShopNumberOfWorker = 10 };
             Shop telefonSzerviz = new Shop() { ShopId = 3, ShopName = "Telefon-Szervíz", ShopLeader = "Zsen Cseng-fej", ShopLocation = "Bukarest", ShopReliability = 9, ShopAnnualProfit = 70550000, ShopNumberOfWorker = 8 };
             Shop arabTelefon = new Shop() { ShopId = 4, ShopName = "Arab-telefon", ShopLeader = "Lin Pin", ShopLocation = "Debrecen", ShopReliability = 7, ShopAnnualProfit = 85489525, ShopNumberOfWorker = 9 };
 
-            Brand apple = new Brand() { BrandId = 1, BrandName = "Apple", BrandQuality = 9, BrandAnnualProfit = 9220000, ShopID = sarkiTelo.ShopId, NumberOfUsers = 100000, BrandNumberOfProducts = 10 };
-            Brand samsung = new Brand() { BrandId = 2, BrandName = "Samsung", BrandQuality = 10, BrandAnnualProfit = 9802200, ShopID = sarkiTelo.ShopId, NumberOfUsers = 100000, BrandNumberOfProducts = 10 };
-            Brand huawei = new Brand() { BrandId = 3, BrandName = "Huawei", BrandQuality = 8, BrandAnnualProfit = 7011000, ShopID = sarkiTelo.ShopId, NumberOfUsers = 100000, BrandNumberOfProducts = 10 };
-            Brand xiaomi = new Brand() { BrandId = 4, BrandName = "Xiaomi", BrandQuality = 7, BrandAnnualProfit = 889525, ShopID = vodafon.ShopId, NumberOfUsers = 100000, BrandNumberOfProducts = 10 };
-            Brand honor = new Brand() { BrandId = 5, BrandName = "Honor", BrandQuality = 10, BrandAnnualProfit = 4519659, ShopID = vodafon.ShopId, NumberOfUsers = 100000, BrandNumberOfProducts = 10 };
+            Brand apple = new Brand() { BrandId = 1, BrandName = "Apple", BrandQuality = 9, BrandAnnualProfit = 9220000, ShopID = mobileShop.ShopId, NumberOfUsers = 100000, BrandNumberOfProducts = 3 };
+            Brand samsung = new Brand() { BrandId = 2, BrandName = "Samsung", BrandQuality = 10, BrandAnnualProfit = 9802200, ShopID = mobileShop.ShopId, NumberOfUsers = 100000, BrandNumberOfProducts = 5 };
+            Brand huawei = new Brand() { BrandId = 3, BrandName = "Huawei", BrandQuality = 8, BrandAnnualProfit = 7011000, ShopID = mobileShop.ShopId, NumberOfUsers = 100000, BrandNumberOfProducts = 4 };
+            Brand xiaomi = new Brand() { BrandId = 4, BrandName = "Xiaomi", BrandQuality = 7, BrandAnnualProfit = 889525, ShopID = mobileShop.ShopId, NumberOfUsers = 100000, BrandNumberOfProducts = 4 };
+            Brand honor = new Brand() { BrandId = 5, BrandName = "Honor", BrandQuality = 10, BrandAnnualProfit = 4519659, ShopID = mobileShop.ShopId, NumberOfUsers = 100000, BrandNumberOfProducts = 2 };
 
             Product iPhone12 = new Product() { ProductdId = 1, BrandrId = apple.BrandId, ProductSystem = SystemType.Iso, ProductColour = "Blue", ProductName = "IPhone12", ProductPrice = 2000, UsresRating = 9 };
             Product iPhone12Max = new Product() { ProductdId = 2, BrandrId = apple.BrandId, ProductSystem = SystemType.Iso, ProductColour = "Green", ProductName = "IPhone12Max", ProductPrice = 1800, UsresRating = 9 };
@@ -94,9 +94,35 @@ namespace MobileWebshop.Data.Models
             Product note10 = new Product() { ProductdId = 17, BrandrId = samsung.BrandId, ProductSystem = SystemType.Andorid, ProductColour = "Orange", ProductName = "Note10", ProductPrice = 1500, UsresRating = 9 };
             Product note20 = new Product() { ProductdId = 18, BrandrId = samsung.BrandId, ProductSystem = SystemType.Andorid, ProductColour = "Black", ProductName = "Note20", ProductPrice = 1600, UsresRating = 9 };
 
+            Brand zara = new Brand() { BrandId = 6, BrandName = "Zara", BrandQuality = 10, BrandAnnualProfit = 820000, ShopID = clothesShop.ShopId, NumberOfUsers = 5220, BrandNumberOfProducts = 5 };
+            Brand nike = new Brand() { BrandId = 7, BrandName = "Nike", BrandQuality = 9, BrandAnnualProfit = 92200, ShopID = clothesShop.ShopId, NumberOfUsers = 54200, BrandNumberOfProducts = 4 };
+            Brand puma = new Brand() { BrandId = 8, BrandName = "Puma", BrandQuality = 8, BrandAnnualProfit = 811000, ShopID = clothesShop.ShopId, NumberOfUsers = 6584, BrandNumberOfProducts = 4 };
+            Brand china = new Brand() { BrandId = 9, BrandName = "Kina", BrandQuality = 5, BrandAnnualProfit = 4011000, ShopID = clothesShop.ShopId, NumberOfUsers = 10000, BrandNumberOfProducts = 4 };
+
+            Product zaraShoes = new Product() { ProductdId = 19, BrandrId = zara.BrandId, ProductSystem = SystemType.Iso, ProductColour = "Blue", ProductName = "zaraShoes", ProductPrice = 100, UsresRating = 1 };
+            Product zaraTShirt = new Product() { ProductdId = 20, BrandrId = zara.BrandId, ProductSystem = SystemType.Iso, ProductColour = "Green", ProductName = "zaraTShirt", ProductPrice = 200, UsresRating = 7 };
+            Product zaraJumper = new Product() { ProductdId = 21, BrandrId = zara.BrandId, ProductSystem = SystemType.Iso, ProductColour = "White", ProductName = "zaraJumper", ProductPrice = 300, UsresRating = 10 };
+            Product zaraShirt = new Product() { ProductdId = 22, BrandrId = zara.BrandId, ProductSystem = SystemType.Andorid, ProductColour = "Black", ProductName = "zaraShirt", ProductPrice = 400, UsresRating = 10 };
+            Product zaraSuit = new Product() { ProductdId = 23, BrandrId = zara.BrandId, ProductSystem = SystemType.Andorid, ProductColour = "Red", ProductName = "nikeShoes", ProductPrice = 100, UsresRating = 4 };
+            Product nikeShoes = new Product() { ProductdId = 24, BrandrId = nike.BrandId, ProductSystem = SystemType.Andorid, ProductColour = "Gray", ProductName = "nikeShoes", ProductPrice = 50, UsresRating = 8 };
+            Product nikeShirt = new Product() { ProductdId = 25, BrandrId = nike.BrandId, ProductSystem = SystemType.Andorid, ProductColour = "Pink", ProductName = "nikeShirt", ProductPrice = 70, UsresRating = 7 };
+            Product nikeHat = new Product() { ProductdId = 26, BrandrId = honor.BrandId, ProductSystem = SystemType.Andorid, ProductColour = "Yellow", ProductName = "nikeHat", ProductPrice = 200, UsresRating = 4 };
+            Product nikeBag = new Product() { ProductdId = 27, BrandrId = nike.BrandId, ProductSystem = SystemType.Andorid, ProductColour = "Blue", ProductName = "nikeBag", ProductPrice = 40, UsresRating = 8 };
+            Product nikePants = new Product() { ProductdId = 28, BrandrId = nike.BrandId, ProductSystem = SystemType.Andorid, ProductColour = "Red", ProductName = "nikePants", ProductPrice = 200, UsresRating = 7 };
+            Product pumaShoes = new Product() { ProductdId = 29, BrandrId = puma.BrandId, ProductSystem = SystemType.Andorid, ProductColour = "Purple", ProductName = "pumaShoes", ProductPrice = 150, UsresRating = 7 };
+            Product pumaJacket = new Product() { ProductdId = 30, BrandrId = puma.BrandId, ProductSystem = SystemType.Andorid, ProductColour = "Green", ProductName = "pumaJacket", ProductPrice = 140, UsresRating = 8 };
+            Product pumaCoat = new Product() { ProductdId = 31, BrandrId = puma.BrandId, ProductSystem = SystemType.Andorid, ProductColour = "Red", ProductName = "pumaCoat", ProductPrice = 130, UsresRating = 6 };
+            Product pumaJumper = new Product() { ProductdId = 32, BrandrId = puma.BrandId, ProductSystem = SystemType.Andorid, ProductColour = "Pink", ProductName = "pumaJumper", ProductPrice = 144, UsresRating = 4 };
+            Product chinaCoat = new Product() { ProductdId = 33, BrandrId = china.BrandId, ProductSystem = SystemType.Andorid, ProductColour = "Blue", ProductName = "chinaCoat", ProductPrice = 57, UsresRating = 7 };
+            Product chinaShoes = new Product() { ProductdId = 34, BrandrId = china.BrandId, ProductSystem = SystemType.Andorid, ProductColour = "Green", ProductName = "chinaShoes", ProductPrice = 20, UsresRating = 4 };
+            Product chinaSlippers = new Product() { ProductdId = 35, BrandrId = china.BrandId, ProductSystem = SystemType.Andorid, ProductColour = "Orange", ProductName = "chinaSlippers", ProductPrice = 25, UsresRating = 5 };
+            Product chinaPants = new Product() { ProductdId = 36, BrandrId = china.BrandId, ProductSystem = SystemType.Andorid, ProductColour = "Black", ProductName = "chinaPants", ProductPrice = 13, UsresRating = 8 };
+
             modelBuilder.Entity<Product>().HasData(iPhone12, iPhone12Max, iPhone11, s10, s11, s10Lite, honor20, honor30, huaweiP10, huaweiP20, huaweiP30, huaweiP40, redmiS9, redmiS9Note, mi10, mi10Pro, note10, note20);
+            modelBuilder.Entity<Product>().HasData(zaraShoes, zaraTShirt, zaraJumper, zaraShirt, zaraSuit, nikeShoes, nikeShirt, nikeHat, nikeBag, nikePants, pumaJacket, pumaCoat, pumaJumper, chinaCoat, chinaShoes, chinaSlippers, chinaPants, pumaShoes);
             modelBuilder.Entity<Brand>().HasData(apple, samsung, huawei, xiaomi, honor);
-            modelBuilder.Entity<Shop>().HasData(sarkiTelo, vodafon, telefonSzerviz, arabTelefon);
+            modelBuilder.Entity<Brand>().HasData(zara, nike, puma, china);
+            modelBuilder.Entity<Shop>().HasData(mobileShop, clothesShop);
         }
     }
 }
