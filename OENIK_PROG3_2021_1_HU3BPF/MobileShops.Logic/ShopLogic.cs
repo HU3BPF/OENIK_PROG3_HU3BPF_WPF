@@ -72,50 +72,25 @@ namespace MobileWebshop.Logic
             var shopProducts = from shop in this.iRepositoryShop.GetALL()
                                     join product in this.iRepositoryProduct.GetALL()
                                     on shop.ShopId equals product.Brand.ShopID
-                                    group shop by new { shop.ShopName, shop.ShopId, product.ProductPrice } into grp
-                                    orderby grp.Key.ShopName descending
-                                    select new ShopNumberOfProduct
-                                    {
-                                        ShopName = grp.Key.ShopName,
-                                        NumberOfProduct = grp.Key.ProductPrice,
-                                    };
-
-            var shopNumberOfProducts = from shop in shopProducts
-                                       group shop by shop.ShopName into grp
+                                    let item = new { shop.ShopName, shop.ShopId, product.ProductName }
+                               group item by item.ShopName into grp
+                                    orderby grp.Key descending
                                     select new ShopNumberOfProduct
                                     {
                                         ShopName = grp.Key,
-                                        NumberOfProduct = grp.Count(),
+                                        NumberOfProduct = grp.Select(x => x.ShopName).Count(),
                                     };
 
-            return shopNumberOfProducts.ToList();
+            return shopProducts.ToList();
         }
 
         /// <summary>
         /// Get Number Of Products.
         /// </summary>
         /// <returns>IList Shop Number Of Products.</returns>
-        public IList<ShopNumberOfProduct> GetNumberOfProductsAsync()
+        public Task<IList<ShopNumberOfProduct>> GetNumberOfProductsAsync()
         {
-            var shopProducts = from shop in this.iRepositoryShop.GetALL()
-                               join product in this.iRepositoryProduct.GetALL()
-                               on shop.ShopId equals product.Brand.ShopID
-                               group shop by new { shop.ShopName, shop.ShopId, product.ProductPrice } into grp
-                               orderby grp.Key.ShopName descending
-                               select new ShopNumberOfProduct
-                               {
-                                   ShopName = grp.Key.ShopName,
-                                   NumberOfProduct = grp.Key.ProductPrice,
-                               };
-
-            var shopNumberOfProducts = from shop in shopProducts
-                                       group shop by shop.ShopName into grp
-                                       select new ShopNumberOfProduct
-                                       {
-                                           ShopName = grp.Key,
-                                           NumberOfProduct = grp.Count(),
-                                       };
-            return shopNumberOfProducts.ToList();
+            return new Task<IList<ShopNumberOfProduct>>(() => this.GetNumberOfProducts());
         }
     }
 
@@ -154,5 +129,17 @@ namespace MobileWebshop.Logic
         /// </summary>
         /// <param name="shop">New shop.</param>
         void ShopUpdate(Shop shop);
+
+        /// <summary>
+        /// Get Number Of Products.
+        /// </summary>
+        /// <returns>IList Shop Number Of Products.</returns>
+        IList<ShopNumberOfProduct> GetNumberOfProducts();
+
+        /// <summary>
+        /// Get Number Of Products.
+        /// </summary>
+        /// <returns>IList Shop Number Of Products.</returns>
+        Task<IList<ShopNumberOfProduct>> GetNumberOfProductsAsync();
     }
 }
