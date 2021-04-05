@@ -6,6 +6,7 @@ namespace MobileWebshop.Logic
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
     using MobileShops.Logic;
     using MobileShops.Logic.NonCrudLogic;
     using MobileWebshop.Data.Models;
@@ -77,23 +78,16 @@ namespace MobileWebshop.Logic
             var brandProductPrice = from brand in this.iRepositoryBrand.GetALL()
                                     join product in this.iRepositoryProduct.GetALL()
                                     on brand.BrandId equals product.BrandrId
-                                    group brand by new { brand.BrandName, brand.BrandId, product.ProductPrice } into grp
-                                    orderby grp.Key.BrandName descending
+                                    let item = new { BrandName = brand.BrandName, BrandId = brand.BrandId, Price = product.ProductPrice }
+                                    group item by item.BrandName into grp
+                                    orderby grp.Key descending
                                     select new BrandAveragerProductPrice
                                     {
-                                        BrandName = grp.Key.BrandName,
-                                        AveragePrice = grp.Key.ProductPrice,
+                                        BrandName = grp.Key,
+                                        AveragePrice = (long)grp.Average(x => x.Price),
                                     };
 
-            var brandAveragePrice = from brand in brandProductPrice
-                                    group brand by brand.BrandName into grp
-                                    select new BrandAveragerProductPrice
-                                    {
-                                       BrandName = grp.Key,
-                                       AveragePrice = (long)grp.Average(x => x.AveragePrice),
-                                    };
-
-            return brandAveragePrice.ToList();
+            return brandProductPrice.ToList();
         }
 
         /// <summary>
@@ -105,79 +99,34 @@ namespace MobileWebshop.Logic
             var brandProductPrice = from brand in this.iRepositoryBrand.GetALL()
                                     join product in this.iRepositoryProduct.GetALL()
                                     on brand.BrandId equals product.BrandrId
-                                    group brand by new { brand.BrandName, brand.BrandId, product.UsresRating } into grp
-                                    orderby grp.Key.BrandName descending
-                                    select new BrandAverageProductRating
-                                    {
-                                        BrandName = grp.Key.BrandName,
-                                        AverageRating = grp.Key.UsresRating,
-                                    };
-
-            var brandAveragePrice = from brand in brandProductPrice
-                                    group brand by brand.BrandName into grp
+                                    let item = new { BrandName = brand.BrandName, BrandId = brand.BrandId, Rating = product.UsresRating }
+                                    group item by item.BrandName into grp
+                                    orderby grp.Key descending
                                     select new BrandAverageProductRating
                                     {
                                         BrandName = grp.Key,
-                                        AverageRating = (long)grp.Average(x => x.AverageRating),
+                                        AverageRating = (long)grp.Average(x => x.Rating),
                                     };
 
-            return brandAveragePrice.ToList();
+            return brandProductPrice.ToList();
         }
 
         /// <summary>
         /// Get Brand Avrerages product price.
         /// </summary>
         /// <returns>IList Brand Average price.</returns>
-        public IList<BrandAveragerProductPrice> GetBrandAveragesPriceAsync()
+        public Task<IList<BrandAveragerProductPrice>> GetBrandAveragesPriceAsync()
         {
-            var brandProductPrice = from brand in this.iRepositoryBrand.GetALL()
-                                    join product in this.iRepositoryProduct.GetALL()
-                                    on brand.BrandId equals product.BrandrId
-                                    group brand by new { brand.BrandName, brand.BrandId, product.ProductPrice } into grp
-                                    orderby grp.Key.BrandName descending
-                                    select new BrandAveragerProductPrice
-                                    {
-                                        BrandName = grp.Key.BrandName,
-                                        AveragePrice = grp.Key.ProductPrice,
-                                    };
-
-            var brandAveragePrice = from brand in brandProductPrice
-                                    group brand by brand.BrandName into grp
-                                    select new BrandAveragerProductPrice
-                                    {
-                                        BrandName = grp.Key,
-                                        AveragePrice = (long)grp.Average(x => x.AveragePrice),
-                                    };
-
-            return brandAveragePrice.ToList();
+            return new Task<IList<BrandAveragerProductPrice>>(() => this.GetBrandAveragesPrice());
         }
 
         /// <summary>
         /// Get Brand Avrerages product Rating.
         /// </summary>
         /// <returns>IList Brand Average Rating.</returns>
-        public IList<BrandAverageProductRating> GetBrandAveragesRatingAsync()
+        public Task<IList<BrandAverageProductRating>> GetBrandAveragesRatingAsync()
         {
-            var brandProductPrice = from brand in this.iRepositoryBrand.GetALL()
-                                    join product in this.iRepositoryProduct.GetALL()
-                                    on brand.BrandId equals product.BrandrId
-                                    group brand by new { brand.BrandName, brand.BrandId, product.UsresRating } into grp
-                                    orderby grp.Key.BrandName descending
-                                    select new BrandAverageProductRating
-                                    {
-                                        BrandName = grp.Key.BrandName,
-                                        AverageRating = grp.Key.UsresRating,
-                                    };
-
-            var brandAveragePrice = from brand in brandProductPrice
-                                    group brand by brand.BrandName into grp
-                                    select new BrandAverageProductRating
-                                    {
-                                        BrandName = grp.Key,
-                                        AverageRating = (long)grp.Average(x => x.AverageRating),
-                                    };
-
-            return brandAveragePrice.ToList();
+            return new Task<IList<BrandAverageProductRating>>(() => this.GetBrandAveragesRating());
         }
     }
 
@@ -227,6 +176,18 @@ namespace MobileWebshop.Logic
         /// Get Brand Avrerages product Rating.
         /// </summary>
         /// <returns>IList Brand Average Rating.</returns>
-        public IList<BrandAverageProductRating> GetBrandAveragesRatingAsync();
+        IList<BrandAverageProductRating> GetBrandAveragesRating();
+
+        /// <summary>
+        /// Get Brand Avrerages product price.
+        /// </summary>
+        /// <returns>IList Brand Average price.</returns>
+        Task<IList<BrandAveragerProductPrice>> GetBrandAveragesPriceAsync();
+
+        /// <summary>
+        /// Get Brand Avrerages product Rating.
+        /// </summary>
+        /// <returns>IList Brand Average Rating.</returns>
+        Task<IList<BrandAverageProductRating>> GetBrandAveragesRatingAsync();
     }
 }
