@@ -7,6 +7,7 @@ namespace MobileWebshop.Program
     using System;
     using System.Collections.Generic;
     using System.Globalization;
+    using System.Threading.Tasks;
     using MobileShops.Logic.NonCrudLogic;
     using MobileWebshop.Data.Models;
     using MobileWebshop.Logic;
@@ -170,7 +171,9 @@ namespace MobileWebshop.Program
         internal static void GetNumberOfProductsAsync(ShopLogic logic)
         {
             Console.Clear();
-            IList<ShopNumberOfProduct> shops = logic.GetNumberOfProductsAsync().Result;
+            Task<IList<ShopNumberOfProduct>> task = logic.GetNumberOfProductsAsync();
+            task.Start();
+            var shops = task.Result;
             foreach (ShopNumberOfProduct item in shops)
             {
                 Console.WriteLine(item.ToString());
