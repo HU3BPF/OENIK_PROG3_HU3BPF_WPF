@@ -7,6 +7,7 @@ namespace MobileWebshop.Program
     using System;
     using System.Collections.Generic;
     using System.Globalization;
+    using System.Threading.Tasks;
     using MobileShops.Logic;
     using MobileShops.Logic.NonCrudLogic;
     using MobileWebshop.Data.Models;
@@ -131,8 +132,8 @@ namespace MobileWebshop.Program
             try
             {
                 newBrand = NewBrand();
-                Console.WriteLine($"New Brand: \n{newBrand?.ToString()}");
                 logic?.BrandInsert(newBrand);
+                Console.WriteLine($"New Brand: \n{newBrand?.ToString()}");
                 Console.WriteLine("Brand Inserted".ToString());
             }
             catch (FormatException exception)
@@ -150,7 +151,7 @@ namespace MobileWebshop.Program
         /// Brand Average profit.
         /// </summary>
         /// /// <param name="logic">Brand logic.</param>
-        internal static void BrandAverageProfit(BrandLogic logic)
+        internal static void BrandAveragePrice(BrandLogic logic)
         {
             Console.Clear();
             IList<BrandAveragerProductPrice> brands = logic.GetBrandAveragesPrice();
@@ -184,10 +185,12 @@ namespace MobileWebshop.Program
         /// Brand Average profit.
         /// </summary>
         /// /// <param name="logic">Brand logic.</param>
-        internal static void BrandAverageProfitAsync(BrandLogic logic)
+        internal static void BrandAveragePriceAsync(BrandLogic logic)
         {
             Console.Clear();
-            IList<BrandAveragerProductPrice> brands = logic.GetBrandAveragesPriceAsync().Result;
+            Task<IList<BrandAveragerProductPrice>> task = logic.GetBrandAveragesPriceAsync();
+            task.Start();
+            var brands = task.Result;
             foreach (BrandAveragerProductPrice item in brands)
             {
                 Console.WriteLine(item.ToString());
@@ -204,7 +207,9 @@ namespace MobileWebshop.Program
         internal static void BrandAverageRatingAsync(BrandLogic logic)
         {
             Console.Clear();
-            IList<BrandAverageProductRating> brands = logic.GetBrandAveragesRatingAsync().Result;
+            Task<IList<BrandAverageProductRating>> task = logic.GetBrandAveragesRatingAsync();
+            task.Start();
+            var brands = task.Result;
             foreach (BrandAverageProductRating item in brands)
             {
                 Console.WriteLine(item.ToString());
@@ -221,24 +226,29 @@ namespace MobileWebshop.Program
         /// <returns>New Brand.</returns>
         private static Brand NewBrand(Brand oldBrand)
         {
-            Brand newBrand = new Brand();
-            NumberFormatInfo provider = new NumberFormatInfo();
-            newBrand.BrandId = oldBrand.BrandId;
-            Console.WriteLine("Brand new Name".ToString());
-            newBrand.BrandName = Console.ReadLine();
-            Console.WriteLine("Brand new Quality.".ToString());
-            newBrand.BrandQuality = int.Parse(Console.ReadLine(), provider);
-            Console.WriteLine("Brand new Yearly Income".ToString());
-            newBrand.BrandAnnualProfit = int.Parse(Console.ReadLine(), provider);
-            Console.WriteLine("Brand new Number Of Users".ToString());
-            newBrand.NumberOfUsers = int.Parse(Console.ReadLine(), provider);
-            newBrand.NumberOfUsers = int.Parse(Console.ReadLine(), provider);
-            Console.WriteLine("Brand new Number Of Products".ToString());
-            newBrand.BrandNumberOfProducts = int.Parse(Console.ReadLine(), provider);
-            newBrand.Shop = oldBrand.Shop;
-            newBrand.ShopID = oldBrand.ShopID;
-            newBrand.Products = oldBrand.Products;
-            return newBrand;
+            if (oldBrand != null)
+            {
+                Brand newBrand = new Brand();
+                NumberFormatInfo provider = new NumberFormatInfo();
+                newBrand.BrandId = oldBrand.BrandId;
+                Console.WriteLine("Brand new Name".ToString());
+                newBrand.BrandName = Console.ReadLine();
+                Console.WriteLine("Brand new Quality.".ToString());
+                newBrand.BrandQuality = int.Parse(Console.ReadLine(), provider);
+                Console.WriteLine("Brand new Yearly Income".ToString());
+                newBrand.BrandAnnualProfit = int.Parse(Console.ReadLine(), provider);
+                Console.WriteLine("Brand new Number Of Users".ToString());
+                newBrand.NumberOfUsers = int.Parse(Console.ReadLine(), provider);
+                newBrand.NumberOfUsers = int.Parse(Console.ReadLine(), provider);
+                Console.WriteLine("Brand new Number Of Products".ToString());
+                newBrand.BrandNumberOfProducts = int.Parse(Console.ReadLine(), provider);
+                newBrand.Shop = oldBrand.Shop;
+                newBrand.ShopID = oldBrand.ShopID;
+                newBrand.Products = oldBrand.Products;
+                return newBrand;
+            }
+
+            return oldBrand; // throw exception.
         }
 
         /// <summary>

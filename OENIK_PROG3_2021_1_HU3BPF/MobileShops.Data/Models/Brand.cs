@@ -88,7 +88,7 @@ namespace MobileWebshop.Data.Models
         public override string ToString()
         {
             return $" Brand ID: {this.BrandId}\n Brand Name: {this.BrandName}\n" +
-                $" Brand Quality: {this.BrandQuality}\n Brand Year: {this.BrandAnnualProfit}\n" +
+                $" Brand Quality: {this.BrandQuality}\n Brand Annual Profit: {this.BrandAnnualProfit}\n" +
                 $" Brand Number of Users: {this.NumberOfUsers}\n Brand Number Of Products: {this.BrandNumberOfProducts}\n";
         }
     }

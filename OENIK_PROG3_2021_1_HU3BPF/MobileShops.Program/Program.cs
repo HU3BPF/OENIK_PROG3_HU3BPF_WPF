@@ -42,10 +42,10 @@ namespace MobileWebshop.Program
                 .Add("Remove One shop", () => ShopMethods.RemoveOneShop(shopLogic))
                 .Add("Update One shop", () => ShopMethods.ChangeOneShop(shopLogic))
                 .Add("Insert One shop", () => ShopMethods.InsertOneShop(shopLogic))
-                .Add("Get average Brand Price", () => BrandMethods.BrandAverageProfit(brandLogic))
+                .Add("Get average Brand Price", () => BrandMethods.BrandAveragePrice(brandLogic))
                 .Add("Get average Brand Rating", () => BrandMethods.BrandAverageRating(brandLogic))
                 .Add("Get Shop Number Of Products", () => ShopMethods.GetNumberOfProducts(shopLogic))
-                .Add("Get average Brand Price Async", () => BrandMethods.BrandAverageProfitAsync(brandLogic))
+                .Add("Get average Brand Price Async", () => BrandMethods.BrandAveragePriceAsync(brandLogic))
                 .Add("Get average Brand Rating Async", () => BrandMethods.BrandAverageRatingAsync(brandLogic))
                 .Add("Get Shop Number Of Products Async", () => ShopMethods.GetNumberOfProductsAsync(shopLogic))
                 .Add("Close", ConsoleMenu.Close);

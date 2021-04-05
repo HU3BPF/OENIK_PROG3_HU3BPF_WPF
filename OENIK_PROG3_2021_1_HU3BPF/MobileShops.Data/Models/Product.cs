@@ -58,7 +58,7 @@ namespace MobileWebshop.Data.Models
         /// Gets or Sets Product Categories.
         /// </summary>
 #nullable disable
-        public SystemType ProductSystem { get; set; }
+        public int StockNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets Users rating.
@@ -75,7 +75,7 @@ namespace MobileWebshop.Data.Models
         {
             return $" Product ID: {this.ProductdId}\n Product Name: {this.ProductName}" +
                 $"\n Product Price: {this.ProductPrice}\n Product Colour: {this.ProductColour}" +
-                $"\n Product System: {this.ProductSystem}\n Product User Rating: {this.UsresRating}\n";
+                $"\n Product Stock Number: {this.StockNumber}\n Product User Rating: {this.UsresRating}\n";
         }
     }
 }

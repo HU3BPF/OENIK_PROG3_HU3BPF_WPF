@@ -166,7 +166,8 @@ namespace MobileWebshop.Program
             newProduct.ProductPrice = int.Parse(Console.ReadLine(), provider);
             Console.WriteLine("Product new colour.".ToString());
             newProduct.ProductColour = Console.ReadLine();
-            newProduct.ProductSystem = oldProduct.ProductSystem;
+            Console.WriteLine("Product new Stock Number.".ToString());
+            newProduct.StockNumber = int.Parse(Console.ReadLine(), provider);
             Console.WriteLine("Product new Rating".ToString());
             newProduct.UsresRating = int.Parse(Console.ReadLine(), provider);
             newProduct.Brand = oldProduct.Brand;
@@ -188,7 +189,8 @@ namespace MobileWebshop.Program
             newProduct.ProductPrice = int.Parse(Console.ReadLine(), provider);
             Console.WriteLine("Product new colour.".ToString());
             newProduct.ProductColour = Console.ReadLine();
-            newProduct.ProductSystem = SystemType.Andorid;
+            Console.WriteLine("Product new Stock Number.".ToString());
+            newProduct.StockNumber = int.Parse(Console.ReadLine(), provider);
             Console.WriteLine("Product new Rating".ToString());
             newProduct.UsresRating = int.Parse(Console.ReadLine(), provider);
             return newProduct;

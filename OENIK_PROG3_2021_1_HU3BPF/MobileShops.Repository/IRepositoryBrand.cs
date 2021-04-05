@@ -66,7 +66,7 @@ namespace MobileWebshop.Repository
         /// <returns>1 Entity when Id = ID.</returns>
         public override Brand GetOne(int id)
         {
-            return this.GetALL().SingleOrDefault(x => x.BrandId == id);
+            return this.GetALL()?.SingleOrDefault(x => x.BrandId == id);
         }
     }
 }
