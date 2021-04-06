@@ -116,7 +116,7 @@ namespace Shops.Logic
                                     select new BrandAveragerProductPrice
                                     {
                                         BrandName = grp.Key,
-                                        AveragePrice = (long)grp.Average(x => x.Price),
+                                        AveragePrice = (double)grp.Average(x => x.Price),
                                     };
 
             return brandProductPrice.ToList();
@@ -134,7 +134,7 @@ namespace Shops.Logic
                                     select new BrandAverageProductRating
                                     {
                                         BrandName = grp.Key,
-                                        AverageRating = (long)grp.Average(x => x.Rating),
+                                        AverageRating = (double)grp.Average(x => x.Rating),
                                     };
 
             return brandProductPrice.ToList();
