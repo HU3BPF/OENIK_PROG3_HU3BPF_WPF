@@ -46,6 +46,7 @@ namespace Shops.Program
                 int id = int.Parse(Console.ReadLine(), provider); // Rossz id esetén rossz!!!.
                 Console.Clear();
                 Console.WriteLine(logic.GetOne(id)?.ToString());
+                Console.ReadKey();
             }
             catch (FormatException exception)
             {
@@ -65,8 +66,6 @@ namespace Shops.Program
                     GetOneShop(logic);
                 }
             }
-
-            Console.ReadKey();
         }
 
         /// <summary>
@@ -86,6 +85,7 @@ namespace Shops.Program
                 Console.WriteLine(shop?.ToString());
                 logic?.ShopRemove(shop);
                 Console.WriteLine("Shop Deleted".ToString());
+                Console.ReadKey();
             }
             catch (FormatException exception)
             {
@@ -105,8 +105,6 @@ namespace Shops.Program
                     RemoveOneShop(logic);
                 }
             }
-
-            Console.ReadKey();
         }
 
         /// <summary>
@@ -129,6 +127,7 @@ namespace Shops.Program
                 Console.WriteLine($"New Shop: \n{newShop?.ToString()}");
                 logic?.ShopUpdate(newShop);
                 Console.WriteLine("Shop Updated".ToString());
+                Console.ReadKey();
             }
             catch (FormatException exception)
             {
@@ -148,8 +147,6 @@ namespace Shops.Program
                     ChangeOneShop(logic);
                 }
             }
-
-            Console.ReadKey();
         }
 
         /// <summary>
@@ -168,6 +165,7 @@ namespace Shops.Program
                 Console.WriteLine($"New Shop: \n{newShop?.ToString()}");
                 logic?.ShopInsert(newShop);
                 Console.WriteLine("Shop Inserted".ToString());
+                Console.ReadKey();
             }
             catch (FormatException exception)
             {
@@ -187,8 +185,6 @@ namespace Shops.Program
                     InsertOneShop(logic);
                 }
             }
-
-            Console.ReadKey();
         }
 
         /// <summary>

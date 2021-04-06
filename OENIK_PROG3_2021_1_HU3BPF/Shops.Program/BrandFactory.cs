@@ -46,6 +46,7 @@ namespace Shops.Program
                 int id = int.Parse(Console.ReadLine(), provider); // Rossz id esetén rossz!!!.
                 Console.Clear();
                 Console.WriteLine(logic?.BrandGetOne(id)?.ToString());
+                Console.ReadKey();
             }
             catch (FormatException exception)
             {
@@ -65,8 +66,6 @@ namespace Shops.Program
                     GetOneBrand(logic);
                 }
             }
-
-            Console.ReadKey();
         }
 
         /// <summary>
@@ -86,6 +85,7 @@ namespace Shops.Program
                 Console.WriteLine(brand?.ToString());
                 logic?.BrandRemove(brand);
                 Console.WriteLine("Brand Deleted".ToString());
+                Console.ReadKey();
             }
             catch (FormatException exception)
             {
@@ -105,8 +105,6 @@ namespace Shops.Program
                     RemoveOneBrand(logic);
                 }
             }
-
-            Console.ReadKey();
         }
 
         /// <summary>
@@ -129,6 +127,7 @@ namespace Shops.Program
                 Console.WriteLine($"New Brand: \n{newBrand?.ToString()}");
                 logic?.BrandUpdate(newBrand);
                 Console.WriteLine("Brand Updated".ToString());
+                Console.ReadKey();
             }
             catch (FormatException exception)
             {
@@ -148,8 +147,6 @@ namespace Shops.Program
                     ChangeOneBrand(logic);
                 }
             }
-
-            Console.ReadKey();
         }
 
         /// <summary>
@@ -167,6 +164,7 @@ namespace Shops.Program
                 logic?.BrandInsert(newBrand);
                 Console.WriteLine($"New Brand: \n{newBrand?.ToString()}");
                 Console.WriteLine("Brand Inserted".ToString());
+                Console.ReadKey();
             }
             catch (FormatException exception)
             {
@@ -186,8 +184,6 @@ namespace Shops.Program
                     InsertOneBrand(logic);
                 }
             }
-
-            Console.ReadKey();
         }
 
         /// <summary>

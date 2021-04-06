@@ -48,6 +48,8 @@ namespace Shops.Program
                 {
                     Console.WriteLine(item.ToString());
                 }
+
+                Console.ReadKey();
             }
             catch (FormatException exception)
             {
@@ -67,8 +69,6 @@ namespace Shops.Program
                     GetAllProductByBrand(logic);
                 }
             }
-
-            Console.ReadKey();
         }
 
         /// <summary>
@@ -85,6 +85,7 @@ namespace Shops.Program
                 int id = int.Parse(Console.ReadLine(), provider); // Rossz id esetén rossz!!!.
                 Console.Clear();
                 Console.WriteLine(logic.ProductGetOne(id)?.ToString());
+                Console.ReadKey();
             }
             catch (FormatException exception)
             {
@@ -104,8 +105,6 @@ namespace Shops.Program
                     GetONeProduct(logic);
                 }
             }
-
-            Console.ReadKey();
         }
 
         /// <summary>
@@ -125,6 +124,7 @@ namespace Shops.Program
                 Console.WriteLine(product?.ToString());
                 logic?.ProductRemove(product);
                 Console.WriteLine("Product Deleted".ToString());
+                Console.ReadKey();
             }
             catch (FormatException exception)
             {
@@ -144,8 +144,6 @@ namespace Shops.Program
                     RemoveOneProduct(logic);
                 }
             }
-
-            Console.ReadKey();
         }
 
         /// <summary>
@@ -168,6 +166,7 @@ namespace Shops.Program
                 Console.WriteLine($"New Product: \n{newProduct?.ToString()}");
                 logic?.ProductUpdate(newProduct);
                 Console.WriteLine("Product Updated".ToString());
+                Console.ReadKey();
             }
             catch (FormatException exception)
             {
@@ -187,8 +186,6 @@ namespace Shops.Program
                     ChangeOneProduct(logic);
                 }
             }
-
-            Console.ReadKey();
         }
 
         /// <summary>
@@ -206,6 +203,7 @@ namespace Shops.Program
                 Console.WriteLine($"New Product: \n{newProduct?.ToString()}");
                 logic?.ProductInsert(newProduct);
                 Console.WriteLine("Product Inserted".ToString());
+                Console.ReadKey();
             }
             catch (FormatException exception)
             {
@@ -225,8 +223,6 @@ namespace Shops.Program
                     InsertOneProduct(logic);
                 }
             }
-
-            Console.ReadKey();
         }
 
         /// <summary>
