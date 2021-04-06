@@ -68,6 +68,38 @@ namespace Shops.Data.Models
         public int UsresRating { get; set; }
 
         /// <summary>
+        /// Product Entity Equals method.
+        /// </summary>
+        /// <param name="obj">Other Product object.</param>
+        /// <returns>Equals or not other and this Entity.</returns>
+        public override bool Equals(object obj)
+        {
+            if (obj is Product)
+            {
+                Product other = obj as Product;
+                return this.ProductName == other.ProductName &&
+                    this.ProductPrice == other.ProductPrice &&
+                    this.ProductColour == other.ProductColour &&
+                    this.StockNumber == other.StockNumber &&
+                    this.UsresRating == other.UsresRating &&
+                    this.BrandrId == other.BrandrId;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Product entity Get Hash Code Method.
+        /// </summary>
+        /// <returns>Product entity Hash code.</returns>
+        public override int GetHashCode()
+        {
+            return this.ProductPrice.GetHashCode() + this.StockNumber.GetHashCode() + this.UsresRating.GetHashCode();
+        }
+
+        /// <summary>
         /// Gets Product string.
         /// </summary>
         /// <returns>Product all entities in a string.</returns>

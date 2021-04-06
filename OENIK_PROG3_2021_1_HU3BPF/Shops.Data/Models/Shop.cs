@@ -73,6 +73,38 @@ namespace Shops.Data.Models
         public virtual ICollection<Brand>? Brands { get; set; }
 
         /// <summary>
+        /// Shop Entity Equals method.
+        /// </summary>
+        /// <param name="obj">Other Shop object.</param>
+        /// <returns>Equals or not other and this Entity.</returns>
+        public override bool Equals(object? obj)
+        {
+            if (obj is Shop)
+            {
+                Shop? other = obj as Shop;
+                return this.ShopName == other?.ShopName &&
+                    this.ShopLocation == other.ShopLocation &&
+                    this.ShopLeader == other.ShopLeader &&
+                    this.ShopReliability == other.ShopReliability &&
+                    this.ShopNumberOfWorker == other.ShopNumberOfWorker &&
+                    this.ShopAnnualProfit == other.ShopAnnualProfit;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Shop entity Get Hash Code Method.
+        /// </summary>
+        /// <returns>Shop entity Hash code.</returns>
+        public override int GetHashCode()
+        {
+            return this.ShopNumberOfWorker.GetHashCode() + this.ShopAnnualProfit.GetHashCode();
+        }
+
+        /// <summary>
         /// Gets Manufacturer string.
         /// </summary>
         /// <returns>Manufacturer all entities in a string.</returns>

@@ -82,6 +82,37 @@ namespace Shops.Data.Models
         public int NumberOfUsers { get; set; }
 
         /// <summary>
+        /// Brand Entity Equals method.
+        /// </summary>
+        /// <param name="obj">Other Brand object.</param>
+        /// <returns>Equals or not other and this Entity.</returns>
+        public override bool Equals(object obj)
+        {
+            if (obj is Brand)
+            {
+                Brand other = obj as Brand;
+                return this.BrandName == other.BrandName &&
+                    this.BrandQuality == other.BrandQuality &&
+                    this.BrandNumberOfProducts == other.BrandNumberOfProducts &&
+                    this.NumberOfUsers == other.NumberOfUsers &&
+                    this.BrandAnnualProfit == other.BrandAnnualProfit;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Brand entity Get Hash Code Method.
+        /// </summary>
+        /// <returns>Brands Hash code.</returns>
+        public override int GetHashCode()
+        {
+            return this.NumberOfUsers.GetHashCode() + this.BrandQuality.GetHashCode() + this.BrandAnnualProfit.GetHashCode();
+        }
+
+        /// <summary>
         /// Gets Brand string.
         /// </summary>
         /// <returns>Brand all entities in a string.</returns>
