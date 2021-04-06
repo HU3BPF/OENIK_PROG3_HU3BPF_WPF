@@ -32,7 +32,7 @@ namespace Shops.Repository
         /// One Entity inserter.
         /// </summary>
         /// <param name="entity">Entity.</param>
-        void ProductInsert(T entity);
+        void Insert(T entity);
 
         /// <summary>
         /// Entity Remove.
@@ -98,7 +98,7 @@ namespace Shops.Repository
         /// One Entity insert.
         /// </summary>
         /// <param name="entity">Entity.</param>
-        public void ProductInsert(T entity)
+        public void Insert(T entity)
         {
             this.ctx.Set<T>().Add(entity);
             this.ctx.SaveChanges();

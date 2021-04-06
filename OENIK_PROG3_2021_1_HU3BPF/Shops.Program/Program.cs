@@ -17,7 +17,6 @@ namespace Shops.Program
         private static void Main()
         {
             ShopsDbContext ctx = new ShopsDbContext();
-
             RepositoryShop shopRepo = new RepositoryShop(ctx);
             BrandRepository brandRepo = new BrandRepository(ctx);
             RepositoryProduct productRepo = new RepositoryProduct(ctx);
@@ -31,6 +30,7 @@ namespace Shops.Program
                 .Add("Remove One Product", () => ProductFactory.RemoveOneProduct(goodsManagementLogic))
                 .Add("Update One Product", () => ProductFactory.ChangeOneProduct(goodsManagementLogic))
                 .Add("Insert One Product", () => ProductFactory.InsertOneProduct(goodsManagementLogic))
+                .Add("Get All Product By Brand", () => ProductFactory.GetAllProductByBrand(goodsManagementLogic))
                 .Add("Get All Brand", () => BrandFactory.GetAllBrand(goodsManagementLogic))
                 .Add("Get One Brand", () => BrandFactory.GetOneBrand(goodsManagementLogic))
                 .Add("Remove One Brand", () => BrandFactory.RemoveOneBrand(goodsManagementLogic))
