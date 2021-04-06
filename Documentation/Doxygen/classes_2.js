@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['goodsmanagementlogic_133',['GoodsManagementLogic',['../class_shops_1_1_logic_1_1_goods_management_logic.html',1,'Shops::Logic']]],
-  ['goodsmanagementlogictest_134',['GoodsManagementLogicTest',['../class_shops_1_1_logic_1_1_test_1_1_goods_management_logic_test.html',1,'Shops::Logic::Test']]]
+  ['entitynotfoundexception_137',['EntityNotFoundException',['../class_shops_1_1_data_1_1_models_1_1_entity_not_found_exception.html',1,'Shops::Data::Models']]]
 ];

@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['shop_149',['Shop',['../class_shops_1_1_data_1_1_models_1_1_shop.html',1,'Shops::Data::Models']]],
-  ['shopfactory_150',['ShopFactory',['../class_shops_1_1_program_1_1_shop_factory.html',1,'Shops::Program']]],
-  ['shopmanagementlogic_151',['ShopManagementLogic',['../class_shops_1_1_logic_1_1_shop_management_logic.html',1,'Shops::Logic']]],
-  ['shopmanagementlogictest_152',['ShopManagementLogicTest',['../class_shops_1_1_logic_1_1_test_1_1_shop_management_logic_test.html',1,'Shops::Logic::Test']]],
-  ['shopnumberofproduct_153',['ShopNumberOfProduct',['../class_shops_1_1_logic_1_1_non_crud_classes_1_1_shop_number_of_product.html',1,'Shops::Logic::NonCrudClasses']]],
-  ['shopsdbcontext_154',['ShopsDbContext',['../class_shops_1_1_data_1_1_models_1_1_shops_db_context.html',1,'Shops::Data::Models']]]
+  ['repositoryproduct_152',['RepositoryProduct',['../class_shops_1_1_repository_1_1_repository_product.html',1,'Shops::Repository']]],
+  ['repositoryshop_153',['RepositoryShop',['../class_shops_1_1_repository_1_1_repository_shop.html',1,'Shops::Repository']]]
 ];

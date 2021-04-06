@@ -121,12 +121,12 @@ $(document).ready(function(){initNavTree('_shops_db_context_8cs_source.html','')
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        {</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            modelBuilder.Entity&lt;<a class="code" href="class_shops_1_1_data_1_1_models_1_1_brand.html">Brand</a>&gt;(entity =&gt;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                entity.HasMany(brand =&gt; brand.Products).WithOne(product =&gt; product.Brand).OnDelete(DeleteBehavior.ClientSetNull);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                entity.HasMany(brand =&gt; brand.Products).WithOne(product =&gt; product.Brand).OnDelete(DeleteBehavior.Cascade);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            });</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            modelBuilder.Entity&lt;<a class="code" href="class_shops_1_1_data_1_1_models_1_1_shop.html">Shop</a>&gt;(entity =&gt;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                entity.HasMany(shop =&gt; shop.Brands).WithOne(brand =&gt; brand.Shop).OnDelete(DeleteBehavior.ClientSetNull);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                entity.HasMany(shop =&gt; shop.Brands).WithOne(brand =&gt; brand.Shop).OnDelete(DeleteBehavior.Cascade);</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            });</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <a class="code" href="class_shops_1_1_data_1_1_models_1_1_shop.html">Shop</a> mobileShop = <span class="keyword">new</span> <a class="code" href="class_shops_1_1_data_1_1_models_1_1_shop.html">Shop</a>() { ShopId = 1, ShopName = <span class="stringliteral">&quot;mobileShop&quot;</span>, ShopLeader = <span class="stringliteral">&quot;Kim Ki Nam&quot;</span>, ShopLocation = <span class="stringliteral">&quot;Budapest&quot;</span>, ShopReliability = 10, ShopAnnualProfit = 900000000, ShopNumberOfWorker = 15 };</div>

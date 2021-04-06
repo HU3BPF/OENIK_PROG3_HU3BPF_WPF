@@ -47,7 +47,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_brand_8cs_source.html",
-"namespace_shops_1_1_logic_1_1_non_crud_classes.html"
+"interface_shops_1_1_repository_1_1_i_repository_product.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -16,6 +16,9 @@ var hierarchy =
     [ "DbContext", null, [
       [ "Shops.Data.Models.ShopsDbContext", "class_shops_1_1_data_1_1_models_1_1_shops_db_context.html", null ]
     ] ],
+    [ "Exception", null, [
+      [ "Shops.Data.Models.EntityNotFoundException", "class_shops_1_1_data_1_1_models_1_1_entity_not_found_exception.html", null ]
+    ] ],
     [ "Shops.Logic.Test.GoodsManagementLogicTest", "class_shops_1_1_logic_1_1_test_1_1_goods_management_logic_test.html", null ],
     [ "Shops.Logic.IGoodsManagementLogic", "interface_shops_1_1_logic_1_1_i_goods_management_logic.html", [
       [ "Shops.Logic.GoodsManagementLogic", "class_shops_1_1_logic_1_1_goods_management_logic.html", null ]
