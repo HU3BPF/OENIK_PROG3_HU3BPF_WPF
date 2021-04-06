@@ -44,7 +44,7 @@ namespace Shops.Logic.NonCrudClasses
         /// <returns>Gets Brand Average Price hasCode.</returns>
         public override int GetHashCode()
         {
-            return this.AveragePrice.GetHashCode() + this.AveragePrice.GetHashCode();
+            return this.AveragePrice.GetHashCode();
         }
 
         /// <summary>

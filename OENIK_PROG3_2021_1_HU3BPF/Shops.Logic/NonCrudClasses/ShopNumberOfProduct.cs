@@ -44,7 +44,7 @@ namespace Shops.Logic.NonCrudClasses
         /// <returns>Gets Shop Number Of Products hasCode.</returns>
         public override int GetHashCode()
         {
-            return this.NumberOfProduct.GetHashCode() + this.NumberOfProduct.GetHashCode();
+            return this.NumberOfProduct.GetHashCode();
         }
 
         /// <summary>

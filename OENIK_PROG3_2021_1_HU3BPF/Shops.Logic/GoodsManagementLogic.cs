@@ -53,7 +53,7 @@ namespace Shops.Logic
         /// <inheritdoc/>
         public void ProductInsert(Product product)
         {
-            this.iRepositoryProduct.ProductInsert(product);
+            this.iRepositoryProduct.Insert(product);
         }
 
         /// <inheritdoc/>
@@ -81,6 +81,12 @@ namespace Shops.Logic
         }
 
         /// <inheritdoc/>
+        public IList<Product> GetProductByBrand(int brand)
+        {
+            return this.iRepositoryProduct.GetALL().Where(x => x.BrandrId == brand).ToList();
+        }
+
+        /// <inheritdoc/>
         public Brand BrandGetOne(int id)
         {
             return this.iRepositoryBrand.GetOne(id);
@@ -89,7 +95,7 @@ namespace Shops.Logic
         /// <inheritdoc/>
         public void BrandInsert(Brand brand)
         {
-            this.iRepositoryBrand.ProductInsert(brand);
+            this.iRepositoryBrand.Insert(brand);
         }
 
         /// <inheritdoc/>
@@ -201,6 +207,13 @@ namespace Shops.Logic
         /// </summary>
         /// <returns>All Entities.</returns>
         IList<Brand> BrandGetALL();
+
+        /// <summary>
+        /// All Entities reader.
+        /// </summary>
+        /// /// <param name="brand">brand id.</param>
+        /// <returns>All Entities.</returns>
+        IList<Product> GetProductByBrand(int brand);
 
         /// <summary>
         /// One brand inserter.

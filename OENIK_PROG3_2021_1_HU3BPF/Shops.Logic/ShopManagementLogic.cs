@@ -48,7 +48,7 @@ namespace Shops.Logic
         /// <inheritdoc/>
         public void ShopInsert(Shop shop)
         {
-            this.iRepositoryShop.ProductInsert(shop);
+            this.iRepositoryShop.Insert(shop);
         }
 
         /// <inheritdoc/>
