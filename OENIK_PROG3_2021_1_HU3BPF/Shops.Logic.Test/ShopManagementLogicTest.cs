@@ -49,21 +49,27 @@ namespace Shops.Logic.Test
             // Arrange
             Mock<IRepositoryShop> mockedShopRepo = new Mock<IRepositoryShop>(MockBehavior.Loose);
             Mock<IRepositoryProduct> mockedProductRepo = new Mock<IRepositoryProduct>(MockBehavior.Loose);
-            mockedShopRepo.Setup(repo => repo.Insert(It.IsAny<Shop>()));
-            ShopManagementLogic logic = new ShopManagementLogic(mockedShopRepo.Object, mockedProductRepo.Object);
             Shop test1 = new Shop() { ShopName = "test1", ShopLocation = "Alaszka", ShopAnnualProfit = 1000, ShopNumberOfWorker = 60, ShopReliability = 10, ShopLeader = "Hulk", ShopId = 1 };
             Shop test2 = new Shop() { ShopName = "test2", ShopLocation = "New York", ShopAnnualProfit = 200, ShopNumberOfWorker = 2, ShopReliability = 10, ShopLeader = "Thor", ShopId = 2 };
             Shop test3 = new Shop() { ShopName = "test3", ShopLocation = "Atlanta", ShopAnnualProfit = 300, ShopNumberOfWorker = 4, ShopReliability = 7, ShopLeader = "Hulk", ShopId = 3 };
+            List<Shop> shops = new List<Shop>() { test1, test2, test3 };
+            mockedShopRepo.Setup(repo => repo.GetOne(1)).Returns(test1);
+            mockedShopRepo.Setup(repo => repo.GetOne(2)).Returns(test2);
+            mockedShopRepo.Setup(repo => repo.GetOne(3)).Returns(test3);
+            ShopManagementLogic logic = new ShopManagementLogic(mockedShopRepo.Object, mockedProductRepo.Object);
 
             // ACT
-            logic.ShopInsert(test1);
-            logic.ShopInsert(test2);
-            logic.ShopInsert(test3);
+            var result1 = logic.GetOne(1);
+            var result2 = logic.GetOne(2);
+            var result3 = logic.GetOne(3);
 
             // Assert
-            mockedShopRepo.Verify(repo => repo.Insert(test1), Times.Once);
-            mockedShopRepo.Verify(repo => repo.Insert(test2), Times.Once);
-            mockedShopRepo.Verify(repo => repo.Insert(test3), Times.Once);
+            Assert.That(result1, Is.EqualTo(test1));
+            Assert.That(result2, Is.EqualTo(test2));
+            Assert.That(result3, Is.EqualTo(test3));
+            mockedShopRepo.Verify(repo => repo.GetOne(1), Times.Once);
+            mockedShopRepo.Verify(repo => repo.GetOne(2), Times.Once);
+            mockedShopRepo.Verify(repo => repo.GetOne(3), Times.Once);
         }
 
         /// <summary>
@@ -71,6 +77,58 @@ namespace Shops.Logic.Test
         /// </summary>
         [Test]
         public void TestShopRemover()
+        {
+            // Arrange
+            Mock<IRepositoryShop> mockedShopRepo = new Mock<IRepositoryShop>(MockBehavior.Loose);
+            Mock<IRepositoryProduct> mockedProductRepo = new Mock<IRepositoryProduct>(MockBehavior.Loose);
+            mockedShopRepo.Setup(repo => repo.Remove(It.IsAny<Shop>()));
+            ShopManagementLogic logic = new ShopManagementLogic(mockedShopRepo.Object, mockedProductRepo.Object);
+            Shop test1 = new Shop() { ShopName = "test1", ShopLocation = "Alaszka", ShopAnnualProfit = 1000, ShopNumberOfWorker = 60, ShopReliability = 10, ShopLeader = "Hulk", ShopId = 1 };
+            Shop test2 = new Shop() { ShopName = "test2", ShopLocation = "New York", ShopAnnualProfit = 200, ShopNumberOfWorker = 2, ShopReliability = 10, ShopLeader = "Thor", ShopId = 2 };
+            Shop test3 = new Shop() { ShopName = "test3", ShopLocation = "Atlanta", ShopAnnualProfit = 300, ShopNumberOfWorker = 4, ShopReliability = 7, ShopLeader = "Hulk", ShopId = 3 };
+
+            // ACT
+            logic.ShopRemove(test1);
+            logic.ShopRemove(test2);
+            logic.ShopRemove(test3);
+
+            // Assert
+            mockedShopRepo.Verify(repo => repo.Remove(test1), Times.Once);
+            mockedShopRepo.Verify(repo => repo.Remove(test2), Times.Once);
+            mockedShopRepo.Verify(repo => repo.Remove(test3), Times.Once);
+        }
+
+        /// <summary>
+        /// Test Shop Remover Method.
+        /// </summary>
+        [Test]
+        public void TestShopUpdater()
+        {
+            // Arrange
+            Mock<IRepositoryShop> mockedShopRepo = new Mock<IRepositoryShop>(MockBehavior.Loose);
+            Mock<IRepositoryProduct> mockedProductRepo = new Mock<IRepositoryProduct>(MockBehavior.Loose);
+            mockedShopRepo.Setup(repo => repo.ShopUpdate(It.IsAny<Shop>()));
+            ShopManagementLogic logic = new ShopManagementLogic(mockedShopRepo.Object, mockedProductRepo.Object);
+            Shop test1 = new Shop() { ShopName = "test1", ShopLocation = "Alaszka", ShopAnnualProfit = 1000, ShopNumberOfWorker = 60, ShopReliability = 10, ShopLeader = "Hulk", ShopId = 1 };
+            Shop test2 = new Shop() { ShopName = "test2", ShopLocation = "New York", ShopAnnualProfit = 200, ShopNumberOfWorker = 2, ShopReliability = 10, ShopLeader = "Thor", ShopId = 2 };
+            Shop test3 = new Shop() { ShopName = "test3", ShopLocation = "Atlanta", ShopAnnualProfit = 300, ShopNumberOfWorker = 4, ShopReliability = 7, ShopLeader = "Hulk", ShopId = 3 };
+
+            // ACT
+            logic.ShopUpdate(test1);
+            logic.ShopUpdate(test2);
+            logic.ShopUpdate(test3);
+
+            // Assert
+            mockedShopRepo.Verify(repo => repo.ShopUpdate(test1), Times.Once);
+            mockedShopRepo.Verify(repo => repo.ShopUpdate(test2), Times.Once);
+            mockedShopRepo.Verify(repo => repo.ShopUpdate(test3), Times.Once);
+        }
+
+        /// <summary>
+        /// Test Shop Remover Method.
+        /// </summary>
+        [Test]
+        public void TestShopGetOne()
         {
             // Arrange
             Mock<IRepositoryShop> mockedShopRepo = new Mock<IRepositoryShop>(MockBehavior.Loose);
