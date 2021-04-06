@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['brand_50',['Brand',['../class_mobile_webshop_1_1_data_1_1_models_1_1_brand.html#ae2970d99152f754eecb9c0c72ce5731c',1,'MobileWebshop::Data::Models::Brand']]]
+  ['ancestorrepository_163',['AncestorRepository',['../class_shops_1_1_repository_1_1_ancestor_repository.html#a167c2165786b8c85de439a38492189b0',1,'Shops::Repository::AncestorRepository']]]
 ];

@@ -1,8 +1,8 @@
 var dir_d24a3dc85be6d9853be759ad397fcb49 =
 [
-    [ "MobileWebshop.Data", "dir_4a7b727b29cdf77a6296880d9bfff348.html", "dir_4a7b727b29cdf77a6296880d9bfff348" ],
-    [ "MobileWebshop.Logic", "dir_650d86bb69a59dad3012728a035c9822.html", "dir_650d86bb69a59dad3012728a035c9822" ],
-    [ "MobileWebshop.Logic.Test", "dir_6a55ad49e877fed75af796dd0e091c65.html", "dir_6a55ad49e877fed75af796dd0e091c65" ],
-    [ "MobileWebshop.Program", "dir_7d62d90ad874ff5216e5953007dbab55.html", "dir_7d62d90ad874ff5216e5953007dbab55" ],
-    [ "MobileWebshop.Repository", "dir_039d36a35cb505c92fbc9e32b7049191.html", "dir_039d36a35cb505c92fbc9e32b7049191" ]
+    [ "Shops.Data", "dir_fdcb8b86640541806e523299bd845eec.html", "dir_fdcb8b86640541806e523299bd845eec" ],
+    [ "Shops.Logic", "dir_eb48dc220f26f806f2b12ca8d111f0ad.html", "dir_eb48dc220f26f806f2b12ca8d111f0ad" ],
+    [ "Shops.Logic.Test", "dir_effe2068820ea899993916a00c6d7574.html", "dir_effe2068820ea899993916a00c6d7574" ],
+    [ "Shops.Program", "dir_7b85fb0d55c31c4eebdd32fec2fafd91.html", "dir_7b85fb0d55c31c4eebdd32fec2fafd91" ],
+    [ "Shops.Repository", "dir_0e43be96dc27d77f815aa6773b65d2a5.html", "dir_0e43be96dc27d77f815aa6773b65d2a5" ]
 ];

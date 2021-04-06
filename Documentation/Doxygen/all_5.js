@@ -1,19 +1,16 @@
 var searchData=
 [
-  ['data_13',['Data',['../namespace_mobile_webshop_1_1_data.html',1,'MobileWebshop']]],
-  ['manufacturer_14',['Manufacturer',['../class_mobile_webshop_1_1_data_1_1_models_1_1_brand.html#aa5292ccebcb7c58a85e71bfa29df30bb',1,'MobileWebshop.Data.Models.Brand.Manufacturer()'],['../class_mobile_webshop_1_1_data_1_1_models_1_1_manufacturer.html#a77c7f82bda7e387636a24023215768a5',1,'MobileWebshop.Data.Models.Manufacturer.Manufacturer()'],['../class_mobile_webshop_1_1_data_1_1_models_1_1_manufacturer.html',1,'MobileWebshop.Data.Models.Manufacturer']]],
-  ['manufacturercenter_15',['ManufacturerCenter',['../class_mobile_webshop_1_1_data_1_1_models_1_1_manufacturer.html#aa0af612a5242c2389cd83cf51ae9c588',1,'MobileWebshop::Data::Models::Manufacturer']]],
-  ['manufacturerceo_16',['ManufacturerCEO',['../class_mobile_webshop_1_1_data_1_1_models_1_1_manufacturer.html#a1cf5e2ef09e4443c1e7acaf9867261f0',1,'MobileWebshop::Data::Models::Manufacturer']]],
-  ['manufacturerid_17',['ManufacturerId',['../class_mobile_webshop_1_1_data_1_1_models_1_1_brand.html#a4adb059c2a173dfcde72f46d9f91dd3f',1,'MobileWebshop.Data.Models.Brand.ManufacturerId()'],['../class_mobile_webshop_1_1_data_1_1_models_1_1_manufacturer.html#acd9eb4636fdf20ca7c969a89d224ec71',1,'MobileWebshop.Data.Models.Manufacturer.ManufacturerId()']]],
-  ['manufacturername_18',['ManufacturerName',['../class_mobile_webshop_1_1_data_1_1_models_1_1_manufacturer.html#a81008876cbd738b8746b93aee3455549',1,'MobileWebshop::Data::Models::Manufacturer']]],
-  ['manufacturerreliability_19',['ManufacturerReliability',['../class_mobile_webshop_1_1_data_1_1_models_1_1_manufacturer.html#a63898fdea10a4cfbc29d06817ec56551',1,'MobileWebshop::Data::Models::Manufacturer']]],
-  ['manufacturers_20',['Manufacturers',['../class_mobile_webshop_1_1_data_1_1_models_1_1_mobile_db_context.html#aacbfce8e4c93848e48888d1768d9986b',1,'MobileWebshop::Data::Models::MobileDbContext']]],
-  ['manufacturerworkerscount_21',['ManufacturerWorkersCount',['../class_mobile_webshop_1_1_data_1_1_models_1_1_manufacturer.html#a8ae19a77f3a9361396baf700ba76f826',1,'MobileWebshop::Data::Models::Manufacturer']]],
-  ['mobiledbcontext_22',['MobileDbContext',['../class_mobile_webshop_1_1_data_1_1_models_1_1_mobile_db_context.html#a83be8eb88cf3c64bd912635d50217be9',1,'MobileWebshop.Data.Models.MobileDbContext.MobileDbContext()'],['../class_mobile_webshop_1_1_data_1_1_models_1_1_mobile_db_context.html',1,'MobileWebshop.Data.Models.MobileDbContext']]],
-  ['mobiles_23',['Mobiles',['../class_mobile_webshop_1_1_data_1_1_models_1_1_brand.html#a73ac8ddf865d1c27b30d103189e6a8d2',1,'MobileWebshop::Data::Models::Brand']]],
-  ['mobilewebshop_24',['MobileWebshop',['../namespace_mobile_webshop.html',1,'']]],
-  ['models_25',['Models',['../namespace_mobile_webshop_1_1_data_1_1_models.html',1,'MobileWebshop::Data']]],
-  ['moderatelyexpensive_26',['ModeratelyExpensive',['../namespace_mobile_webshop_1_1_data_1_1_models.html#a0f81c2746b9d4c469d1a69a4c0438944a10ab71d67c898e22cada9b113c183ad5',1,'MobileWebshop::Data::Models']]],
-  ['program_27',['Program',['../namespace_mobile_webshop_1_1_program.html',1,'MobileWebshop']]],
-  ['repository_28',['Repository',['../namespace_mobile_webshop_1_1_repository.html',1,'MobileWebshop']]]
+  ['igoodsmanagementlogic_51',['IGoodsManagementLogic',['../interface_shops_1_1_logic_1_1_i_goods_management_logic.html',1,'Shops::Logic']]],
+  ['insert_52',['Insert',['../interface_shops_1_1_repository_1_1_i_repository.html#a344ebbc555090cecc77993e36ee8e59e',1,'Shops.Repository.IRepository.Insert()'],['../class_shops_1_1_repository_1_1_ancestor_repository.html#a8fb9fb708693aa776d2e8bf48adcf755',1,'Shops.Repository.AncestorRepository.Insert()']]],
+  ['insertonebrand_53',['InsertOneBrand',['../class_shops_1_1_program_1_1_brand_factory.html#a30e4c2c9d4c8a9cde47f5b309d34ff1b',1,'Shops::Program::BrandFactory']]],
+  ['insertoneproduct_54',['InsertOneProduct',['../class_shops_1_1_program_1_1_product_factory.html#ae03a540de32ab82a4c42378e566a466f',1,'Shops::Program::ProductFactory']]],
+  ['insertoneshop_55',['InsertOneShop',['../class_shops_1_1_program_1_1_shop_factory.html#a9b1d49a39138a8f2f48208a85d9a1216',1,'Shops::Program::ShopFactory']]],
+  ['irepository_56',['IRepository',['../interface_shops_1_1_repository_1_1_i_repository.html',1,'Shops::Repository']]],
+  ['irepository_3c_20brand_20_3e_57',['IRepository&lt; Brand &gt;',['../interface_shops_1_1_repository_1_1_i_repository.html',1,'Shops::Repository']]],
+  ['irepository_3c_20product_20_3e_58',['IRepository&lt; Product &gt;',['../interface_shops_1_1_repository_1_1_i_repository.html',1,'Shops::Repository']]],
+  ['irepository_3c_20shop_20_3e_59',['IRepository&lt; Shop &gt;',['../interface_shops_1_1_repository_1_1_i_repository.html',1,'Shops::Repository']]],
+  ['irepositorybrand_60',['IRepositoryBrand',['../interface_shops_1_1_repository_1_1_i_repository_brand.html',1,'Shops::Repository']]],
+  ['irepositoryproduct_61',['IRepositoryProduct',['../interface_shops_1_1_repository_1_1_i_repository_product.html',1,'Shops::Repository']]],
+  ['irepositoryshop_62',['IRepositoryShop',['../interface_shops_1_1_repository_1_1_i_repository_shop.html',1,'Shops::Repository']]],
+  ['ishopmanagementlogic_63',['IShopManagementLogic',['../interface_shops_1_1_logic_1_1_i_shop_management_logic.html',1,'Shops::Logic']]]
 ];

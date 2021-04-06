@@ -26,11 +26,7 @@ var NAVTREE =
 [
   [ "MobileWebshop", "index.html", [
     [ "Packages", "namespaces.html", [
-      [ "Packages", "namespaces.html", "namespaces_dup" ],
-      [ "Package Functions", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ]
-      ] ]
+      [ "Packages", "namespaces.html", "namespaces_dup" ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -50,7 +46,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_brand_8cs_source.html"
+"_brand_8cs_source.html",
+"namespace_shops_1_1_logic_1_1_non_crud_classes.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

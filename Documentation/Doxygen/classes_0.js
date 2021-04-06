@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['brand_39',['Brand',['../class_mobile_webshop_1_1_data_1_1_models_1_1_brand.html',1,'MobileWebshop::Data::Models']]]
+  ['ancestorrepository_124',['AncestorRepository',['../class_shops_1_1_repository_1_1_ancestor_repository.html',1,'Shops::Repository']]],
+  ['ancestorrepository_3c_20brand_20_3e_125',['AncestorRepository&lt; Brand &gt;',['../class_shops_1_1_repository_1_1_ancestor_repository.html',1,'Shops::Repository']]],
+  ['ancestorrepository_3c_20product_20_3e_126',['AncestorRepository&lt; Product &gt;',['../class_shops_1_1_repository_1_1_ancestor_repository.html',1,'Shops::Repository']]],
+  ['ancestorrepository_3c_20shop_20_3e_127',['AncestorRepository&lt; Shop &gt;',['../class_shops_1_1_repository_1_1_ancestor_repository.html',1,'Shops::Repository']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['onconfiguring_29',['OnConfiguring',['../class_mobile_webshop_1_1_data_1_1_models_1_1_mobile_db_context.html#af24ae973abd7acd25e5cbed9f5ebec84',1,'MobileWebshop::Data::Models::MobileDbContext']]],
-  ['onmodelcreating_30',['OnModelCreating',['../class_mobile_webshop_1_1_data_1_1_models_1_1_mobile_db_context.html#ae2cff5abb8e8c337b32aea975cb68ec1',1,'MobileWebshop::Data::Models::MobileDbContext']]]
+  ['manufacturers_64',['Manufacturers',['../class_shops_1_1_data_1_1_models_1_1_shops_db_context.html#a95e9613f928a0de706b6a99e64f5398b',1,'Shops::Data::Models::ShopsDbContext']]]
 ];

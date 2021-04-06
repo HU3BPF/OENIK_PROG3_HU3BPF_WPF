@@ -1,12 +1,11 @@
 var searchData=
 [
-  ['manufacturer_68',['Manufacturer',['../class_mobile_webshop_1_1_data_1_1_models_1_1_brand.html#aa5292ccebcb7c58a85e71bfa29df30bb',1,'MobileWebshop::Data::Models::Brand']]],
-  ['manufacturercenter_69',['ManufacturerCenter',['../class_mobile_webshop_1_1_data_1_1_models_1_1_manufacturer.html#aa0af612a5242c2389cd83cf51ae9c588',1,'MobileWebshop::Data::Models::Manufacturer']]],
-  ['manufacturerceo_70',['ManufacturerCEO',['../class_mobile_webshop_1_1_data_1_1_models_1_1_manufacturer.html#a1cf5e2ef09e4443c1e7acaf9867261f0',1,'MobileWebshop::Data::Models::Manufacturer']]],
-  ['manufacturerid_71',['ManufacturerId',['../class_mobile_webshop_1_1_data_1_1_models_1_1_brand.html#a4adb059c2a173dfcde72f46d9f91dd3f',1,'MobileWebshop.Data.Models.Brand.ManufacturerId()'],['../class_mobile_webshop_1_1_data_1_1_models_1_1_manufacturer.html#acd9eb4636fdf20ca7c969a89d224ec71',1,'MobileWebshop.Data.Models.Manufacturer.ManufacturerId()']]],
-  ['manufacturername_72',['ManufacturerName',['../class_mobile_webshop_1_1_data_1_1_models_1_1_manufacturer.html#a81008876cbd738b8746b93aee3455549',1,'MobileWebshop::Data::Models::Manufacturer']]],
-  ['manufacturerreliability_73',['ManufacturerReliability',['../class_mobile_webshop_1_1_data_1_1_models_1_1_manufacturer.html#a63898fdea10a4cfbc29d06817ec56551',1,'MobileWebshop::Data::Models::Manufacturer']]],
-  ['manufacturers_74',['Manufacturers',['../class_mobile_webshop_1_1_data_1_1_models_1_1_mobile_db_context.html#aacbfce8e4c93848e48888d1768d9986b',1,'MobileWebshop::Data::Models::MobileDbContext']]],
-  ['manufacturerworkerscount_75',['ManufacturerWorkersCount',['../class_mobile_webshop_1_1_data_1_1_models_1_1_manufacturer.html#a8ae19a77f3a9361396baf700ba76f826',1,'MobileWebshop::Data::Models::Manufacturer']]],
-  ['mobiles_76',['Mobiles',['../class_mobile_webshop_1_1_data_1_1_models_1_1_brand.html#a73ac8ddf865d1c27b30d103189e6a8d2',1,'MobileWebshop::Data::Models::Brand']]]
+  ['brand_231',['Brand',['../class_shops_1_1_data_1_1_models_1_1_product.html#a01bafc5873e3a0dff8deaf9b6ec3c1d9',1,'Shops::Data::Models::Product']]],
+  ['brandannualprofit_232',['BrandAnnualProfit',['../class_shops_1_1_data_1_1_models_1_1_brand.html#a6f076a32257e0786e15ef224af479218',1,'Shops::Data::Models::Brand']]],
+  ['brandid_233',['BrandId',['../class_shops_1_1_data_1_1_models_1_1_brand.html#aa588350e0555d39d48fc66687295a67a',1,'Shops::Data::Models::Brand']]],
+  ['brandname_234',['BrandName',['../class_shops_1_1_data_1_1_models_1_1_brand.html#a308a20fda3ace5df9869f90678faff20',1,'Shops.Data.Models.Brand.BrandName()'],['../class_shops_1_1_logic_1_1_non_crud_classes_1_1_brand_average_product_rating.html#a26935a802ad852aa3bf3ae1dd3bee30d',1,'Shops.Logic.NonCrudClasses.BrandAverageProductRating.BrandName()'],['../class_shops_1_1_logic_1_1_non_crud_classes_1_1_brand_averager_product_price.html#a51ae590cc6bf51f0ebb1c54410165b7d',1,'Shops.Logic.NonCrudClasses.BrandAveragerProductPrice.BrandName()']]],
+  ['brandnumberofproducts_235',['BrandNumberOfProducts',['../class_shops_1_1_data_1_1_models_1_1_brand.html#ab96d413199971544d05e597db837bdfc',1,'Shops::Data::Models::Brand']]],
+  ['brandquality_236',['BrandQuality',['../class_shops_1_1_data_1_1_models_1_1_brand.html#aa65a61175f17b0dd9ab09dfd81e9bac3',1,'Shops::Data::Models::Brand']]],
+  ['brandrid_237',['BrandrId',['../class_shops_1_1_data_1_1_models_1_1_product.html#a55556a0cf6fcd19228c894e499ab401f',1,'Shops::Data::Models::Product']]],
+  ['brands_238',['Brands',['../class_shops_1_1_data_1_1_models_1_1_shop.html#a9724c057f6c8ad72fda924368f4fcc54',1,'Shops.Data.Models.Shop.Brands()'],['../class_shops_1_1_data_1_1_models_1_1_shops_db_context.html#af03d3da96aad7e9cf09e5cc1c35eecd1',1,'Shops.Data.Models.ShopsDbContext.Brands()']]]
 ];
