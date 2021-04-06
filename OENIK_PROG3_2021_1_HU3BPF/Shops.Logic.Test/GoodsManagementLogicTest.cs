@@ -28,7 +28,7 @@ namespace Shops.Logic.Test
         /// Brand GetALL Test().
         /// </summary>
         [Test]
-        public void TestGetByBrand()
+        public void TestGetAllProductByBrand()
         {
             // Arrange
             var logic = this.CreateLogicWithMockToTestGetByBrand();
