@@ -41,12 +41,12 @@ namespace Shops.Repository
         /// <param name="newBrand">New Brand entity.</param>
         public void BrandUpdate(Brand newBrand)
         {
-            var oldBrand = this.GetOne(newBrand.BrandId);
-            if (oldBrand == null)
+            if (newBrand == null)
             {
-                throw new InvalidOperationException("NOt found");
+                throw new EntityNotFoundException();
             }
 
+            var oldBrand = this.GetOne(newBrand.BrandId);
             oldBrand.BrandId = newBrand.BrandId;
             oldBrand.BrandName = newBrand.BrandName;
             oldBrand.BrandQuality = newBrand.BrandQuality;

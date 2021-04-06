@@ -50,9 +50,20 @@ namespace Shops.Program
             catch (FormatException exception)
             {
                 Console.WriteLine(exception.Message);
-                Console.WriteLine("Press any key to contnue.".ToString());
-                Console.ReadKey();
-                GetOneBrand(logic);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    GetOneBrand(logic);
+                }
+            }
+            catch (EntityNotFoundException exception)
+            {
+                Console.WriteLine(exception.Message);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    GetOneBrand(logic);
+                }
             }
 
             Console.ReadKey();
@@ -79,9 +90,20 @@ namespace Shops.Program
             catch (FormatException exception)
             {
                 Console.WriteLine(exception.Message);
-                Console.WriteLine("Press any key to contnue.".ToString());
-                Console.ReadKey();
-                RemoveOneBrand(logic);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    RemoveOneBrand(logic);
+                }
+            }
+            catch (EntityNotFoundException exception)
+            {
+                Console.WriteLine(exception.Message);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    RemoveOneBrand(logic);
+                }
             }
 
             Console.ReadKey();
@@ -111,9 +133,20 @@ namespace Shops.Program
             catch (FormatException exception)
             {
                 Console.WriteLine(exception.Message);
-                Console.WriteLine("Press any key to contnue.".ToString());
-                Console.ReadKey();
-                ChangeOneBrand(logic);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    ChangeOneBrand(logic);
+                }
+            }
+            catch (EntityNotFoundException exception)
+            {
+                Console.WriteLine(exception.Message);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    ChangeOneBrand(logic);
+                }
             }
 
             Console.ReadKey();
@@ -138,9 +171,20 @@ namespace Shops.Program
             catch (FormatException exception)
             {
                 Console.WriteLine(exception.Message);
-                Console.WriteLine("Press any key to contnue.".ToString());
-                Console.ReadKey();
-                InsertOneBrand(logic);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    InsertOneBrand(logic);
+                }
+            }
+            catch (EntityNotFoundException exception)
+            {
+                Console.WriteLine(exception.Message);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    InsertOneBrand(logic);
+                }
             }
 
             Console.ReadKey();
@@ -225,27 +269,27 @@ namespace Shops.Program
         /// <returns>New Brand.</returns>
         private static Brand NewBrand(Brand oldBrand)
         {
-            if (oldBrand != null)
+            if (oldBrand == null)
             {
-                Brand newBrand = new Brand();
-                NumberFormatInfo provider = new NumberFormatInfo();
-                newBrand.BrandId = oldBrand.BrandId;
-                Console.WriteLine("Brand new Name".ToString());
-                newBrand.BrandName = Console.ReadLine();
-                Console.WriteLine("Brand new Quality.".ToString());
-                newBrand.BrandQuality = int.Parse(Console.ReadLine(), provider);
-                Console.WriteLine("Brand new Yearly Income".ToString());
-                newBrand.BrandAnnualProfit = int.Parse(Console.ReadLine(), provider);
-                Console.WriteLine("Brand new Number Of Users".ToString());
-                newBrand.NumberOfUsers = int.Parse(Console.ReadLine(), provider);
-                Console.WriteLine("Brand new Number Of Products".ToString());
-                newBrand.BrandNumberOfProducts = int.Parse(Console.ReadLine(), provider);
-                newBrand.Shop = oldBrand.Shop;
-                newBrand.ShopID = oldBrand.ShopID;
-                return newBrand;
+                throw new EntityNotFoundException();
             }
 
-            return oldBrand; // throw exception.
+            Brand newBrand = new Brand();
+            NumberFormatInfo provider = new NumberFormatInfo();
+            newBrand.BrandId = oldBrand.BrandId;
+            Console.WriteLine("Brand new Name".ToString());
+            newBrand.BrandName = Console.ReadLine();
+            Console.WriteLine("Brand new Quality.".ToString());
+            newBrand.BrandQuality = int.Parse(Console.ReadLine(), provider);
+            Console.WriteLine("Brand new Yearly Income".ToString());
+            newBrand.BrandAnnualProfit = int.Parse(Console.ReadLine(), provider);
+            Console.WriteLine("Brand new Number Of Users".ToString());
+            newBrand.NumberOfUsers = int.Parse(Console.ReadLine(), provider);
+            Console.WriteLine("Brand new Number Of Products".ToString());
+            newBrand.BrandNumberOfProducts = int.Parse(Console.ReadLine(), provider);
+            newBrand.Shop = oldBrand.Shop;
+            newBrand.ShopID = oldBrand.ShopID;
+            return newBrand;
         }
 
         /// <summary>

@@ -56,12 +56,12 @@ namespace Shops.Data.Models
         {
             modelBuilder.Entity<Brand>(entity =>
             {
-                entity.HasMany(brand => brand.Products).WithOne(product => product.Brand).OnDelete(DeleteBehavior.ClientSetNull);
+                entity.HasMany(brand => brand.Products).WithOne(product => product.Brand).OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<Shop>(entity =>
             {
-                entity.HasMany(shop => shop.Brands).WithOne(brand => brand.Shop).OnDelete(DeleteBehavior.ClientSetNull);
+                entity.HasMany(shop => shop.Brands).WithOne(brand => brand.Shop).OnDelete(DeleteBehavior.Cascade);
             });
 
             Shop mobileShop = new Shop() { ShopId = 1, ShopName = "mobileShop", ShopLeader = "Kim Ki Nam", ShopLocation = "Budapest", ShopReliability = 10, ShopAnnualProfit = 900000000, ShopNumberOfWorker = 15 };

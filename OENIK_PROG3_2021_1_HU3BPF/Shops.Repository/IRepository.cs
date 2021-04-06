@@ -7,6 +7,7 @@ namespace Shops.Repository
     using System;
     using System.Linq;
     using Microsoft.EntityFrameworkCore;
+    using Shops.Data.Models;
 
     /// <summary>
     /// Repository funcions.
@@ -100,6 +101,11 @@ namespace Shops.Repository
         /// <param name="entity">Entity.</param>
         public void Insert(T entity)
         {
+            if (entity == null)
+            {
+                throw new EntityNotFoundException();
+            }
+
             this.ctx.Set<T>().Add(entity);
             this.ctx.SaveChanges();
         }
@@ -110,6 +116,11 @@ namespace Shops.Repository
         /// <param name="entity">Entity.</param>
         public void Remove(T entity)
         {
+            if (entity == null)
+            {
+                throw new EntityNotFoundException();
+            }
+
             this.ctx?.Set<T>()?.Remove(entity);
             this.ctx.SaveChanges();
         }

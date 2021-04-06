@@ -50,9 +50,20 @@ namespace Shops.Program
             catch (FormatException exception)
             {
                 Console.WriteLine(exception.Message);
-                Console.WriteLine("Press any key to contnue.".ToString());
-                Console.ReadKey();
-                GetOneShop(logic);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    GetOneShop(logic);
+                }
+            }
+            catch (EntityNotFoundException exception)
+            {
+                Console.WriteLine(exception.Message);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    GetOneShop(logic);
+                }
             }
 
             Console.ReadKey();
@@ -79,9 +90,20 @@ namespace Shops.Program
             catch (FormatException exception)
             {
                 Console.WriteLine(exception.Message);
-                Console.WriteLine("Press any key to contnue.".ToString());
-                Console.ReadKey();
-                RemoveOneShop(logic);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    RemoveOneShop(logic);
+                }
+            }
+            catch (EntityNotFoundException exception)
+            {
+                Console.WriteLine(exception.Message);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    RemoveOneShop(logic);
+                }
             }
 
             Console.ReadKey();
@@ -111,9 +133,20 @@ namespace Shops.Program
             catch (FormatException exception)
             {
                 Console.WriteLine(exception.Message);
-                Console.WriteLine("Press any key to contnue.".ToString());
-                Console.ReadKey();
-                ChangeOneShop(logic);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    ChangeOneShop(logic);
+                }
+            }
+            catch (EntityNotFoundException exception)
+            {
+                Console.WriteLine(exception.Message);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    ChangeOneShop(logic);
+                }
             }
 
             Console.ReadKey();
@@ -139,9 +172,20 @@ namespace Shops.Program
             catch (FormatException exception)
             {
                 Console.WriteLine(exception.Message);
-                Console.WriteLine("Press any key to contnue.".ToString());
-                Console.ReadKey();
-                InsertOneShop(logic);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    InsertOneShop(logic);
+                }
+            }
+            catch (EntityNotFoundException exception)
+            {
+                Console.WriteLine(exception.Message);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    InsertOneShop(logic);
+                }
             }
 
             Console.ReadKey();
@@ -190,6 +234,11 @@ namespace Shops.Program
         /// <returns>New Shop.</returns>
         private static Shop NewManufacturer(Shop oldShop)
         {
+            if (oldShop == null)
+            {
+                throw new EntityNotFoundException();
+            }
+
             Shop newShop = new Shop();
             NumberFormatInfo provider = new NumberFormatInfo();
             newShop.ShopId = oldShop.ShopId;

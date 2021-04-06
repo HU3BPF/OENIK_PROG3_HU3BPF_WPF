@@ -42,7 +42,7 @@ namespace Shops.Program
             {
                 int id = int.Parse(Console.ReadLine(), provider); // Rossz id esetén rossz!!!.
                 Console.Clear();
-                Console.WriteLine("Brand Name: " + logic.BrandGetOne(id).BrandName?.ToString() + "\n");
+                Console.WriteLine("Brand Name: " + logic.BrandGetOne(id)?.BrandName.ToString() + "\n");
                 Console.WriteLine("Products: ".ToString());
                 foreach (var item in logic?.GetProductByBrand(id))
                 {
@@ -52,16 +52,20 @@ namespace Shops.Program
             catch (FormatException exception)
             {
                 Console.WriteLine(exception.Message);
-                Console.WriteLine("Press any key to contnue.".ToString());
-                Console.ReadKey();
-                GetONeProduct(logic);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    GetAllProductByBrand(logic);
+                }
             }
-            catch (ArgumentNullException exception)
+            catch (EntityNotFoundException exception)
             {
                 Console.WriteLine(exception.Message);
-                Console.WriteLine("Press any key to contnue.".ToString());
-                Console.ReadKey();
-                GetONeProduct(logic);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    GetAllProductByBrand(logic);
+                }
             }
 
             Console.ReadKey();
@@ -85,16 +89,20 @@ namespace Shops.Program
             catch (FormatException exception)
             {
                 Console.WriteLine(exception.Message);
-                Console.WriteLine("Press any key to contnue.".ToString());
-                Console.ReadKey();
-                GetONeProduct(logic);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    GetONeProduct(logic);
+                }
             }
-            catch (ArgumentNullException exception)
+            catch (EntityNotFoundException exception)
             {
                 Console.WriteLine(exception.Message);
-                Console.WriteLine("Press any key to contnue.".ToString());
-                Console.ReadKey();
-                GetONeProduct(logic);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    GetONeProduct(logic);
+                }
             }
 
             Console.ReadKey();
@@ -121,9 +129,20 @@ namespace Shops.Program
             catch (FormatException exception)
             {
                 Console.WriteLine(exception.Message);
-                Console.WriteLine("Press any key to contnue.".ToString());
-                Console.ReadKey();
-                GetONeProduct(logic);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    RemoveOneProduct(logic);
+                }
+            }
+            catch (EntityNotFoundException exception)
+            {
+                Console.WriteLine(exception.Message);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    RemoveOneProduct(logic);
+                }
             }
 
             Console.ReadKey();
@@ -153,9 +172,20 @@ namespace Shops.Program
             catch (FormatException exception)
             {
                 Console.WriteLine(exception.Message);
-                Console.WriteLine("Press any key to contnue.".ToString());
-                Console.ReadKey();
-                ChangeOneProduct(logic);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    ChangeOneProduct(logic);
+                }
+            }
+            catch (EntityNotFoundException exception)
+            {
+                Console.WriteLine(exception.Message);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    ChangeOneProduct(logic);
+                }
             }
 
             Console.ReadKey();
@@ -180,9 +210,20 @@ namespace Shops.Program
             catch (FormatException exception)
             {
                 Console.WriteLine(exception.Message);
-                Console.WriteLine("Press any key to contnue.".ToString());
-                Console.ReadKey();
-                ChangeOneProduct(logic);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    InsertOneProduct(logic);
+                }
+            }
+            catch (EntityNotFoundException exception)
+            {
+                Console.WriteLine(exception.Message);
+                Console.WriteLine("Press any key to contnue or Press Esc To exit.".ToString());
+                if (Console.ReadKey().Key != ConsoleKey.Escape)
+                {
+                    InsertOneProduct(logic);
+                }
             }
 
             Console.ReadKey();
@@ -197,6 +238,11 @@ namespace Shops.Program
         {
             Product newProduct = new Product();
             NumberFormatInfo provider = new NumberFormatInfo();
+            if (oldProduct == null)
+            {
+                throw new EntityNotFoundException();
+            }
+
             newProduct.ProductdId = oldProduct.ProductdId;
             Console.WriteLine("Product new Name".ToString());
             newProduct.ProductName = Console.ReadLine();

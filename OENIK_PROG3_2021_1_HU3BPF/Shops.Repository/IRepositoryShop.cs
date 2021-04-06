@@ -51,12 +51,12 @@ namespace Shops.Repository
         /// <param name="newShop">New Shop.</param>
         public void ShopUpdate(Shop newShop)
         {
-            var oldShop = this.GetOne(newShop.ShopId);
-            if (oldShop == null)
+            if (newShop == null)
             {
-                throw new InvalidOperationException("Not found");
+                throw new EntityNotFoundException();
             }
 
+            var oldShop = this.GetOne(newShop.ShopId);
             oldShop.ShopAnnualProfit = newShop.ShopAnnualProfit;
             oldShop.ShopLeader = newShop.ShopLeader;
             oldShop.ShopLocation = newShop.ShopLocation;
