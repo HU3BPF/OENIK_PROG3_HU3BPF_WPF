@@ -49,6 +49,7 @@ namespace Shops.Program
                 .Add("Get Shop Number Of Products Async", () => ShopFactory.GetNumberOfProductsAsync(shopLogic))
                 .Add("Close", ConsoleMenu.Close);
             menu.Show();
+            ctx.Dispose();
         }
     }
 }
