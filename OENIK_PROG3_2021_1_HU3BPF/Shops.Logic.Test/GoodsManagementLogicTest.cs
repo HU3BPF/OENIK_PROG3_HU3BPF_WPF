@@ -45,7 +45,7 @@ namespace Shops.Logic.Test
         }
 
         /// <summary>
-        /// Brand Insert MEthod Test.
+        /// Brand Insert Method Test.
         /// </summary>
         [Test]
         public void TestBrandInserter()
@@ -91,7 +91,7 @@ namespace Shops.Logic.Test
         }
 
         /// <summary>
-        /// Test Averages RAting Non CRUD METHOD.
+        /// Test Averages Rating Non CRUD METHOD.
         /// </summary>
         [Test]
         public void TestGetAverageProductRating()

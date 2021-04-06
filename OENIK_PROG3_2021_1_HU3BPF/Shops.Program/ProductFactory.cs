@@ -30,7 +30,7 @@ namespace Shops.Program
         }
 
         /// <summary>
-        /// Get All products.
+        /// Get One Brand Products.
         /// </summary>
         /// <param name="logic">product logic.</param>
         internal static void GetAllProductByBrand(GoodsManagementLogic logic)
@@ -162,7 +162,7 @@ namespace Shops.Program
         }
 
         /// <summary>
-        /// Change One Product.
+        /// Insert One Product.
         /// </summary>
         /// <param name="logic">product logic.</param>
         internal static void InsertOneProduct(GoodsManagementLogic logic)

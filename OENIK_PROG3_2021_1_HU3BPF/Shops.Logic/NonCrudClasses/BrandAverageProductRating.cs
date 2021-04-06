@@ -5,7 +5,7 @@
 namespace Shops.Logic.NonCrudClasses
 {
     /// <summary>
-    /// Brand Average Product Rating.
+    /// Brands Average Product Rating.
     /// </summary>
     public class BrandAverageProductRating
     {
@@ -20,10 +20,10 @@ namespace Shops.Logic.NonCrudClasses
         public double? AverageRating { get; set; }
 
         /// <summary>
-        /// Brand Average Price Equals.
+        /// Brand Average Rating Equals.
         /// </summary>
         /// <param name="obj">Other Brand Average Price.</param>
-        /// <returns>Brand Average Price equals other Brand Average Price.</returns>
+        /// <returns>Brand Average Rating equals other Brand Average Price.</returns>
         public override bool Equals(object obj)
         {
             if (obj is BrandAverageProductRating)
@@ -41,7 +41,7 @@ namespace Shops.Logic.NonCrudClasses
         /// <summary>
         /// Brand Average Price hasher.
         /// </summary>
-        /// <returns>Gets Brand Average Price hasCode.</returns>
+        /// <returns>Gets Brand Average Rating hasCode.</returns>
         public override int GetHashCode()
         {
             return this.AverageRating.GetHashCode();
@@ -50,7 +50,7 @@ namespace Shops.Logic.NonCrudClasses
         /// <summary>
         /// Brand Average Price ToString.
         /// </summary>
-        /// <returns>Gets Brand Average Price string.</returns>
+        /// <returns>Gets Brand Average Rating string.</returns>
         public override string ToString()
         {
             return $"Brand Name: {this.BrandName},\n Average Rating: {this.AverageRating} ";

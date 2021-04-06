@@ -55,12 +55,11 @@ namespace Shops.Repository
             oldBrand.ShopID = newBrand.ShopID;
             oldBrand.NumberOfUsers = newBrand.NumberOfUsers;
             oldBrand.BrandNumberOfProducts = newBrand.BrandNumberOfProducts;
-            oldBrand.Products = newBrand.Products;
             this.Ctx.SaveChanges();
         }
 
         /// <summary>
-        /// Get ONe entity.
+        /// Get One entity.
         /// </summary>
         /// <param name="id">Entity Id.</param>
         /// <returns>1 Entity when Id = ID.</returns>

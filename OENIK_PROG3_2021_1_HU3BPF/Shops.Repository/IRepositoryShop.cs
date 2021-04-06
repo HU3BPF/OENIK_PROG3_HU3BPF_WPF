@@ -15,14 +15,14 @@ namespace Shops.Repository
     public interface IRepositoryShop : IRepository<Shop>
     {
         /// <summary>
-        /// New Shop uptare.
+        /// New Shop updater.
         /// </summary>
         /// <param name="newShop">New Shop.</param>
         void ShopUpdate(Shop newShop);
     }
 
     /// <summary>
-    /// Manufacturer Repository.
+    /// Shop Repository.
     /// </summary>
     public class RepositoryShop : AncestorRepository<Shop>, IRepositoryShop
     {
@@ -46,7 +46,7 @@ namespace Shops.Repository
         }
 
         /// <summary>
-        /// Shop updatre.
+        /// Shop updater.
         /// </summary>
         /// <param name="newShop">New Shop.</param>
         public void ShopUpdate(Shop newShop)
@@ -63,7 +63,6 @@ namespace Shops.Repository
             oldShop.ShopName = newShop.ShopName;
             oldShop.ShopNumberOfWorker = newShop.ShopNumberOfWorker;
             oldShop.ShopReliability = newShop.ShopReliability;
-            oldShop.Brands = newShop.Brands;
             this.Ctx.SaveChanges();
         }
     }

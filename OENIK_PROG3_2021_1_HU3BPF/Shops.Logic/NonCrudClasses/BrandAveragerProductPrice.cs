@@ -5,7 +5,7 @@
 namespace Shops.Logic.NonCrudClasses
 {
     /// <summary>
-    /// Brand Average Product Profit.
+    /// Brands Average Product Price.
     /// </summary>
     public class BrandAveragerProductPrice
     {
@@ -15,7 +15,7 @@ namespace Shops.Logic.NonCrudClasses
         public string BrandName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Average Profit.
+        /// Gets or Sets Average Price.
         /// </summary>
         public double? AveragePrice { get; set; }
 

@@ -10,7 +10,7 @@ namespace Shops.Data.Models
     using System.ComponentModel.DataAnnotations.Schema;
 
     /// <summary>
-    /// Brand database class.
+    /// Brand class.
     /// </summary>
     [Table("Brand")]
     public class Brand
@@ -44,10 +44,11 @@ namespace Shops.Data.Models
         public virtual Shop? Shop { get; set; }
 
         /// <summary>
-        /// Gets or sets products.
+        /// Gets products.
         /// </summary>
+        [NotMapped]
 #nullable enable
-        public virtual ICollection<Product>? Products { get; set; }
+        public virtual ICollection<Product>? Products { get; }
 
         /// <summary>
         /// Gets or sets Brand Name.
@@ -64,13 +65,13 @@ namespace Shops.Data.Models
         public int BrandQuality { get; set; }
 
         /// <summary>
-        /// Gets or sets Brand Year.
+        /// Gets or sets Brand Annual Profit.
         /// </summary>
 #nullable disable
         public long BrandAnnualProfit { get; set; }
 
         /// <summary>
-        /// Gets or sets System Type.
+        /// Gets or sets Brand Number Of Products.
         /// </summary>
 #nullable disable
         public int BrandNumberOfProducts { get; set; }
@@ -115,7 +116,7 @@ namespace Shops.Data.Models
         /// <summary>
         /// Gets Brand string.
         /// </summary>
-        /// <returns>Brand all entities in a string.</returns>
+        /// <returns>Brand all properties in a string.</returns>
         public override string ToString()
         {
             return $" Brand ID: {this.BrandId}\n Brand Name: {this.BrandName}\n" +

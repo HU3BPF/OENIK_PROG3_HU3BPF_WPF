@@ -147,7 +147,7 @@ namespace Shops.Program
         }
 
         /// <summary>
-        /// Brand Average profit.
+        /// Brand Average Product Price.
         /// </summary>
         /// /// <param name="logic">Brand logic.</param>
         internal static void BrandAveragePrice(GoodsManagementLogic logic)
@@ -164,7 +164,7 @@ namespace Shops.Program
         }
 
         /// <summary>
-        /// Brand Average profit.
+        /// Brand Average Product Rating.
         /// </summary>
         /// /// <param name="logic">Brand logic.</param>
         internal static void BrandAverageRating(GoodsManagementLogic logic)
@@ -181,7 +181,7 @@ namespace Shops.Program
         }
 
         /// <summary>
-        /// Brand Average profit.
+        /// Brand Average Product Price ASYNC.
         /// </summary>
         /// /// <param name="logic">Brand logic.</param>
         internal static void BrandAveragePriceAsync(GoodsManagementLogic logic)
@@ -200,7 +200,7 @@ namespace Shops.Program
         }
 
         /// <summary>
-        /// Brand Average profit.
+        /// Brand Average Product RATING ASYNC.
         /// </summary>
         /// /// <param name="logic">Brand logic.</param>
         internal static void BrandAverageRatingAsync(GoodsManagementLogic logic)
@@ -242,7 +242,6 @@ namespace Shops.Program
                 newBrand.BrandNumberOfProducts = int.Parse(Console.ReadLine(), provider);
                 newBrand.Shop = oldBrand.Shop;
                 newBrand.ShopID = oldBrand.ShopID;
-                newBrand.Products = oldBrand.Products;
                 return newBrand;
             }
 

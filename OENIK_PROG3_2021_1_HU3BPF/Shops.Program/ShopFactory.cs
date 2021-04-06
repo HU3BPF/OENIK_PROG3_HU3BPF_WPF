@@ -33,7 +33,7 @@ namespace Shops.Program
         }
 
         /// <summary>
-        /// Get ONe Shop.
+        /// Gets One Shop.
         /// </summary>
         /// <param name="logic">Shop logic.</param>
         internal static void GetOneShop(ShopManagementLogic logic)
@@ -165,7 +165,7 @@ namespace Shops.Program
         }
 
         /// <summary>
-        /// Shop number of products.
+        /// Shop number of products ASYNC.
         /// </summary>
         /// /// <param name="logic">Shop logic.</param>
         internal static void GetNumberOfProductsAsync(ShopManagementLogic logic)
@@ -205,7 +205,6 @@ namespace Shops.Program
             newShop.ShopLocation = Console.ReadLine();
             Console.WriteLine("Shop new Annual Profit".ToString());
             newShop.ShopAnnualProfit = int.Parse(Console.ReadLine(), provider);
-            newShop.Brands = oldShop.Brands;
             return newShop;
         }
 

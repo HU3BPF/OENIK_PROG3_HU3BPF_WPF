@@ -15,7 +15,7 @@ namespace Shops.Repository
     public interface IRepositoryProduct : IRepository<Product>
     {
         /// <summary>
-        /// Product price changer.
+        /// Product Updater.
         /// </summary>
         /// <param name="newProduct">new product.</param>
         void ProductUpdate(Product newProduct);
@@ -46,7 +46,7 @@ namespace Shops.Repository
         }
 
         /// <summary>
-        /// Product price changer.
+        /// Product Updater.
         /// </summary>
         /// <param name="newProduct">New product.</param>
         public void ProductUpdate(Product newProduct)

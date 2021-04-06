@@ -203,16 +203,16 @@ namespace Shops.Logic
         Brand BrandGetOne(int id);
 
         /// <summary>
-        /// All Entities reader.
+        /// All Entity reader.
         /// </summary>
-        /// <returns>All Entities.</returns>
+        /// <returns>All Entity.</returns>
         IList<Brand> BrandGetALL();
 
         /// <summary>
-        /// All Entities reader.
+        /// One Brand Products reader.
         /// </summary>
         /// /// <param name="brand">brand id.</param>
-        /// <returns>All Entities.</returns>
+        /// <returns>One Brand Products.</returns>
         IList<Product> GetProductByBrand(int brand);
 
         /// <summary>

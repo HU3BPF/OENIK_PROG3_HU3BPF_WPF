@@ -23,7 +23,7 @@ namespace Shops.Logic.NonCrudClasses
         /// Shop Number Of Products Equals.
         /// </summary>
         /// <param name="obj">Other Shop Number Of Products.</param>
-        /// <returns>Shop Number Of Products equals Shop Number Of Products.</returns>
+        /// <returns>Shop Number Of Products equals other Shop Number Of Products.</returns>
         public override bool Equals(object obj)
         {
             if (obj is ShopNumberOfProduct)

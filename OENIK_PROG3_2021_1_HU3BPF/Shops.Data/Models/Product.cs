@@ -8,7 +8,7 @@ namespace Shops.Data.Models
     using System.ComponentModel.DataAnnotations.Schema;
 
     /// <summary>
-    /// Product or Mobile class.
+    /// Product class.
     /// </summary>
     [Table("Product")]
     public class Product
@@ -55,7 +55,7 @@ namespace Shops.Data.Models
         public string ProductColour { get; set; }
 
         /// <summary>
-        /// Gets or Sets Product Categories.
+        /// Gets or Sets Product Stock Number.
         /// </summary>
 #nullable disable
         public int StockNumber { get; set; }
@@ -102,7 +102,7 @@ namespace Shops.Data.Models
         /// <summary>
         /// Gets Product string.
         /// </summary>
-        /// <returns>Product all entities in a string.</returns>
+        /// <returns>Product all properties in a string.</returns>
         public override string ToString()
         {
             return $" Product ID: {this.ProductdId}\n Product Name: {this.ProductName}" +

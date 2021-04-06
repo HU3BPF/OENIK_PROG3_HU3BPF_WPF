@@ -25,8 +25,8 @@ namespace Shops.Logic
         /// <summary>
         /// Initializes a new instance of the <see cref="ShopManagementLogic"/> class.
         /// </summary>
-        /// <param name="iRepositoryShop">IRepository Shop.</param>
-        /// <param name="iRepositoryProduct">IRepository Product.</param>
+        /// <param name="iRepositoryShop">IRepository Shop value.</param>
+        /// <param name="iRepositoryProduct">IRepository Product value.</param>
         public ShopManagementLogic(IRepositoryShop iRepositoryShop, IRepositoryProduct iRepositoryProduct)
         {
             this.iRepositoryProduct = iRepositoryProduct;
@@ -63,10 +63,7 @@ namespace Shops.Logic
             this.iRepositoryShop.Remove(shop);
         }
 
-        /// <summary>
-        /// Get Number Of Products.
-        /// </summary>
-        /// <returns>IList Shop Number Of Products.</returns>
+        /// <inheritdoc/>
         public IList<ShopNumberOfProduct> GetNumberOfProducts()
         {
             var shopProducts = from shop in this.iRepositoryShop.GetALL()
@@ -84,10 +81,7 @@ namespace Shops.Logic
             return shopProducts.ToList();
         }
 
-        /// <summary>
-        /// Get Number Of Products.
-        /// </summary>
-        /// <returns>IList Shop Number Of Products.</returns>
+        /// <inheritdoc/>
         public Task<IList<ShopNumberOfProduct>> GetNumberOfProductsAsync()
         {
             return new Task<IList<ShopNumberOfProduct>>(() => this.GetNumberOfProducts());
@@ -107,9 +101,9 @@ namespace Shops.Logic
         Shop GetOne(int id);
 
         /// <summary>
-        /// All Entities reader.
+        /// All Entity reader.
         /// </summary>
-        /// <returns>All Entities.</returns>
+        /// <returns>All Entity.</returns>
         IList<Shop> GetALL();
 
         /// <summary>

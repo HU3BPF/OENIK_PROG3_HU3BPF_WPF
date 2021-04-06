@@ -63,7 +63,7 @@ namespace Shops.Repository
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AncestorRepository{T}"/> class.
-        /// Dbcontext set.
+        /// Dbcontext Sets.
         /// </summary>
         /// <param name="ctx">DbContext.</param>
         protected AncestorRepository(DbContext ctx)

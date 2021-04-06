@@ -10,7 +10,7 @@ namespace Shops.Data.Models
     using System.ComponentModel.DataAnnotations.Schema;
 
     /// <summary>
-    /// Shop table.
+    /// Shop class.
     /// </summary>
     [Table("Shop")]
     public class Shop
@@ -21,7 +21,7 @@ namespace Shops.Data.Models
         public Shop() => this.Brands = new HashSet<Brand>();
 
         /// <summary>
-        /// Gets or sets Shop id.
+        /// Gets or Sets Shop id.
         /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -29,48 +29,49 @@ namespace Shops.Data.Models
         public int ShopId { get; set; }
 
         /// <summary>
-        /// gets or sets Shop name.
+        /// Gets or Sets Shop name.
         /// </summary>
         [MaxLength(100)]
 #nullable disable
         public string ShopName { get; set; }
 
         /// <summary>
-        /// gets or sets Shop Location.
+        /// Gets or Sets Shop Location.
         /// </summary>
 #nullable disable
         public string ShopLocation { get; set; }
 
         /// <summary>
-        /// gets or sets Shop Leader.
+        /// Gets or Sets Shop Leader.
         /// </summary>
 #nullable disable
         public string ShopLeader { get; set; }
 
         /// <summary>
-        /// gets or sets Shop reliability.
+        /// Gets or Sets Shop reliability.
         /// </summary>
         [Range(0, 10)]
 #nullable disable
         public int ShopReliability { get; set; }
 
         /// <summary>
-        /// gets or sets Shop workers members Number.
+        /// Gets or Sets Shop workers members Number.
         /// </summary>
 #nullable disable
         public int ShopNumberOfWorker { get; set; }
 
         /// <summary>
-        /// gets or sets Shop Annual Profit.
+        /// Gets or Sets Shop Annual Profit.
         /// </summary>
 #nullable disable
         public long ShopAnnualProfit { get; set; }
 
         /// <summary>
-        /// Gets or Sets Brands Collection.
+        /// Gets  Brands Collection.
         /// </summary>
+        [NotMapped]
 #nullable enable
-        public virtual ICollection<Brand>? Brands { get; set; }
+        public virtual ICollection<Brand>? Brands { get; }
 
         /// <summary>
         /// Shop Entity Equals method.
