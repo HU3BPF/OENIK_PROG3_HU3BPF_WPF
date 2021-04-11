@@ -1,5 +1,5 @@
-The project MoblieWebshop
-Function:
+The project Shop
+Functions:
 0.Get All Product
 1.Get One Product
 2.Remove One Product
