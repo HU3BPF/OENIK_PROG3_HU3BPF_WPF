@@ -43,7 +43,7 @@ namespace Shops.Program
             Console.WriteLine("Write the Shop ID".ToString());
             try
             {
-                int id = int.Parse(Console.ReadLine(), provider); // Rossz id esetén rossz!!!.
+                int id = int.Parse(Console.ReadLine(), provider);
                 Console.Clear();
                 Console.WriteLine(logic.GetOne(id)?.ToString());
                 Console.ReadKey();
@@ -80,7 +80,7 @@ namespace Shops.Program
             Console.WriteLine("Write the Shop ID".ToString());
             try
             {
-                int id = int.Parse(Console.ReadLine(), provider); // Rossz id esetén rossz!!!.
+                int id = int.Parse(Console.ReadLine(), provider);
                 shop = logic?.GetOne(id);
                 Console.WriteLine(shop?.ToString());
                 logic?.ShopRemove(shop);
@@ -120,7 +120,7 @@ namespace Shops.Program
             Console.WriteLine("Write the Shop ID".ToString());
             try
             {
-                int id = int.Parse(Console.ReadLine(), provider); // Rossz id esetén rossz!!!.
+                int id = int.Parse(Console.ReadLine(), provider);
                 shop = logic?.GetOne(id);
                 Console.WriteLine($"Old Shop: \n{shop?.ToString()}");
                 newShop = NewManufacturer(shop);

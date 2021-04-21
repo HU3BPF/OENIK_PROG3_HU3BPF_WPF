@@ -40,7 +40,7 @@ namespace Shops.Program
             Console.WriteLine("Write the Brand ID".ToString());
             try
             {
-                int id = int.Parse(Console.ReadLine(), provider); // Rossz id esetén rossz!!!.
+                int id = int.Parse(Console.ReadLine(), provider);
                 Console.Clear();
                 Console.WriteLine("Brand Name: " + logic.BrandGetOne(id)?.BrandName.ToString() + "\n");
                 Console.WriteLine("Products: ".ToString());
@@ -82,7 +82,7 @@ namespace Shops.Program
             Console.WriteLine("Write the Product ID".ToString());
             try
             {
-                int id = int.Parse(Console.ReadLine(), provider); // Rossz id esetén rossz!!!.
+                int id = int.Parse(Console.ReadLine(), provider);
                 Console.Clear();
                 Console.WriteLine(logic.ProductGetOne(id)?.ToString());
                 Console.ReadKey();
@@ -119,7 +119,7 @@ namespace Shops.Program
             Console.WriteLine("Write the Product ID".ToString());
             try
             {
-                int id = int.Parse(Console.ReadLine(), provider); // Rossz id esetén rossz!!!.
+                int id = int.Parse(Console.ReadLine(), provider);
                 product = logic?.ProductGetOne(id);
                 Console.WriteLine(product?.ToString());
                 logic?.ProductRemove(product);
@@ -159,7 +159,7 @@ namespace Shops.Program
             Console.WriteLine("Write the Product ID".ToString());
             try
             {
-                int id = int.Parse(Console.ReadLine(), provider); // Rossz id esetén rossz!!!.
+                int id = int.Parse(Console.ReadLine(), provider);
                 product = logic?.ProductGetOne(id);
                 Console.WriteLine($"Old Product: \n{product?.ToString()}");
                 newProduct = NewProduct(product);

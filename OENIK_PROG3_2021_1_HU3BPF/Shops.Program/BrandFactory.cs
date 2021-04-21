@@ -43,7 +43,7 @@ namespace Shops.Program
             Console.WriteLine("Write the Brand ID".ToString());
             try
             {
-                int id = int.Parse(Console.ReadLine(), provider); // Rossz id esetén rossz!!!.
+                int id = int.Parse(Console.ReadLine(), provider);
                 Console.Clear();
                 Console.WriteLine(logic?.BrandGetOne(id)?.ToString());
                 Console.ReadKey();
@@ -80,7 +80,7 @@ namespace Shops.Program
             Console.WriteLine("Write the Brand ID".ToString());
             try
             {
-                int id = int.Parse(Console.ReadLine(), provider); // Rossz id esetén rossz!!!.
+                int id = int.Parse(Console.ReadLine(), provider);
                 brand = logic?.BrandGetOne(id);
                 Console.WriteLine(brand?.ToString());
                 logic?.BrandRemove(brand);
@@ -120,7 +120,7 @@ namespace Shops.Program
             Console.WriteLine("Write the Brand ID".ToString());
             try
             {
-                int id = int.Parse(Console.ReadLine(), provider); // Rossz id esetén rossz!!!.
+                int id = int.Parse(Console.ReadLine(), provider);
                 brand = logic?.BrandGetOne(id);
                 Console.WriteLine($"Old Brand: \n{brand?.ToString()}");
                 newBrand = NewBrand(brand);
