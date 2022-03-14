@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace Shops.Logic.NonCrudClasses
+namespace Shops.Models.NonCrudClasses
 {
     /// <summary>
     /// Brands Average Product Price.

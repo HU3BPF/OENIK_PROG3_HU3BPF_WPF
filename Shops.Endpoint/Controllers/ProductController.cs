@@ -2,7 +2,9 @@
 {
     using System.Collections.Generic;
     using Microsoft.AspNetCore.Mvc;
-    using Shops.Data.Models;
+    using Microsoft.AspNetCore.SignalR;
+    using Shops.Models;
+    using Shops.Endpoint.Services;
     using Shops.Logic;
 
     [Route("[controller]")]
@@ -10,39 +12,46 @@
     public class ProductController : ControllerBase
     {
         private readonly IGoodsManagementLogic _logic;
-        public ProductController(IGoodsManagementLogic productLogic)
+        IHubContext<SignalRHub> hub;
+
+        public ProductController(IGoodsManagementLogic productLogic, IHubContext<SignalRHub> hub)
         {
-            _logic = productLogic;
+            this._logic = productLogic;
+            this.hub = hub;
         }
 
         [HttpGet]
         public IEnumerable<Product> Get()
         {
-            return _logic.ProductGetALL();
+            return this._logic.ProductGetALL();
         }
 
         [HttpGet("{id}")]
         public Product Get(int id)
         {
-            return _logic.ProductGetOne(id);
+            return this._logic.ProductGetOne(id);
         }
 
         [HttpPost]
         public void Post([FromBody] Product value)
         {
-            _logic.ProductInsert(value);
+            this._logic.ProductInsert(value);
+            this.hub.Clients.All.SendAsync("ProductCreated", value);
         }
 
         [HttpPut()]
         public void Put([FromBody] Product value)
         {
-            _logic.ProductUpdate(value);
+            this._logic.ProductUpdate(value);
+            this.hub.Clients.All.SendAsync("ProductUpdated", value);
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            _logic.ProductRemove(_logic.ProductGetOne(id));
+            var ProductDelete = this._logic.ProductGetOne(id);
+            this._logic.ProductRemove(ProductDelete);
+            this.hub.Clients.All.SendAsync("ProductDeleted", ProductDelete);
         }
     }
 }

@@ -8,10 +8,9 @@ namespace Shops.Client
     using System.Collections.Generic;
     using System.Globalization;
     using System.Threading.Tasks;
-    using Shops.Data.Models;
+    using Shops.Models;
     using Shops.Logic;
-    using Shops.Logic.NonCrudClasses;
-
+    using Shops.Models.NonCrudClasses;
     /// <summary>
     /// Brand entity methods.
     /// </summary>

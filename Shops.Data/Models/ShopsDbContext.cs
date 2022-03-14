@@ -5,6 +5,7 @@
 namespace Shops.Data.Models
 {
     using Microsoft.EntityFrameworkCore;
+    using Shops.Models;
 
     /// <summary>
     /// Mobile databes creater.
@@ -41,10 +42,16 @@ namespace Shops.Data.Models
         /// <param name="optionsBuilder">Database creator set.</param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
+           /* if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseLazyLoadingProxies()
                 .UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\ShopsDbContext.mdf;Integrated Security=True;MultipleActiveResultSets=True");
+            }*/
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder
+                    .UseLazyLoadingProxies()
+                    .UseInMemoryDatabase("shops");
             }
         }
 

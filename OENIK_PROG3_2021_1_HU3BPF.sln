@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shops.Models", "Shops.Model
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shops.Endpoint", "Shops.Endpoint\Shops.Endpoint.csproj", "{2895C8E2-40A2-4A6B-B403-B858B37408B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shops.WpfClient", "Shops.WpfClient\Shops.WpfClient.csproj", "{945A9BED-39F3-4A65-A893-ABFCC278F45B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{2895C8E2-40A2-4A6B-B403-B858B37408B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2895C8E2-40A2-4A6B-B403-B858B37408B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2895C8E2-40A2-4A6B-B403-B858B37408B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{945A9BED-39F3-4A65-A893-ABFCC278F45B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{945A9BED-39F3-4A65-A893-ABFCC278F45B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{945A9BED-39F3-4A65-A893-ABFCC278F45B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{945A9BED-39F3-4A65-A893-ABFCC278F45B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +85,7 @@ Global
 		{808C93EE-943D-44A8-8027-54FAD0716C9F} = {7264050D-29CA-435B-AD09-A3B45550DACA}
 		{C15CEA1B-3766-4593-9456-09FB1FF185CC} = {5B2DDABD-3889-4B0C-8531-025A82BC3D8E}
 		{2895C8E2-40A2-4A6B-B403-B858B37408B3} = {7F949C3A-0E15-4DD9-B431-867E7D995836}
+		{945A9BED-39F3-4A65-A893-ABFCC278F45B} = {7264050D-29CA-435B-AD09-A3B45550DACA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {31E91A89-6480-4610-8E9D-6F72A07C9C86}

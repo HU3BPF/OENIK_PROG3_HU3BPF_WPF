@@ -8,8 +8,8 @@ namespace Shops.Logic.Test
     using System.Linq;
     using Moq;
     using NUnit.Framework;
-    using Shops.Data.Models;
-    using Shops.Logic.NonCrudClasses;
+    using Shops.Models;
+    using Shops.Models.NonCrudClasses;
     using Shops.Repository;
 
     /// <summary>

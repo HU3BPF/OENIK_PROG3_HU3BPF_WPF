@@ -7,8 +7,8 @@ namespace Shops.Logic
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Shops.Data.Models;
-    using Shops.Logic.NonCrudClasses;
+    using Shops.Models;
+    using Shops.Models.NonCrudClasses;
     using Shops.Repository;
 
     /// <summary>

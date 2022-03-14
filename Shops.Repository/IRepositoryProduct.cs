@@ -7,7 +7,7 @@ namespace Shops.Repository
     using System;
     using System.Linq;
     using Microsoft.EntityFrameworkCore;
-    using Shops.Data.Models;
+    using Shops.Models;
 
     /// <summary>
     /// Product Repository.

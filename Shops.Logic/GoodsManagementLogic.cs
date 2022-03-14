@@ -7,8 +7,8 @@ namespace Shops.Logic
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Shops.Data.Models;
-    using Shops.Logic.NonCrudClasses;
+    using Shops.Models;
+    using Shops.Models.NonCrudClasses;
     using Shops.Repository;
 
     /// <summary>
@@ -41,7 +41,7 @@ namespace Shops.Logic
         /// <inheritdoc/>
         public IList<Product> ProductGetALL()
         {
-            return this.iRepositoryProduct.GetALL().ToList();
+            return (IList<Product>)this.iRepositoryProduct.GetALL().ToList();
         }
 
         /// <inheritdoc/>

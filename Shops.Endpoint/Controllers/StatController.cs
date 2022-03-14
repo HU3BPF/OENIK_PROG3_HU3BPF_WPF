@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using Shops.Endpoint.Services;
 using Shops.Logic;
-using Shops.Logic.NonCrudClasses;
+using Shops.Models.NonCrudClasses;
 
 namespace Shops.Endpoint.Controllers
 {
@@ -11,29 +13,31 @@ namespace Shops.Endpoint.Controllers
     {
         private readonly IGoodsManagementLogic goodsManagementLogic;
         private readonly IShopManagementLogic shopManagementLogic;
+        IHubContext<SignalRHub> hub;
 
-        public StatController(IGoodsManagementLogic goodsManagementLogic, IShopManagementLogic shopManagementLogic)
+        public StatController(IGoodsManagementLogic goodsManagementLogic, IShopManagementLogic shopManagementLogic, IHubContext<SignalRHub> hub)
         {
             this.goodsManagementLogic = goodsManagementLogic;
             this.shopManagementLogic = shopManagementLogic;
+            this.hub = hub;
         }
 
         [HttpGet]
-        public IEnumerable<BrandAveragerProductPrice> GetBrandAveragePrices()
+        public IEnumerable<BrandAveragerProductPrice> BrandAveragerProductPrice()
         {
-            return goodsManagementLogic.GetBrandAveragesPrice();
+            return this.goodsManagementLogic.GetBrandAveragesPrice();
         }
 
         [HttpGet]
-        public IEnumerable<BrandAverageProductRating> GetBrandAveragesRating()
+        public IEnumerable<BrandAverageProductRating> BrandAverageProductRating()
         {
-            return goodsManagementLogic.GetBrandAveragesRating();
+            return this.goodsManagementLogic.GetBrandAveragesRating();
         }
 
         [HttpGet]
-        public IEnumerable<ShopNumberOfProduct> GetNumberOfProducts()
+        public IEnumerable<ShopNumberOfProduct> ShopNumberOfProduct()
         {
-            return shopManagementLogic.GetNumberOfProducts();
+            return this.shopManagementLogic.GetNumberOfProducts();
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using Shops.Data.Models;
+using Microsoft.AspNetCore.SignalR;
+using Shops.Models;
+using Shops.Endpoint.Services;
 using Shops.Logic;
 
 namespace Shops.Endpoint.Controllers
@@ -10,39 +12,45 @@ namespace Shops.Endpoint.Controllers
     public class ShopController : ControllerBase
     {
         private readonly IShopManagementLogic _logic;
-        public ShopController(IShopManagementLogic shoplogic)
+        IHubContext<SignalRHub> hub;
+        public ShopController(IShopManagementLogic shoplogic, IHubContext<SignalRHub> hub)
         {
-            _logic = shoplogic;
+            this._logic = shoplogic;
+            this.hub = hub;
         }
 
         [HttpGet]
         public IEnumerable<Shop> Get()
         {
-            return _logic.GetALL();
+            return this._logic.GetALL();
         }
 
         [HttpGet("{id}")]
         public Shop Get(int id)
         {
-            return _logic.GetOne(id);
+            return this._logic.GetOne(id);
         }
 
         [HttpPost]
         public void Post([FromBody] Shop value)
         {
-            _logic.ShopInsert(value);
+            this._logic.ShopInsert(value);
+            this.hub.Clients.All.SendAsync("ShopCreated", value);
         }
 
         [HttpPut()]
         public void Put([FromBody] Shop value)
         {
-            _logic.ShopUpdate(value);
+            this._logic.ShopUpdate(value);
+            this.hub.Clients.All.SendAsync("ShopUpdated", value);
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            _logic.ShopRemove(_logic.GetOne(id));
+            var shopToDelete = this._logic.GetOne(id);
+            this._logic.ShopRemove(shopToDelete);
+            this.hub.Clients.All.SendAsync("shopDelete", shopToDelete);
         }
     }
 }
