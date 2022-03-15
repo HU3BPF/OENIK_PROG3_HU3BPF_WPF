@@ -1,7 +1,6 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using Shops.Models;
-using Shops.WpfClient;
 using System;
 using System.ComponentModel;
 using System.Windows;
