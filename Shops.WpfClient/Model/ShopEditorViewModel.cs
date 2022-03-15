@@ -1,9 +1,9 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using Shops.Models;
+using Shops.WpfClient;
 using System;
 using System.ComponentModel;
-using System.Net.Http;
 using System.Windows;
 using System.Windows.Input;
 
@@ -11,9 +11,6 @@ namespace Shops.WpfClient
 {
     public class ShopEditorViewModel : ObservableRecipient
     {
-        private String baseURl = "http://localhost:51395/";
-        private String endPoint = "Shop";
-        private HttpClient client = new HttpClient();
         private string errorMessage;
 
         public string ErrorMessage
