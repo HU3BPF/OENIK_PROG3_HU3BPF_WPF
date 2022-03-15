@@ -45,8 +45,8 @@ namespace Shops.WpfClient.Model
                 if (response.IsSuccessStatusCode)
                 {
                     items = response.Content.ReadAsAsync<List<ShopNumberOfProduct>>().GetAwaiter().GetResult();
+                    ShopNumberOfProducts = items;
                 }
-                ShopNumberOfProducts = items;
             }
 
         }

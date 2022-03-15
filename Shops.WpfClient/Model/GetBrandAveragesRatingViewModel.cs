@@ -42,8 +42,8 @@ namespace Shops.WpfClient.Model
                 if (response.IsSuccessStatusCode)
                 {
                     items = response.Content.ReadAsAsync<List<BrandAverageProductRating>>().GetAwaiter().GetResult();
+                    BrandAverageProductRatings = items;
                 }
-                BrandAverageProductRatings = items;
             }
 
         }
