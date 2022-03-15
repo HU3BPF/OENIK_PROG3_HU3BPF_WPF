@@ -26,6 +26,25 @@ namespace Shops.WpfClient.Model
 
         public List<ShopNumberOfProduct> ShopNumberOfProducts { get; set; }
 
+        private ShopNumberOfProduct selectedShopNumberOfProduct;
+
+        public ShopNumberOfProduct SelectedShopNumberOfProduct
+        {
+            get { return selectedShopNumberOfProduct; }
+            set
+            {
+                if (value != null)
+                {
+                    selectedShopNumberOfProduct = new ShopNumberOfProduct()
+                    {
+                        ShopName = value.ShopName,
+                        NumberOfProduct = value.NumberOfProduct,
+                    };
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         public static bool IsInDesignMode
         {
             get

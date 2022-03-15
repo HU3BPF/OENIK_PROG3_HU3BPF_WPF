@@ -116,10 +116,7 @@ namespace Shops.Repository
         /// <param name="entity">Entity.</param>
         public void Remove(T entity)
         {
-            if (entity == null)
-            {
-                throw new EntityNotFoundException();
-            }
+            if (entity == null) return;
 
             this.ctx?.Set<T>()?.Remove(entity);
             this.ctx.SaveChanges();

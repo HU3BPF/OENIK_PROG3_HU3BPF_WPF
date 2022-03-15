@@ -23,6 +23,25 @@ namespace Shops.WpfClient.Model
 
         public List<BrandAverageProductRating> BrandAverageProductRatings { get; set; }
 
+        private BrandAverageProductRating selectedBrandAverageProductRatings;
+
+        public BrandAverageProductRating SelectedBrandAverageProductRating
+        {
+            get { return selectedBrandAverageProductRatings; }
+            set
+            {
+                if (value != null)
+                {
+                    selectedBrandAverageProductRatings = new BrandAverageProductRating()
+                    {
+                        BrandName = value.BrandName,
+                        AverageRating = value.AverageRating,
+                    };
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         public static bool IsInDesignMode
         {
             get

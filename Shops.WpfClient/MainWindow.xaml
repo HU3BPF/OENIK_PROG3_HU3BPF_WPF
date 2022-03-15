@@ -10,9 +10,9 @@
             <StackPanel.DataContext>
                 <local:MainWindowViewModel/>
             </StackPanel.DataContext>
-            <Button Height="30" Margin="10" Command = "{Binding ShopsCommand}" Content="Shops Editor"/>
-            <Button Height="30" Margin="10" Command = "{Binding BrandsCommand}" Content="Brands Editor"/>
             <Button Height="30" Margin="10" Command = "{Binding ProductsCommand}" Content="Products Editor"/>
+            <Button Height="30" Margin="10" Command = "{Binding BrandsCommand}" Content="Brands Editor"/>
+            <Button Height="30" Margin="10" Command = "{Binding ShopsCommand}" Content="Shops Editor"/>
             <Button Height="30" Margin="10" Command = "{Binding GetBrandAveragePricesCommand}" Content="Get Brand Average Prices"/>
             <Button Height="30" Margin="10" Command = "{Binding GetBrandAveragesRatingCommand}" Content="Get BrandAverages Rating"/>
             <Button Height="30" Margin="10" Command = "{Binding GetNumberOfProductsCommand}" Content="Get Number Of Products"/>

@@ -3,6 +3,7 @@ using Microsoft.Toolkit.Mvvm.Input;
 using Shops.Models;
 using System;
 using System.ComponentModel;
+using System.Net.Http;
 using System.Windows;
 using System.Windows.Input;
 
@@ -10,6 +11,9 @@ namespace Shops.WpfClient
 {
     public class ShopEditorViewModel : ObservableRecipient
     {
+        private String baseURl = "http://localhost:51395/";
+        private String endPoint = "Shop";
+        private HttpClient client = new HttpClient();
         private string errorMessage;
 
         public string ErrorMessage
@@ -46,7 +50,6 @@ namespace Shops.WpfClient
             }
         }
 
-
         public ICommand CreateShopCommand { get; set; }
 
         public ICommand DeleteShopCommand { get; set; }
@@ -62,12 +65,12 @@ namespace Shops.WpfClient
             }
         }
 
-
         public ShopEditorViewModel()
         {
             if (!IsInDesignMode)
             {
                 Shops = new RestCollection<Shop>("http://localhost:51395/", "Shop", "hub");
+
                 CreateShopCommand = new RelayCommand(() =>
                 {
                     Shops.Add(new Shop()
@@ -87,7 +90,11 @@ namespace Shops.WpfClient
                         ErrorMessage = ex.Message;
                     }
 
-                });
+                },
+                 () =>
+                 {
+                     return SelectedShop != null;
+                 });
 
                 DeleteShopCommand = new RelayCommand(() =>
                 {

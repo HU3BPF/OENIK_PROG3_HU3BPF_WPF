@@ -57,6 +57,7 @@ namespace Shops.Repository
             }
 
             var oldShop = this.GetOne(newShop.ShopId);
+            if (oldShop == null) return;
             oldShop.ShopAnnualProfit = newShop.ShopAnnualProfit;
             oldShop.ShopLeader = newShop.ShopLeader;
             oldShop.ShopLocation = newShop.ShopLocation;

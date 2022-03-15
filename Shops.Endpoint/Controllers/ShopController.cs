@@ -50,7 +50,7 @@ namespace Shops.Endpoint.Controllers
         {
             var shopToDelete = this._logic.GetOne(id);
             this._logic.ShopRemove(shopToDelete);
-            this.hub.Clients.All.SendAsync("shopDelete", shopToDelete);
+            this.hub.Clients.All.SendAsync("shopDeleted", shopToDelete);
         }
     }
 }
