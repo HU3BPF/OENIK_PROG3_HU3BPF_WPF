@@ -66,10 +66,11 @@ namespace Shops.Logic
         /// <inheritdoc/>
         public IList<ShopNumberOfProduct> GetNumberOfProducts()
         {
-            var shops = this.iRepositoryShop.GetALL().ToList();
-            var products = this.iRepositoryProduct.GetALL().ToList();
-            var shopProducts = from shop in shops
-                               join product in products
+                var shops = this.iRepositoryShop.GetALL().ToList();
+                var products = this.iRepositoryProduct.GetALL().ToList();
+                var filteredProducts = products.Where(x => x != null && x.Brand != null).ToList();
+                var shopProducts = from shop in shops
+                               join product in filteredProducts
                                on shop.ShopId equals product.Brand.ShopID
                                let item = new { shop.ShopName, shop.ShopId, product.ProductName }
                                group item by item.ShopName into grp
@@ -81,6 +82,54 @@ namespace Shops.Logic
                                };
 
             return shopProducts.ToList();
+        }
+
+        /// <summary>
+        /// Get Average Shop price.
+        /// </summary>
+        /// <returns>A <see cref="Task{TResult}"/> representing the result of the asynchronous operation.</returns>
+        public IList<ShopAveragePrice> GetShopAveragePrice()
+        {
+                var shops = this.iRepositoryShop.GetALL().ToList();
+                var products = this.iRepositoryProduct.GetALL().ToList();
+                var filteredProducts = products.Where(x => x != null && x.Brand != null).ToList();
+                var shopProductAveragePrice = from shop in shops
+                                              join product in filteredProducts
+                                              on shop.ShopId equals product.Brand.ShopID
+                                              let item = new { shop.ShopName, shop.ShopId, product.ProductName, Price = product.ProductPrice }
+                                              group item by item.ShopName into grp
+                                              orderby grp.Key descending
+                                              select new ShopAveragePrice
+                                              {
+                                                  ShopName = grp.Key,
+                                                  AveragePrice = (double)grp.Average(x => x.Price),
+                                              };
+
+                return shopProductAveragePrice.ToList();
+        }
+
+        /// <summary>
+        /// Get Average Shop rating.
+        /// </summary>
+        /// <returns>A <see cref="Task{TResult}"/> representing the result of the asynchronous operation.</returns>
+        public IList<ShopAverageRating> GetShopAverageRating()
+        {
+                var shops = this.iRepositoryShop.GetALL().ToList();
+                var products = this.iRepositoryProduct.GetALL().ToList();
+                var filteredProducts = products.Where(x => x != null && x.Brand != null).ToList();
+                var shopProductAverageRating = from shop in shops
+                                          join product in filteredProducts
+                                          on shop.ShopId equals product.Brand.ShopID
+                                          let item = new { shop.ShopName, shop.ShopId, product.ProductName, Rating = product.UsresRating }
+                                          group item by item.ShopName into grp
+                                          orderby grp.Key descending
+                                          select new ShopAverageRating
+                                          {
+                                              ShopName = grp.Key,
+                                              AverageRating = (double)grp.Average(x => x.Rating),
+                                          };
+
+            return shopProductAverageRating.ToList();
         }
 
         /// <inheritdoc/>
@@ -137,5 +186,17 @@ namespace Shops.Logic
         /// </summary>
         /// <returns>IList Shop Number Of Products.</returns>
         Task<IList<ShopNumberOfProduct>> GetNumberOfProductsAsync();
+
+        /// <summary>
+        /// Get Average Shop price.
+        /// </summary>
+        /// <returns>A <see cref="Task{TResult}"/> representing the result of the asynchronous operation.</returns>
+        IList<ShopAveragePrice> GetShopAveragePrice();
+
+        /// <summary>
+        /// Get Average Shop rating.
+        /// </summary>
+        /// <returns>A <see cref="Task{TResult}"/> representing the result of the asynchronous operation.</returns>
+        IList<ShopAverageRating> GetShopAverageRating();
     }
 }

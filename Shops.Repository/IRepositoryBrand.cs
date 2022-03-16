@@ -47,6 +47,7 @@ namespace Shops.Repository
             }
 
             var oldBrand = this.GetOne(newBrand.BrandId);
+            if (oldBrand == null) return;
             oldBrand.BrandId = newBrand.BrandId;
             oldBrand.BrandName = newBrand.BrandName;
             oldBrand.BrandQuality = newBrand.BrandQuality;

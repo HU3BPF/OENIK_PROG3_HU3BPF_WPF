@@ -24,9 +24,9 @@
         </ListBox>
 
         <StackPanel Grid.Column="1">
-            <Label Content="BrandName" Background="LightBlue" Padding="10" />
+            <Label Content="Brand Name" HorizontalContentAlignment="Center" Background="LightBlue" Padding="10" />
             <TextBlock Text="{Binding SelectedBrandAveragerProductPrice.BrandName}" Padding="10" Margin="0,0,0,30" />
-            <Label Content="AveragePrice" Background="LightBlue" Padding="10" />
+            <Label Content="Average Price" HorizontalContentAlignment="Center" Background="LightBlue" Padding="10" />
             <TextBlock Padding="10" Margin="0,0,0,30">
                 <TextBlock.Text>
                     <MultiBinding StringFormat=" {0}$">

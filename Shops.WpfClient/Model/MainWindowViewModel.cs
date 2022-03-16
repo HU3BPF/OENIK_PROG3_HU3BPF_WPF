@@ -1,5 +1,6 @@
 ﻿using Microsoft.Toolkit.Mvvm.Input;
 using Shops.WpfClient.View;
+using Shops.WpfClient.View.NonCruds;
 using System;
 using System.Windows.Input;
 
@@ -13,6 +14,8 @@ namespace Shops.WpfClient
         public ICommand GetBrandAveragePricesCommand { get; set; }
         public ICommand GetBrandAveragesRatingCommand { get; set; }
         public ICommand GetNumberOfProductsCommand { get; set; }
+        public ICommand GetShopAveragePriceCommand{ get; set; }
+        public ICommand GetShopAverageRatingCommand{ get; set; }
         public ICommand ExitCommand { get; set; }
 
         public MainWindowViewModel()
@@ -51,6 +54,18 @@ namespace Shops.WpfClient
             {
                 GetNumberOfProductsWindow GetNumberOfProductsEditor = new GetNumberOfProductsWindow();
                 GetNumberOfProductsEditor.ShowDialog();
+            });
+
+            GetShopAveragePriceCommand = new RelayCommand(() =>
+            {
+                GetShopAveragePriceWindow GetShopAveragePriceEditor = new GetShopAveragePriceWindow();
+                GetShopAveragePriceEditor.ShowDialog();
+            });
+
+            GetShopAverageRatingCommand = new RelayCommand(() =>
+            {
+                GetShopAverageRatingWindow getShopAverageRatingEditor = new GetShopAverageRatingWindow();
+                getShopAverageRatingEditor.ShowDialog();
             });
 
             ExitCommand = new RelayCommand(() => Environment.Exit(0));

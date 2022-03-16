@@ -39,5 +39,17 @@ namespace Shops.Endpoint.Controllers
         {
             return this.shopManagementLogic.GetNumberOfProducts();
         }
+
+        [HttpGet]
+        public IEnumerable<ShopAveragePrice> ShopAveragePrice()
+        {
+            return this.shopManagementLogic.GetShopAveragePrice();
+        }
+
+        [HttpGet]
+        public IEnumerable<ShopAverageRating> ShopAverageRating()
+        {
+            return this.shopManagementLogic.GetShopAverageRating();
+        }
     }
 }

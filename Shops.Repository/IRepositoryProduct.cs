@@ -57,6 +57,7 @@ namespace Shops.Repository
             }
 
             var oldProduct = this.GetOne(newProduct.ProductdId);
+            if (oldProduct == null) return;
             oldProduct.ProductPrice = newProduct.ProductPrice;
             oldProduct.ProductName = newProduct.ProductName;
             oldProduct.ProductColour = newProduct.ProductColour;

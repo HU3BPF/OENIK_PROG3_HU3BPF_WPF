@@ -6,17 +6,32 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <StackPanel Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Margin="10">
             <StackPanel.DataContext>
                 <local:MainWindowViewModel/>
             </StackPanel.DataContext>
-            <Button Height="30" Margin="10" Command = "{Binding ProductsCommand}" Content="Products Editor"/>
-            <Button Height="30" Margin="10" Command = "{Binding BrandsCommand}" Content="Brands Editor"/>
+            <Label Content="Crud Methods" HorizontalContentAlignment="Center" VerticalAlignment="Center" Background="LightBlue" Padding="10" />
+            <Button Grid.Column="0" Height="30" Margin="10" Command = "{Binding ProductsCommand}" Content="Products Editor"/>
+            <Button Grid.Column="1" Height="30" Margin="10" Command = "{Binding BrandsCommand}" Content="Brands Editor"/>
             <Button Height="30" Margin="10" Command = "{Binding ShopsCommand}" Content="Shops Editor"/>
-            <Button Height="30" Margin="10" Command = "{Binding GetBrandAveragePricesCommand}" Content="Get Brand Average Prices"/>
-            <Button Height="30" Margin="10" Command = "{Binding GetBrandAveragesRatingCommand}" Content="Get BrandAverages Rating"/>
+            <Button Height="30" Margin="10" Command = "{Binding ExitCommand}" Content="exit"/>
+            
+        </StackPanel>
+        <StackPanel Grid.Column="1" Margin="10">
+            <StackPanel.DataContext>
+                <local:MainWindowViewModel/>
+            </StackPanel.DataContext>
+            <Label Content="NonCrud Methods" HorizontalContentAlignment="Center" VerticalAlignment="Center" Background="LightBlue" Padding="10" />
+            <Button Height="30" Margin="10" Command = "{Binding GetBrandAveragePricesCommand}" Content="Get Brand Average Price"/>
+            <Button Height="30" Margin="10" Command = "{Binding GetBrandAveragesRatingCommand}" Content="Get Brand Average Rating"/>
+            <Button Height="30" Margin="10" Command = "{Binding GetShopAveragePriceCommand}" Content="Get Shop Average Price"/>
+            <Button Height="30" Margin="10" Command = "{Binding GetShopAverageRatingCommand}" Content="Get Shop Average Rating"/>
             <Button Height="30" Margin="10" Command = "{Binding GetNumberOfProductsCommand}" Content="Get Number Of Products"/>
-            <Button Height="30" Margin="10" Command = "{Binding ExitCommand}" Content="Exit"/>
         </StackPanel>
     </Grid>
 </Window>

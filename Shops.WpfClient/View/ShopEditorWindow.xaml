@@ -24,7 +24,7 @@
         </ListBox>
 
         <StackPanel Grid.Column="1">
-            <Label Content="Name" Background="LightBlue" Padding="10" />
+            <Label Content="Name" HorizontalContentAlignment="Center" Background="LightBlue" Padding="10" />
             <TextBox x:Name="ShopNameLbl" Text="{Binding SelectedShop.ShopName}" Padding="10" Margin="0,0,0,30" />
             <Button Content="Create Shop" Command="{Binding CreateShopCommand}" Margin="10" Padding="10" />
             <Button Content="Delete Shop" Command="{Binding DeleteShopCommand}" Margin="10" Padding="10" />
