@@ -2,10 +2,15 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Shops.WpfClient"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Shops.WpfClient"
+        xmlns:exit="clr-namespace:Shops.WpfClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="480" Width="800">
+    <Window.DataContext>
+        <exit:MainWindowViewModel />
+    </Window.DataContext>
+    <Grid Margin="0,0,0,123">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
@@ -19,8 +24,7 @@
             <Button Grid.Column="0" Height="30" Margin="10" Command = "{Binding ProductsCommand}" Content="Products Editor"/>
             <Button Grid.Column="1" Height="30" Margin="10" Command = "{Binding BrandsCommand}" Content="Brands Editor"/>
             <Button Height="30" Margin="10" Command = "{Binding ShopsCommand}" Content="Shops Editor"/>
-            <Button Height="30" Margin="10" Command = "{Binding ExitCommand}" Content="exit"/>
-            
+
         </StackPanel>
         <StackPanel Grid.Column="1" Margin="10">
             <StackPanel.DataContext>
@@ -33,5 +37,6 @@
             <Button Height="30" Margin="10" Command = "{Binding GetShopAverageRatingCommand}" Content="Get Shop Average Rating"/>
             <Button Height="30" Margin="10" Command = "{Binding GetNumberOfProductsCommand}" Content="Get Number Of Products"/>
         </StackPanel>
+        <Button Command = "{Binding ExitCommand}" Content="exit" Margin="222,354,218,-69" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
