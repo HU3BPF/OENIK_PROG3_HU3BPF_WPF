@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="BrandStyle.css" />
+    <meta charset="utf-8" />
+    <title>Brand UI</title>
+</head>
+<body>
+    <h1>Brands</h1>
+
+    <div class="form">
+        <label for="brandName">Brand Name</label>
+        <input type="text" id="brandName" />
+
+        <label for="brandAnnualProfit">Brand Annual Profit</label>
+        <input type="number" id="brandAnnualProfit" />
+
+        <label for="brandNumberOfProducts">Brand Number Of Products</label>
+        <input type="number" id="brandNumberOfProducts" />
+
+        <label for="brandQuality">Brand Quality</label>
+        <input type="number" id="brandQuality"/>
+
+        <label for="numberOfUsers">Number Of Users</label>
+        <input type="number" id="numberOfUsers" />
+
+        <button type="button" onclick="create()">Add Brand</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Brand Id</th>
+                <th>Brand Name</th>
+                <th>Brand Annual Profit</th>
+                <th>Brand Number Of Products</th>
+                <th>Brand Quality</th>
+                <th>Number Of Users</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="resultBrand"></tbody>
+    </table>
+    <script src="BrandJs.js"></script>
+</body>
+</html>

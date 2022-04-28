@@ -8,6 +8,7 @@ namespace Shops.Client
     using System.Globalization;
     using Shops.Data.Models;
     using Shops.Logic;
+    using Shops.Models;
 
     /// <summary>
     /// Product entity methods.
