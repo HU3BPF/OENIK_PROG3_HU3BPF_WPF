@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Brand UI</title>
+    <link rel="stylesheet" href="Style.css" />
+</head>
+<body>
+    <h1>Brands</h1>
+
+    <form id="form">
+        <label for="brandName">Brand Name</label>
+        <input type="text" id="brandName" required />
+
+        <label for="brandAnnualProfit">Brand Annual Profit</label>
+        <input type="number" id="brandAnnualProfit" required />
+
+        <label for="brandNumberOfProducts">Brand Number Of Products</label>
+        <input type="number" id="brandNumberOfProducts" required />
+
+        <label for="brandQuality">Brand Quality</label>
+        <input type="number" min="1" max="10" id="brandQuality" required />
+        <span class="validity"></span>
+
+        <label for="numberOfUsers">Number Of Users</label>
+        <input type="number" id="numberOfUsers" required />
+
+        <input type="submit" onclick="create()" value="Add Brand" />
+    </form>
+
+    <form id="updateform">
+        <label for="brandNameToUpdate">Brand Name</label>
+        <input type="text" id="brandNameToUpdate" required />
+
+        <label for="brandAnnualProfitToUpdate">Brand Annual Profit</label>
+        <input type="number" id="brandAnnualProfitToUpdate" required />
+
+        <label for="brandNumberOfProductsToUpdate">Brand Number Of Products</label>
+        <input type="number" id="brandNumberOfProductsToUpdate" required />
+
+        <label for="brandQualityToUpdate">Brand Quality</label>
+        <input type="number" min="1" max="10" id="brandQualityToUpdate" required />
+        <span class="validity"></span>
+
+        <label for="numberOfUsersToUpdate">Number Of Users</label>
+        <input type="number" id="numberOfUsersToUpdate" required />
+
+        <input type="submit" onclick="update()" value="Update Brand" />
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Brand Id</th>
+                <th>Brand Name</th>
+                <th>Brand Annual Profit</th>
+                <th>Brand Number Of Products</th>
+                <th>Brand Quality</th>
+                <th>Number Of Users</th>
+                <th>Delete</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+        <tbody id="resultBrand"></tbody>
+    </table>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

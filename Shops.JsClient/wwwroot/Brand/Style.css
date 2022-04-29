@@ -1,0 +1,50 @@
+﻿body {
+    background-color: bisque;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+table {
+    width: 100%;
+}
+
+th, td {
+    text-align: center;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+    #form label, button, input {
+        margin: 8px;
+        padding: 2px;
+    }
+
+    #form label {
+        font-weight: bolder;
+    }
+
+#updateform {
+    display: none;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+    #updateform label, button, input {
+        margin: 8px;
+        padding: 2px;
+    }
+
+    #updateform label {
+        font-weight: bolder;
+    }

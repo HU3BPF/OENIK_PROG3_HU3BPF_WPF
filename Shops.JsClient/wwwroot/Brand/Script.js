@@ -1,12 +1,13 @@
 ﻿let brands = [];
 let connection = null;
+let brandIdToUpdate;
 getdata();
 setupSignalR();
 
 
 function setupSignalR() {
     connection = new signalR.HubConnectionBuilder()
-        .withUrl("http://localhost:53910/hub")
+        .withUrl("http://localhost:51395/hub")
         .configureLogging(signalR.LogLevel.Information)
         .build();
 
@@ -15,6 +16,10 @@ function setupSignalR() {
     });
 
     connection.on("BrandDeleted", (user, message) => {
+        getdata();
+    });
+
+    connection.on("BrandUpdated", (user, message) => {
         getdata();
     });
 
@@ -37,14 +42,13 @@ async function start() {
 };
 
 async function getdata() {
-    brands = [];
     await fetch('http://localhost:51395/Brand')
         .then(x => x.json())
         .then(y => {
             brands = y;
             console.log(brands);
-            display();
-        });
+            brands.sort((a, b) => a.brandId - b.brandId);
+        }).then( () => display());
 }
 
 function display() {
@@ -59,7 +63,47 @@ function display() {
                 <td>${t.brandQuality}</td>
                 <td>${t.numberOfUsers}</td>
                 <td><button type="button" onclick="remove(${t.brandId})">Delete</button></td>
+                <td><button type="button" onclick="showupdate(${t.brandId})">Update</button></td>
             </tr>`
+    });
+}
+
+function showupdate(id) {
+    let brand = brands.find(t => t['brandId'] == id);
+    document.getElementById('brandNameToUpdate').value = brand.brandName;
+    document.getElementById('brandAnnualProfitToUpdate').value = brand.brandAnnualProfit;
+    document.getElementById('brandNumberOfProductsToUpdate').value = brand.brandNumberOfProducts;
+    document.getElementById('brandQualityToUpdate').value = brand.brandQuality;
+    document.getElementById('numberOfUsersToUpdate').value = brand.numberOfUsers;
+    document.getElementById('updateform').style.display = 'flex';
+    document.getElementById('form').style.display = 'none';
+    brandIdToUpdate = id;
+}
+
+function update() {
+    let brandName = document.getElementById('brandNameToUpdate').value;
+    let brandAnnualProfit = document.getElementById('brandAnnualProfitToUpdate').value;
+    let brandNumberOfProducts = document.getElementById('brandNumberOfProductsToUpdate').value;
+    let brandQuality = document.getElementById('brandQualityToUpdate').value;
+    let numberOfUsers = document.getElementById('numberOfUsersToUpdate').value;
+
+    fetch('http://localhost:51395/Brand', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', },
+        body: JSON.stringify(
+            {
+                brandId: brandIdToUpdate,
+                shopID: 0,
+                brandName: brandName,
+                brandQuality: brandQuality,
+                brandAnnualProfit: brandAnnualProfit,
+                brandNumberOfProducts: brandNumberOfProducts,
+                numberOfUsers: numberOfUsers,
+            }
+        )
+    }).then(() => {
+        document.getElementById('updateform').style.display = 'none';
+        document.getElementById('form').style.display = 'flex';
     });
 }
 
@@ -79,7 +123,12 @@ function remove(id) {
 }
 
 function create() {
-    let brandId = brands.pop().brandId + 1;
+    let brandId;
+    if (brands.length == 0) {
+        brandId = 0;
+    } else {
+        brandId = brands.pop().brandId + 1;
+    }
     let brandName = document.getElementById('brandName').value;
     let brandAnnualProfit = document.getElementById('brandAnnualProfit').value;
     let brandNumberOfProducts = document.getElementById('brandNumberOfProducts').value;
