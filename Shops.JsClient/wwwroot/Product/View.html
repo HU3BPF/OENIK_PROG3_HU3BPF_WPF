@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Product UI</title>
+    <link rel="stylesheet" href="Style.css" />
+</head>
+<body>
+    <h1>Products</h1>
+
+    <form id="form">
+        <label for="ProductName">Product Name</label>
+        <input type="text" id="ProductName" required />
+
+        <label for="productPrice">Product Price</label>
+        <input type="number" id="productPrice" required />
+
+        <label for="productColour">Product Colour</label>
+        <input type="text" id="productColour" required />
+
+        <label for="stockNumber">Stock Number</label>
+        <input type="number" id="stockNumber" required />
+
+        <label for="usresRating">Usres Rating</label>
+        <input type="number" min="0" max="10" id="usresRating" required />
+
+        <input type="submit" onclick="create()" value="Add Product" />
+    </form>
+
+    <form id="updateform">
+        <label for="ProductNameToUpdate">Product Name</label>
+        <input type="text" id="ProductNameToUpdate" required />
+
+        <label for="ProductPriceToUpdate">Product Price</label>
+        <input type="number" id="ProductPriceToUpdate" required />
+
+        <label for="ProductColourToUpdate">Product Colour</label>
+        <input type="text" id="ProductColourToUpdate" required />
+
+        <label for="StockNumberToUpdate">Stock Number</label>
+        <input type="number" id="StockNumberToUpdate" required />
+
+        <label for="UsresRatingToUpdate">Usres Rating</label>
+        <input type="number" min="0" max="10" id="UsresRatingToUpdate" required />
+
+        <input type="submit" onclick="update()" value="Update Product" />
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Product Id</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Product Colour</th>
+                <th>Product Stock Number</th>
+                <th>Product Usres Rating</th>
+                <th>Delete</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+        <tbody id="resultProduct"></tbody>
+    </table>
+
+    <a href="../MainPage.html">Back To the Menu</a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -46,7 +46,6 @@ async function getdata() {
         .then(x => x.json())
         .then(y => {
             brands = y;
-            console.log(brands);
             brands.sort((a, b) => a.brandId - b.brandId);
         }).then( () => display());
 }
@@ -101,10 +100,13 @@ function update() {
                 numberOfUsers: numberOfUsers,
             }
         )
-    }).then(() => {
-        document.getElementById('updateform').style.display = 'none';
-        document.getElementById('form').style.display = 'flex';
-    });
+    }).then(data => {
+        if (data.status == 200) {
+            document.getElementById('updateform').style.display = 'none';
+            document.getElementById('form').style.display = 'flex';
+            getdata();
+        }
+    }).catch((error) => { console.error('Error:', error); });
 }
 
 function remove(id) {

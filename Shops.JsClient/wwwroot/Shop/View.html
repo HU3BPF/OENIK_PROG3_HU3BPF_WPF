@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Shop UI</title>
+    <link rel="stylesheet" href="Style.css" />
+</head>
+<body>
+    <h1>Shops</h1>
+
+    <form id="form">
+        <label for="ShopName">Shop Name</label>
+        <input type="text" id="ShopName" required />
+
+        <label for="ShopLocation">Shop Location</label>
+        <input type="text" id="ShopLocation" required />
+
+        <label for="ShopLeader">Shop Leader</label>
+        <input type="text" id="ShopLeader" required />
+
+        <label for="ShopReliability">Shop Reliability</label>
+        <input type="number" min="0" max="10" id="ShopReliability" required />
+
+        <label for="ShopNumberOfWorker">Shop Number Of Worker</label>
+        <input type="number" id="ShopNumberOfWorker" required />
+
+        <label for="ShopAnnualProfit">Shop Annual Profit</label>
+        <input type="number" id="ShopAnnualProfit" required />
+
+        <input type="submit" onclick="create()" value="Add Shop" />
+    </form>
+
+    <form id="updateform">
+        <label for="ShopNameToUpdate">Shop Name</label>
+        <input type="text" id="ShopNameToUpdate" required />
+
+        <label for="ShopLocationToUpdate">Shop Location</label>
+        <input type="text" id="ShopLocationToUpdate" required />
+
+        <label for="ShopLeaderToUpdate">Shop Leader</label>
+        <input type="text" id="ShopLeaderToUpdate" required />
+
+        <label for="ShopReliabilityToUpdate">Shop Reliability</label>
+        <input type="number" min="0" max="10" id="ShopReliabilityToUpdate" required />
+
+        <label for="ShopNumberOfWorkerToUpdate">Shop Number Of Worker</label>
+        <input type="number" id="ShopNumberOfWorkerToUpdate" required />
+
+        <label for="ShopAnnualProfitToUpdate">Shop Annual Profit</label>
+        <input type="number" id="ShopAnnualProfitToUpdate" required />
+
+        <input type="submit" onclick="update()" value="Update Shop" />
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Shop Id</th>
+                <th>Shop Name</th>
+                <th>Shop Location</th>
+                <th>Shop Leader</th>
+                <th>Shop Reliability</th>
+                <th>Shop Number Of Worker</th>
+                <th>Shop Annual Profit</th>
+                <th>Delete</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+        <tbody id="resultShop"></tbody>
+    </table>
+
+    <a href="../MainPage.html">Back To the Menu</a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

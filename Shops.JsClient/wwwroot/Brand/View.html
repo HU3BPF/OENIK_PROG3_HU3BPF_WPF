@@ -19,7 +19,7 @@
         <input type="number" id="brandNumberOfProducts" required />
 
         <label for="brandQuality">Brand Quality</label>
-        <input type="number" min="1" max="10" id="brandQuality" required />
+        <input type="number" min="0" max="10" id="brandQuality" required />
         <span class="validity"></span>
 
         <label for="numberOfUsers">Number Of Users</label>
@@ -39,8 +39,7 @@
         <input type="number" id="brandNumberOfProductsToUpdate" required />
 
         <label for="brandQualityToUpdate">Brand Quality</label>
-        <input type="number" min="1" max="10" id="brandQualityToUpdate" required />
-        <span class="validity"></span>
+        <input type="number" min="0" max="10" id="brandQualityToUpdate" required />
 
         <label for="numberOfUsersToUpdate">Number Of Users</label>
         <input type="number" id="numberOfUsersToUpdate" required />
@@ -63,6 +62,8 @@
         </thead>
         <tbody id="resultBrand"></tbody>
     </table>
+
+    <a href="../MainPage.html">Back To the Menu</a>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
     <script src="script.js"></script>
 </body>
