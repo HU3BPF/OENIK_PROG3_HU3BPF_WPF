@@ -15,7 +15,7 @@ function display() {
         document.getElementById('resultShopAveragePrice').innerHTML +=
             `<tr>
                 <td>${t.shopName}</td>
-                <td>${t.averagePrice}</td>
+                <td>${t.averagePrice}$</td>
             </tr>`
     });
 }

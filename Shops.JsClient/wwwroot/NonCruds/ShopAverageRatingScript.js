@@ -15,7 +15,7 @@ function display() {
         document.getElementById('resultShopAverageRating').innerHTML +=
             `<tr>
                 <td>${t.shopName}</td>
-                <td>${t.averageRating}</td>
+                <td>${t.averageRating}/10</td>
             </tr>`
     });
 }

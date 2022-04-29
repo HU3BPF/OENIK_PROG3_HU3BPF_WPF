@@ -15,7 +15,7 @@ function display() {
         document.getElementById('resultShopNumberOfProduct').innerHTML +=
             `<tr>
                 <td>${t.shopName}</td>
-                <td>${t.numberOfProduct}</td>
+                <td>${t.numberOfProduct}/db</td>
             </tr>`
     });
 }

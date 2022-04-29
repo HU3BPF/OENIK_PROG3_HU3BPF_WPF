@@ -15,7 +15,7 @@ function display() {
         document.getElementById('resultBrandAverageProductRating').innerHTML +=
             `<tr>
                 <td>${t.brandName}</td>
-                <td>${t.averageRating}</td>
+                <td>${t.averageRating}/10</td>
             </tr>`
     });
 }
